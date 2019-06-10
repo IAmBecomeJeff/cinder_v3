@@ -118,7 +118,7 @@ void update_old_variables() {
 	old_hue8 = hue8;
 	old_bri8 = bri8;
 	old_cwave_index = cwave_index;
-	old_brightnessthetainc16 = brithnessthetainc16;
+	old_brightnessthetainc16 = brightnessthetainc16;
 	old_hue16 = hue16;
 	old_hueinc16 = hueinc16;
 	old_ms = ms;
@@ -127,6 +127,9 @@ void update_old_variables() {
 	old_h16_128 = h16_128;
 	old_b16 = b16;
 	old_bri16 = bri16;
+  old_sPseudotime = sPseudotime;
+  old_sLastMillis = sLastMillis;
+  old_sHue16 = sHue16;
 	old_pixelnumber = pixelnumber;
 	for (int i = 0; i < NUM_BALLS; i++) {   
 		old_tLast[i] =tLast[i];

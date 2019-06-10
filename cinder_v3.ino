@@ -518,6 +518,20 @@ void strobe_mode(uint8_t newMode, bool mc, bool old) {
 		bouncing_balls2(old);
 		break;
 
+		// 48 - matrix_saw
+	case 48:
+		if (mc) { this_delay = 10; this_fade = 64; target_palette = bhw2_22_gp; }
+		matrix_saw(old);
+		break;
+
+		// 49 - fadein
+	case 49:
+		if (mc) { this_delay = 10; target_palette = ib15_gp; }
+		fadein(old);
+		break;
+
+
+
 		// if more modes added, must update max_modes in variables
 	}
 }

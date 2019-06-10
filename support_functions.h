@@ -76,6 +76,8 @@ void array_init() {
 	}
 }
 
+void(* resetFunc)(void) = 0; // reset function.... resetFunc();
+
 
 
 void print_mode(uint8_t mn) {
@@ -296,13 +298,21 @@ void print_mode(uint8_t mn) {
 			Serial.println("bouncing_balls2");
 			break;
 
+		case 54:
+			Serial.println("matrix_saw");
+			break;
+
+		case 55:
+			Serial.println("fadein");
+			break;
+
 		default:
 			Serial.println("Undefined");
 			break;
 	}
 }
 
-print_palette(uint8_t pn) {
+void print_palette(uint8_t pn) {
 	switch (pn) {
 	case 0:
 		Serial.println("ib_jul01_gp");

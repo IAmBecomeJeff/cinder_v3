@@ -43,6 +43,10 @@
 
 // ---------- RUNTIME VARS ---------- //
 
+// Some function forward declarations
+void strobe_mode(uint8_t newMode, bool mc, bool old);
+void updatePaletteIndex(CRGBPalette16 pal);
+
 // Serial Variables
 byte in_byte;			// Serial input byte
 int this_arg;			// Serial input argument
@@ -66,7 +70,7 @@ uint8_t default_mode              = 34;                             // Default m
 
 // LED Overall Variables
 uint8_t max_bright  = 128;		// Overall brightness, it can be changed on the fly.  TODO: Maybe lower this to 100?
-uint8_t max_mode    = 47;		// maximum number of modes
+uint8_t max_mode    = 49;		// maximum number of modes
 uint8_t demo_run    = 0;		// 0 = regular mode, 1 = demo mode, 2 = shuffle mode
 int led_mode;				// Starting mode is typically 0
 uint8_t old_mode;
@@ -121,7 +125,16 @@ uint16_t sLastMillis = 0;
 uint16_t sHue16 = 0;
 
 uint8_t brightdepth, msmultiplier, hue8, bri8, cwave_index;
-uint16_t brightnessthetainc16, hue16, hueinc16, ms, deltams, brightnesstheta16 h16_128, b16, bri16, pixelnumber;
+uint16_t brightnessthetainc16, hue16, hueinc16, ms, deltams, brightnesstheta16, h16_128, b16, bri16, pixelnumber;
+
+// matrix_saw
+uint8_t matrix_rate[] = { 2, 4, 6, 8, 10 };
+uint8_t num_mat_dots = 5;
+uint8_t this_scale = 30;
+
+// fader
+uint8_t fader;
+
 
 //
 //typedef struct balls {
@@ -378,6 +391,9 @@ uint8_t old_cylon_index = 128;
 uint8_t old_cylon_brightness = 255;
 
 // colorwave variables
+uint16_t old_sPseudotime;
+uint16_t old_sLastMillis;
+uint16_t old_sHue16;
 uint8_t old_brightdepth, old_msmultiplier, old_hue8, old_bri8, old_cwave_index;
 uint16_t old_brightnessthetainc16, old_hue16, old_hueinc16, old_ms, old_deltams, old_brightnesstheta16, old_h16_128, old_b16, old_bri16, old_pixelnumber;
 

@@ -25,7 +25,7 @@
 
 
 void one_sin_pal(bool old) {
-	mode_number 25;
+	mode_number = 25;
 	if (old) {
 		old_start_index += old_this_inc;
 		old_this_index = old_start_index;

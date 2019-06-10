@@ -241,4 +241,20 @@ void matrix_random_walk(bool old) {                                           //
 }// matrix_random_walk()
 
 
+void matrix_saw(bool old) {
+	mode_number = 54;
+	if (old) {
+		fadeToBlackBy(old_leds, NUM_LEDS, old_this_fade);
+		for (uint8_t i = 0; i < num_mat_dots; i++) {
+			ringPalette(1, abs(255 + this_dir * beat8(i + 2)) % STRIP_LENGTH, old_palette, matrix_rate[i] * this_scale, 255, LINEARBLEND);
+		}
+	}
+	else {
+		fadeToBlackBy(cur_leds, NUM_LEDS, this_fade);
+		for (uint8_t i = 0; i < num_mat_dots; i++) {
+			ringPalette(0, abs(255 + this_dir * beat8(i + 2)) % STRIP_LENGTH, current_palette, matrix_rate[i] * this_scale, 255, LINEARBLEND);
+		}
+	}
+}
+
 #endif
