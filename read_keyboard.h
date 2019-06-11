@@ -66,6 +66,7 @@ void readkeyboard() {
 				target_palette = g_gradient_palettes[g_current_palette_number];
 				Serial.print("Palette: ");
 				Serial.println(g_current_palette_number);
+        print_palette(g_current_palette_number);
 				break;
 
 				// g - toggle glitter
@@ -98,6 +99,14 @@ void readkeyboard() {
 				Serial.println(this_speed);
 				break;
 
+        // J (thatspeed) - (0-255)
+      case 74:
+        this_arg = Serial.parseInt();
+        thatspeed = constrain(this_arg, 0, 255);
+        Serial.print("thatspeed: ");
+        Serial.println(thatspeed);
+        break;
+        
 				// k (this_rot) - (0-255)
 			case 107:
 				this_arg = Serial.parseInt();
@@ -106,14 +115,30 @@ void readkeyboard() {
 				Serial.println(this_rot);
 				break;
 
+        // K (thatrot) - (0-255)
+      case 75:
+        this_arg = Serial.parseInt();
+        thatrot = constrain(this_arg, 0, 255);
+        Serial.print("thatrot: ");
+        Serial.println(thatrot);
+        break;
+        
 				// l (this_cutoff) - (0-255)
 			case 108:
 				this_arg = Serial.parseInt();
 				this_cutoff = constrain(this_arg, 0, 255);
-				Serial.print("this_cutoff");
+				Serial.print("this_cutoff: ");
 				Serial.println(this_cutoff);
 				break;
 
+        // L (thatcutoff) - (0-255)
+      case 76:
+        this_arg = Serial.parseInt();
+        thatcutoff = constrain(this_arg, 0, 255);
+        Serial.print("thatcutoff: ");
+        Serial.println(thatcutoff);
+        break;
+        
 				// m {mode} - select mode {mode} (0-255)
 			case 109:
 				old_mode = led_mode;
@@ -129,12 +154,12 @@ void readkeyboard() {
 				this_delay = old_this_delay;
 				break;
 				
-				// n (all_freq) - (0-255)
+				// n (this_phase) - (0-255)
 			case 110:
 				this_arg = Serial.parseInt();
-				all_freq = constrain(this_arg, 0, 255);
-				Serial.print("all_freq: ");
-				Serial.println(all_freq);
+				this_phase = constrain(this_arg, 0, 255);
+				Serial.print("this_phase: ");
+				Serial.println(this_phase);
 				break;
 
 				// o Change this_fade (0-255)
@@ -161,7 +186,7 @@ void readkeyboard() {
 				Serial.println(this_beat);
 				break;
 
-				// r Change all_freq (0-255)
+				// r Change this_diff (0-255)
 			case 114:
 				this_arg = Serial.parseInt();
 				this_diff = constrain(this_arg, 0, 255);
@@ -209,6 +234,14 @@ void readkeyboard() {
 				Serial.println(led_mode);
 				break;
 
+        // x Change all_freq (0-255)
+      case 120:
+        this_arg = Serial.parseInt();
+        all_freq = constrain(this_arg, 0, 255);
+        Serial.print("all_freq: ");
+        Serial.println(all_freq);
+        break;
+
 				// C - Change Cooling
 			case 67:
 				this_arg = Serial.parseInt();
@@ -234,6 +267,55 @@ void readkeyboard() {
 			case 80:
 				print_palette(palette_index);
 				break;
+
+        // D mul1r (0-255)
+      case 68:
+        this_arg = Serial.parseInt();
+        mul1r = constrain(this_arg, 0, 255);
+        Serial.print("mul1r: ");
+        Serial.println(mul1r);
+        break;
+
+        // E mul2r (0-255)
+      case 69:
+        this_arg = Serial.parseInt();
+        mul2r = constrain(this_arg, 0, 255);
+        Serial.print("mul2r: ");
+        Serial.println(mul2r);
+        break;
+
+        // F mul3r (0-255)
+      case 70:
+        this_arg = Serial.parseInt();
+        mul3r = constrain(this_arg, 0, 255);
+        Serial.print("mul3r: ");
+        Serial.println(mul3r);
+        break;
+
+        // G bg_clr (0-255)
+      case 71:
+        this_arg = Serial.parseInt();
+        bg_clr = constrain(this_arg, 0, 255);
+        Serial.print("bg_clr: ");
+        Serial.println(bg_clr);
+        break;
+        
+        // H bg_bri (0-255)
+      case 72:
+        this_arg = Serial.parseInt();
+        bg_bri = constrain(this_arg, 0, 255);
+        Serial.print("bg_bri: ");
+        Serial.println(bg_bri);
+        break;        
+
+        // I scale 
+      case 73:
+        this_arg = Serial.parseInt();
+        scale = constrain(this_arg, 0, 255);
+        Serial.print("scale: ");
+        Serial.println(scale);
+        break;       
+                
 		}
 	}
 }

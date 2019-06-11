@@ -178,7 +178,7 @@ void loop() {
   EVERY_N_SECONDS(150) { 
 	  if (random8() > 150) {
 		  fire_it_up = 1;
-		  Serial.print("Commencing flames!!!");
+		  Serial.println("Commencing flames!!!");
 	  }
   }
 
@@ -205,11 +205,8 @@ void loop() {
 	  }
   }
 
-  
-  
-  
-  show_at_max_brightness_for_power();
-  //FastLED.show();
+  //show_at_max_brightness_for_power();
+  FastLED.show();
 }
 
 /*
@@ -322,7 +319,7 @@ void strobe_mode(uint8_t newMode, bool mc, bool old) {
 
 		// 15 - one-sin with rainbow palette_ring //TODO find palette... f2 is kinda cool
 	case 15:
-		if (mc) { this_delay = 5; target_palette = RainbowColors_p; all_freq = 16; bg_clr = 0; bg_bri = 0; this_bright = 255; start_index = 64; this_inc = 2; this_phase = 0; this_cutoff = 224; this_rot = 0; this_speed = 4; wave_brightness = 255; }
+		if (mc) { this_delay = 5; target_palette = ib_jul01_gp; all_freq = 8; bg_clr = 0; bg_bri = 0; this_bright = 255; start_index = 64; this_inc = 1; this_phase = 0; this_cutoff = 200; this_rot = 8; this_speed = 128; wave_brightness = 255; }
 		one_sin_pal_ring(old);
 		break;
 
@@ -448,7 +445,7 @@ void strobe_mode(uint8_t newMode, bool mc, bool old) {
 
 		// 36 - spiral sin 1 TODO find good palette
 	case 36:
-		if (mc) { this_delay = 5; start_index = 0; this_inc = 1; this_rot = 1; all_freq = 20; this_phase = 0; this_speed = 2; }
+		if (mc) { this_delay = 5; start_index = 0; this_inc = 1; this_rot = 4; all_freq = 20; this_phase = 0; this_speed = 127; }
 		spiral_sin(old);
 		break;
 
@@ -535,5 +532,3 @@ void strobe_mode(uint8_t newMode, bool mc, bool old) {
 		// if more modes added, must update max_modes in variables
 	}
 }
-
-

@@ -82,8 +82,9 @@ void bouncing_balls2(bool old) {
 				if (old_vImpact[i] < 0.01) { old_vImpact[i] = old_vImpact0; }
 			}
 			old_pos[i] = round(old_h[i] * (STRIP_LENGTH - 1) / h0);
-      ringCHSV(1, old_pos[i], old_ball_hue + i*STRIP_LENGTH / NUM_BALLS, 255, 255);
-			//old_leds[ringArray[old_pos[i]]] = CHSV(old_ball_hue + i * STRIP_LENGTH / NUM_BALLS, 255, 255);
+      //ringCHSV(1, old_pos[i], old_ball_hue + i*STRIP_LENGTH / NUM_BALLS, 255, 255);
+      ringPaletteAdd(1,old_pos[i],old-palette,old_ball_hue + i * STRIP_LENGTH / NUM_BALLS, 255, current_blending);
+      //old_leds[ringArray[old_pos[i]]] = CHSV(old_ball_hue + i * STRIP_LENGTH / NUM_BALLS, 255, 255);
 			old_ball_hue++;
 		}
 	}
@@ -103,7 +104,8 @@ void bouncing_balls2(bool old) {
 				if (vImpact[i] < 0.01) { vImpact[i] = vImpact0; }  // If the ball is barely moving, "pop" it back up at vImpact0
 			}
 			pos[i] = round(h[i] * (STRIP_LENGTH - 1) / h0);       // Map "h" to a "pos" integer index position on the LED strip
-      ringCHSV(0, pos[i], ball_hue + i * STRIP_LENGTH / NUM_BALLS, 255, 255);
+      //ringCHSV(0, pos[i], ball_hue + i * STRIP_LENGTH / NUM_BALLS, 255, 255);
+      ringPaletteAdd(0,pos[i],current_palette,ball_hue + i * STRIP_LENGTH / NUM_BALLS, 255, current_blending);
 			//cur_leds[ringArray[pos[i]]] = CHSV(ball_hue + i * STRIP_LENGTH / NUM_BALLS, 255, 255);
 			ball_hue++;
 		}
