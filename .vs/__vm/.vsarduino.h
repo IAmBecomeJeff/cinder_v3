@@ -49,6 +49,5 @@ typedef void *__builtin_va_list;
 
 
 #include "cinder_v3.ino"
-#include "cinder.ino"
 #endif
 #endif

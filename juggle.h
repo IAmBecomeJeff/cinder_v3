@@ -91,7 +91,7 @@ void juggle_fire(bool old) {
 	mode_number = 16;
 	if (old_juggle_index_reset) { old_this_index = 0; }
 	if (juggle_index_reset) { this_index = 0; }
-	fadeToBlackBy(jug_leds, NUM_LEDS, jug_fade);
+	fadeToBlackBy(jug_leds, NUM_LEDS, this_fade);
 	for (int i = 0; i < numdots_ring; i++) {
 		if (this_dir) {
 			ring_juggle(beatsin16_halfdown(this_beat + 3 * i + numdots_ring, 0, STRIP_LENGTH - 1), current_palette, this_index, this_bright, current_blending);
@@ -101,10 +101,7 @@ void juggle_fire(bool old) {
 		}
 		this_index += this_diff;
 	}
-	fire_rings1(old);
-	fire_rings2(old);
-	fire_rings3(old);
-	fire_rings4(old);
+	fire_rings(old);
 	for (int i = 0; i < NUM_LEDS; i++) {
 		if (old) {
 			old_leds[i] += jug_leds[i];

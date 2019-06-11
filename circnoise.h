@@ -240,7 +240,7 @@ void circnoise_pal_2_ring(bool old) {
 	if (old) {
 		int old_scale = 1000;                               // the "zoom factor" for the noise
 
-		for (uint16_t i = 0; i < STRIP_LENGTH; i++) {
+		for (uint8_t i = 0; i < STRIP_LENGTH; i++) {
 
 			uint16_t old_shift_x = millis() / 10;                 // x as a function of time
 			uint16_t old_shift_y = 0;
@@ -259,7 +259,7 @@ void circnoise_pal_2_ring(bool old) {
 	}else{
 		int scale = 1000;                               // the "zoom factor" for the noise
 
-		for (uint16_t i = 0; i < STRIP_LENGTH; i++) {
+		for (uint8_t i = 0; i < STRIP_LENGTH; i++) {
 
 			uint16_t shift_x = millis() / 10;                 // x as a function of time
 			uint16_t shift_y = 0;
@@ -283,7 +283,7 @@ void circnoise_pal_3_ring(bool old) {
 	if (old) {
 		int old_scale = 1000;                               // the "zoom factor" for the noise
 
-		for (uint16_t i = 0; i < STRIP_LENGTH; i++) {
+		for (uint8_t i = 0; i < STRIP_LENGTH; i++) {
 
 			uint16_t old_shift_x = 0;                             // no movement along x and y
 			uint16_t old_shift_y = 0;
@@ -307,7 +307,7 @@ void circnoise_pal_3_ring(bool old) {
 	else {
 		int scale = 1000;                               // the "zoom factor" for the noise
 
-		for (uint16_t i = 0; i < STRIP_LENGTH; i++) {
+		for (uint8_t i = 0; i < STRIP_LENGTH; i++) {
 
 			uint16_t shift_x = 0;                             // no movement along x and y
 			uint16_t shift_y = 0;

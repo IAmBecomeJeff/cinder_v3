@@ -527,7 +527,17 @@ void strobe_mode(uint8_t newMode, bool mc, bool old) {
 		fadein(old);
 		break;
 
+		// 50 - fire
+	case 50:
+		if (mc) { this_delay = 10; cooling = 80; sparking = 60; }
+		fire(old);
+		break;
 
+		// 51 - fire_pal
+	case 51:
+		if (mc) { this_delay = 10; cooling = 50; sparking = 90; target_palette = lava_gp; }
+		fire_pal(old);
+		break;
 
 		// if more modes added, must update max_modes in variables
 	}

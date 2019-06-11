@@ -15,8 +15,6 @@
 //long  tLast[NUM_BALLS];                     // The clock time of the last ground strike
 //float COR[NUM_BALLS];                       // Coefficient of Restitution (bounce damping)
 
-
-
 //for (int i = 0; i < NUM_BALLS; i++) {    // Initialize variables
 //	tLast[i] = millis();
 //	h[i] = h0;
@@ -83,7 +81,7 @@ void bouncing_balls2(bool old) {
 			}
 			old_pos[i] = round(old_h[i] * (STRIP_LENGTH - 1) / h0);
       //ringCHSV(1, old_pos[i], old_ball_hue + i*STRIP_LENGTH / NUM_BALLS, 255, 255);
-      ringPaletteAdd(1,old_pos[i],old-palette,old_ball_hue + i * STRIP_LENGTH / NUM_BALLS, 255, current_blending);
+			ringPaletteAdd(1, old_pos[i], old_palette, old_ball_hue + i * STRIP_LENGTH / NUM_BALLS, 255, current_blending);
       //old_leds[ringArray[old_pos[i]]] = CHSV(old_ball_hue + i * STRIP_LENGTH / NUM_BALLS, 255, 255);
 			old_ball_hue++;
 		}
@@ -105,7 +103,7 @@ void bouncing_balls2(bool old) {
 			}
 			pos[i] = round(h[i] * (STRIP_LENGTH - 1) / h0);       // Map "h" to a "pos" integer index position on the LED strip
       //ringCHSV(0, pos[i], ball_hue + i * STRIP_LENGTH / NUM_BALLS, 255, 255);
-      ringPaletteAdd(0,pos[i],current_palette,ball_hue + i * STRIP_LENGTH / NUM_BALLS, 255, current_blending);
+			ringPaletteAdd(0, pos[i], current_palette, ball_hue + i * STRIP_LENGTH / NUM_BALLS, 255, current_blending);
 			//cur_leds[ringArray[pos[i]]] = CHSV(ball_hue + i * STRIP_LENGTH / NUM_BALLS, 255, 255);
 			ball_hue++;
 		}

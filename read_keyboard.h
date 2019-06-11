@@ -22,6 +22,207 @@ void readkeyboard() {
 
 		switch (in_byte) {
 
+				// C - Change Cooling
+			case 67:
+				this_arg = Serial.parseInt();
+				if (this_arg < 256) {
+					cooling = constrain(this_arg, 0, 255);
+					Serial.print("cooling: ");
+					Serial.println(cooling);
+				}
+				else if (this_arg > 1000 && this_arg < 1256) {
+					cooling1 = constrain(this_arg % 1000, 0, 255);
+					Serial.print("cooling1: ");
+					Serial.println(cooling1);
+				}
+				else if (this_arg > 2000 && this_arg < 2256) {
+					cooling2 = constrain(this_arg % 2000, 0, 255);
+					Serial.print("cooling2: ");
+					Serial.println(cooling2);
+				}
+				else if (this_arg > 3000 && this_arg < 3256) {
+					cooling3 = constrain(this_arg % 3000, 0, 255);
+					Serial.print("cooling3: ");
+					Serial.println(cooling3);
+				}
+				else if (this_arg > 4000 && this_arg < 4256) {
+					cooling4 = constrain(this_arg % 4000, 0, 255);
+					Serial.print("cooling4: ");
+					Serial.println(cooling4);
+				}
+				else {
+					Serial.println("cooling out of range");
+				}
+				break;
+
+				// D mul1r (0-255)
+			case 68:
+				this_arg = Serial.parseInt();
+				mul1r = constrain(this_arg, 0, 255);
+				Serial.print("mul1r: ");
+				Serial.println(mul1r);
+				break;
+
+				// E mul2r (0-255)
+			case 69:
+				this_arg = Serial.parseInt();
+				mul2r = constrain(this_arg, 0, 255);
+				Serial.print("mul2r: ");
+				Serial.println(mul2r);
+				break;
+
+				// F mul3r (0-255)
+			case 70:
+				this_arg = Serial.parseInt();
+				mul3r = constrain(this_arg, 0, 255);
+				Serial.print("mul3r: ");
+				Serial.println(mul3r);
+				break;
+
+				// G bg_clr (0-255)
+			case 71:
+				this_arg = Serial.parseInt();
+				bg_clr = constrain(this_arg, 0, 255);
+				Serial.print("bg_clr: ");
+				Serial.println(bg_clr);
+				break;
+
+				// H bg_bri (0-255)
+			case 72:
+				this_arg = Serial.parseInt();
+				bg_bri = constrain(this_arg, 0, 255);
+				Serial.print("bg_bri: ");
+				Serial.println(bg_bri);
+				break;
+
+				// I scale 
+			case 73:
+				this_arg = Serial.parseInt();
+				scale = constrain(this_arg, 0, 255);
+				Serial.print("scale: ");
+				Serial.println(scale);
+				break;
+
+				// J (thatspeed) - (0-255)
+			case 74:
+				this_arg = Serial.parseInt();
+				thatspeed = constrain(this_arg, 0, 255);
+				Serial.print("thatspeed: ");
+				Serial.println(thatspeed);
+				break;
+
+
+				// K (thatrot) - (0-255)
+			case 75:
+				this_arg = Serial.parseInt();
+				thatrot = constrain(this_arg, 0, 255);
+				Serial.print("thatrot: ");
+				Serial.println(thatrot);
+				break;
+
+				// L (thatcutoff) - (0-255)
+			case 76:
+				this_arg = Serial.parseInt();
+				thatcutoff = constrain(this_arg, 0, 255);
+				Serial.print("thatcutoff: ");
+				Serial.println(thatcutoff);
+				break;
+
+				// M - Get mode
+			case 77:
+				print_mode(mode_number);
+				break;
+
+				// N scale2 
+			case 73:
+				this_arg = Serial.parseInt();
+				scale2 = constrain(this_arg, 0, 255);
+				Serial.print("scale2: ");
+				Serial.println(scale2);
+				break;
+
+				// P - Get Palette
+			case 80:
+				print_palette(palette_index);
+				break;
+
+				// Q - ringBeat
+			case 81:
+				this_arg = Serial.parseInt();
+				if (this_arg < 256) {
+					ringBeat[0] = constrain(this_arg, 0, 255);
+					Serial.print("ringBeat[0]: ");
+					Serial.println(ringBeat[0]);
+				}
+				else if (this_arg > 1000 && this_arg < 1256) {
+					ringBeat[1] = constrain(this_arg, 0, 255);
+					Serial.print("ringBeat[1]: ");
+					Serial.println(ringBeat[1]);
+				}
+				else if (this_arg > 2000 && this_arg < 2256) {
+					ringBeat[2] = constrain(this_arg, 0, 255);
+					Serial.print("ringBeat[2]: ");
+					Serial.println(ringBeat[2]);
+				}
+				else if (this_arg > 3000 && this_arg < 3256) {
+					ringBeat[3] = constrain(this_arg, 0, 255);
+					Serial.print("ringBeat[3]: ");
+					Serial.println(ringBeat[3]);
+				}
+				else {
+					Serial.println("ringBeat outta range");
+				}
+				break;
+
+				// R - numdots
+			case 82:
+				this_arg = Serial.parseInt();
+				numdots = constrain(this_arg, 0, 255);
+				Serial.print("numdots: ");
+				Serial.println(numdots);
+				break;
+
+				// S - Change sparking
+			case 83:
+				this_arg = Serial.parseInt();
+				if (this_arg < 256) {
+					sparking = constrain(this_arg, 0, 255);
+					Serial.print("sparking: ");
+					Serial.println(sparking);
+				}
+				else if (this_arg > 1000 && this_arg < 1256) {
+					sparking1 = constrain(this_arg % 1000, 0, 255);
+					Serial.print("sparking1: ");
+					Serial.println("sparking1");
+				}
+				else if (this_arg > 2000 && this_arg < 2256) {
+					sparking2 = constrain(this_arg % 2000, 0, 255);
+					Serial.print("sparking2: ");
+					Serial.println("sparking2");
+				}
+				else if (this_arg > 3000 && this_arg < 3256) {
+					sparking3 = constrain(this_arg % 3000, 0, 255);
+					Serial.print("sparking3: ");
+					Serial.println("sparking3");
+				}
+				else if (this_arg > 4000 && this_arg < 4256) {
+					sparking4 = constrain(this_arg % 4000, 0, 255);
+					Serial.print("sparking4: ");
+					Serial.println("sparking4");
+				}
+				else {
+					Serial.println("Sparking out of range...");
+				}
+				break;
+
+				// V - Change vImpact0
+			case 83:
+				this_arg = float(Serial.parseInt());
+				vImpact0 = constrain(this_arg, 0, 255);
+				Serial.print("vImpact0: ");
+				Serial.println(vImpact0);
+				break;
+
 				// a {hue} - set entire strip to {hue} (0-255)
 			case 97:
 				led_mode = 0;
@@ -66,7 +267,7 @@ void readkeyboard() {
 				target_palette = g_gradient_palettes[g_current_palette_number];
 				Serial.print("Palette: ");
 				Serial.println(g_current_palette_number);
-        print_palette(g_current_palette_number);
+				print_palette(g_current_palette_number);
 				break;
 
 				// g - toggle glitter
@@ -98,14 +299,6 @@ void readkeyboard() {
 				Serial.print("this_speed: ");
 				Serial.println(this_speed);
 				break;
-
-        // J (thatspeed) - (0-255)
-      case 74:
-        this_arg = Serial.parseInt();
-        thatspeed = constrain(this_arg, 0, 255);
-        Serial.print("thatspeed: ");
-        Serial.println(thatspeed);
-        break;
         
 				// k (this_rot) - (0-255)
 			case 107:
@@ -114,14 +307,6 @@ void readkeyboard() {
 				Serial.print("this_rot: ");
 				Serial.println(this_rot);
 				break;
-
-        // K (thatrot) - (0-255)
-      case 75:
-        this_arg = Serial.parseInt();
-        thatrot = constrain(this_arg, 0, 255);
-        Serial.print("thatrot: ");
-        Serial.println(thatrot);
-        break;
         
 				// l (this_cutoff) - (0-255)
 			case 108:
@@ -130,14 +315,6 @@ void readkeyboard() {
 				Serial.print("this_cutoff: ");
 				Serial.println(this_cutoff);
 				break;
-
-        // L (thatcutoff) - (0-255)
-      case 76:
-        this_arg = Serial.parseInt();
-        thatcutoff = constrain(this_arg, 0, 255);
-        Serial.print("thatcutoff: ");
-        Serial.println(thatcutoff);
-        break;
         
 				// m {mode} - select mode {mode} (0-255)
 			case 109:
@@ -234,87 +411,13 @@ void readkeyboard() {
 				Serial.println(led_mode);
 				break;
 
-        // x Change all_freq (0-255)
-      case 120:
-        this_arg = Serial.parseInt();
-        all_freq = constrain(this_arg, 0, 255);
-        Serial.print("all_freq: ");
-        Serial.println(all_freq);
-        break;
-
-				// C - Change Cooling
-			case 67:
+				// x Change all_freq (0-255)
+			case 120:
 				this_arg = Serial.parseInt();
-				cooling = constrain(this_arg, 0, 255);
-				Serial.print("Cooling: ");
-				Serial.println(cooling);
+				all_freq = constrain(this_arg, 0, 255);
+				Serial.print("all_freq: ");
+				Serial.println(all_freq);
 				break;
-
-				// S - Change sparking
-			case 83:
-				this_arg = Serial.parseInt();
-				sparking = constrain(this_arg, 0, 255);
-				Serial.print("Sparking: ");
-				Serial.println(sparking);
-				break;
-
-				// M - Get mode
-			case 77:
-				print_mode(mode_number);
-				break;
-
-				// P - Get Palette
-			case 80:
-				print_palette(palette_index);
-				break;
-
-        // D mul1r (0-255)
-      case 68:
-        this_arg = Serial.parseInt();
-        mul1r = constrain(this_arg, 0, 255);
-        Serial.print("mul1r: ");
-        Serial.println(mul1r);
-        break;
-
-        // E mul2r (0-255)
-      case 69:
-        this_arg = Serial.parseInt();
-        mul2r = constrain(this_arg, 0, 255);
-        Serial.print("mul2r: ");
-        Serial.println(mul2r);
-        break;
-
-        // F mul3r (0-255)
-      case 70:
-        this_arg = Serial.parseInt();
-        mul3r = constrain(this_arg, 0, 255);
-        Serial.print("mul3r: ");
-        Serial.println(mul3r);
-        break;
-
-        // G bg_clr (0-255)
-      case 71:
-        this_arg = Serial.parseInt();
-        bg_clr = constrain(this_arg, 0, 255);
-        Serial.print("bg_clr: ");
-        Serial.println(bg_clr);
-        break;
-        
-        // H bg_bri (0-255)
-      case 72:
-        this_arg = Serial.parseInt();
-        bg_bri = constrain(this_arg, 0, 255);
-        Serial.print("bg_bri: ");
-        Serial.println(bg_bri);
-        break;        
-
-        // I scale 
-      case 73:
-        this_arg = Serial.parseInt();
-        scale = constrain(this_arg, 0, 255);
-        Serial.print("scale: ");
-        Serial.println(scale);
-        break;       
                 
 		}
 	}
