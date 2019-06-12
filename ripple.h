@@ -100,7 +100,7 @@ int wrap(int step) {
 void ripple2(bool old) {
 	mode_number = 32;
 	if (old) {
-		fadeToBlackBy(old_leds, NUM_LEDS, old_fadeval);                             // 8 bit, 1 = slow, 255 = fast
+		fadeToBlackBy(old_leds, NUM_LEDS, old_this_fade);                             // 8 bit, 1 = slow, 255 = fast
 
 		switch (old_rip_step) {
 
@@ -111,7 +111,7 @@ void ripple2(bool old) {
 			break;
 
 		case 0:
-			old_leds[old_rip_center] = ColorFromPalette(old_palette, old_rip_color, old_myfade, current_blending);
+			old_leds[old_rip_center] = ColorFromPalette(old_palette, old_rip_color, old_rip_fade, current_blending);
 			old_rip_step++;
 			break;
 
@@ -120,14 +120,14 @@ void ripple2(bool old) {
 			break;
 
 		default:                                                          // Middle of the ripples.
-			ringPaletteAdd(1, (old_rip_center + old_rip_step + STRIP_LENGTH) % STRIP_LENGTH, old_palette, old_rip_color, old_myfade / old_rip_step * 2, current_blending);       // Simple wrap from Marc Miller
-			ringPaletteAdd(1, (old_rip_center - old_rip_step + STRIP_LENGTH) % STRIP_LENGTH, old_palette, old_rip_color, old_myfade / old_rip_step * 2, current_blending);
+			ringPaletteAdd(1, (old_rip_center + old_rip_step + STRIP_LENGTH) % STRIP_LENGTH, old_palette, old_rip_color, old_rip_fade / old_rip_step * 2, current_blending);       // Simple wrap from Marc Miller
+			ringPaletteAdd(1, (old_rip_center - old_rip_step + STRIP_LENGTH) % STRIP_LENGTH, old_palette, old_rip_color, old_rip_fade / old_rip_step * 2, current_blending);
 			old_rip_step++;                                                         // Next step.
 			break;
 		} // switch step
 	}
 	else {
-		fadeToBlackBy(cur_leds, NUM_LEDS, fadeval);                             // 8 bit, 1 = slow, 255 = fast
+		fadeToBlackBy(cur_leds, NUM_LEDS, this_fade);                             // 8 bit, 1 = slow, 255 = fast
 
 		switch (rip_step) {
 
@@ -143,7 +143,7 @@ void ripple2(bool old) {
 			break;
 
 		case 0:
-			cur_leds[rip_center] = ColorFromPalette(current_palette, rip_color, myfade, current_blending);
+			cur_leds[rip_center] = ColorFromPalette(current_palette, rip_color, ripfade, current_blending);
 			rip_step++;
 			break;
 
@@ -152,8 +152,8 @@ void ripple2(bool old) {
 			break;
 
 		default:                                                          // Middle of the ripples.
-			ringPaletteAdd(0, (rip_center + rip_step + STRIP_LENGTH) % STRIP_LENGTH, current_palette, rip_color, myfade / rip_step * 2, current_blending);       // Simple wrap from Marc Miller
-			ringPaletteAdd(0,(rip_center - rip_step + STRIP_LENGTH) % STRIP_LENGTH, current_palette, rip_color, myfade / rip_step * 2, current_blending);
+			ringPaletteAdd(0, (rip_center + rip_step + STRIP_LENGTH) % STRIP_LENGTH, current_palette, rip_color, rip_fade / rip_step * 2, current_blending);       // Simple wrap from Marc Miller
+			ringPaletteAdd(0,(rip_center - rip_step + STRIP_LENGTH) % STRIP_LENGTH, current_palette, rip_color, rip_fade / rip_step * 2, current_blending);
 			rip_step++;                                                         // Next step.
 			break;
 		} // switch step

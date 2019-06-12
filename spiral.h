@@ -321,25 +321,25 @@ void palette_spiral(bool old){
 	mode_number = 44;
 	if (old) {
 		if (old_this_dir) {
-			old_color_index += old_color_speed;
+			old_this_index += old_this_speed;
 		}
-		else { old_color_index -= old_color_speed; }
+		else { old_this_index -= old_this_speed; }
 
-		spiral_fill_palette(0, 0, old_color_index, old_color_inc, old_palette, old_this_bright, current_blending);
-		spiral_fill_palette(0, 1, old_color_index + 64, old_color_inc, old_palette, old_this_bright, current_blending);
-		spiral_fill_palette(0, 2, old_color_index + 128, old_color_inc, old_palette, old_this_bright, current_blending);
-		spiral_fill_palette(0, 3, old_color_index + 192, old_color_inc, old_palette, old_this_bright, current_blending);
+		spiral_fill_palette(0, 0, old_this_index, old_this_inc, old_palette, old_this_bright, current_blending);
+		spiral_fill_palette(0, 1, old_this_index + 64, old_this_inc, old_palette, old_this_bright, current_blending);
+		spiral_fill_palette(0, 2, old_this_index + 128, old_this_inc, old_palette, old_this_bright, current_blending);
+		spiral_fill_palette(0, 3, old_this_index + 192, old_this_inc, old_palette, old_this_bright, current_blending);
 	}
 	else {
 		if (this_dir) {
-			color_index += color_speed;
+			this_index += this_speed;
 		}
-		else { color_index -= color_speed; }
+		else { this_index -= this_speed; }
 
-		spiral_fill_palette(1, 0, color_index, color_inc, current_palette, this_bright, current_blending);
-		spiral_fill_palette(1, 1, color_index + 64, color_inc, current_palette, this_bright, current_blending);
-		spiral_fill_palette(1, 2, color_index + 128, color_inc, current_palette, this_bright, current_blending);
-		spiral_fill_palette(1, 3, color_index + 192, color_inc, current_palette, this_bright, current_blending);
+		spiral_fill_palette(1, 0, this_index, this_inc, current_palette, this_bright, current_blending);
+		spiral_fill_palette(1, 1, this_index + 64, this_inc, current_palette, this_bright, current_blending);
+		spiral_fill_palette(1, 2, this_index + 128, this_inc, current_palette, this_bright, current_blending);
+		spiral_fill_palette(1, 3, this_index + 192, this_inc, current_palette, this_bright, current_blending);
 	}
 }
 

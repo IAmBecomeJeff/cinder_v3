@@ -20,7 +20,7 @@ void serendipitous_pal(bool old) {
 		old_Y = old_Yn;
 		old_this_index = (sin8(old_X) + cos8(old_Y)) / 2;
 		old_leds[old_X % (NUM_LEDS - 1)] = ColorFromPalette(old_palette, old_this_index, 255, LINEARBLEND);
-		fadeToBlackBy(old_leds, NUM_LEDS, 16);                     // 8 bit, 1 = slow, 255 = fast
+		fadeToBlackBy(old_leds, NUM_LEDS, old_this_fade);                     // 8 bit, 1 = slow, 255 = fast
 	}
 	else {
 		EVERY_N_SECONDS(5) {
@@ -34,7 +34,7 @@ void serendipitous_pal(bool old) {
 		Y = Yn;
 		this_index = (sin8(X) + cos8(Y)) / 2;
 		cur_leds[X % (NUM_LEDS - 1)] = ColorFromPalette(current_palette, this_index, 255, LINEARBLEND);
-		fadeToBlackBy(cur_leds, NUM_LEDS, 16);
+		fadeToBlackBy(cur_leds, NUM_LEDS, this_fade);
 	}
 } // serendipitous_pal()
 
@@ -53,7 +53,7 @@ void serendipitous_pal_ring(bool old) {
 		old_Y2 = old_Yn2;
 		old_this_index = (sin8(old_X2) + cos8(old_Y2)) / 2;
 		ringPalette(1, old_X2 % 143, old_palette, old_this_index, 255, LINEARBLEND);
-		fadeToBlackBy(old_leds, NUM_LEDS, 16);                     // 8 bit, 1 = slow, 255 = fast
+		fadeToBlackBy(old_leds, NUM_LEDS, old_this_fade);                     // 8 bit, 1 = slow, 255 = fast
 	}
 	else {
 		EVERY_N_SECONDS(5) {
@@ -67,7 +67,7 @@ void serendipitous_pal_ring(bool old) {
 		Y2 = Yn2;
 		this_index = (sin8(X2) + cos8(Y2)) / 2;
 		ringPalette(0, X2 % 143, current_palette, this_index, 255, LINEARBLEND);
-		fadeToBlackBy(cur_leds, NUM_LEDS, 16);
+		fadeToBlackBy(cur_leds, NUM_LEDS, this_fade);
 	}
 } // serendipitous_pal_ring()
 

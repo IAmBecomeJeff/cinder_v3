@@ -166,8 +166,8 @@ float rip_fadeRate = 0.8;
 //Ripple background color
 uint32_t rip_currentBg = random(256);
 uint32_t rip_nextBg = rip_currentBg;
-uint8_t myfade = 255;
-uint8_t fadeval = 128;
+uint8_t rip_fade = 255;
+// fadeval = 128;
 //uint8_t bgcol = 0;
 
 
@@ -269,11 +269,11 @@ uint8_t mul3r;
 
 // two_sin_pal variables-------------------------------------------------------------------------
 
-uint8_t thathue = 140;                                        // You can change the starting hue for other wave.
-uint8_t thatrot = 0;                                          // You can change how quickly the hue rotates for the other wave. Currently 0.
-int8_t thatspeed = 4;                                         // You can change the speed, and use negative values.
-int thatphase = 0;                                            // Phase change value gets calculated.
-uint8_t thatcutoff = 192;                                     // You can change the cutoff value to display that wave. Lower value = longer wave.
+uint8_t that_hue = 140;                                        // You can change the starting hue for other wave.
+uint8_t that_rot = 0;                                          // You can change how quickly the hue rotates for the other wave. Currently 0.
+//int8_t thatspeed = 4;                                         // You can change the speed, and use negative values.
+int that_phase = 0;                                            // Phase change value gets calculated.
+uint8_t that_cutoff = 192;                                     // You can change the cutoff value to display that wave. Lower value = longer wave.
 
 // cylon variables
 int cylon_step = 1;
@@ -322,8 +322,8 @@ int old_rip_step = -1;
 float old_rip_fadeRate = 0.8;
 uint32_t old_rip_currentBg = random(256);
 uint32_t old_rip_nextBg = rip_currentBg;
-uint8_t old_myfade = 255;
-uint8_t old_fadeval = 128;
+uint8_t old_rip_fade = 255;
+//uint8_t old_fadeval = 128;
 
 byte old_twinkle_speed = 4;
 byte old_twinkle_density = 5;
