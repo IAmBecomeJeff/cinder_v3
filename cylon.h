@@ -8,11 +8,13 @@
 	*/
 
 void cylon(bool old) {
+	mode_number = 57;
 	if (old) {
 		ringPaletteAdd(1, old_cylon_center, current_palette, old_cylon_index, old_cylon_brightness, current_blending);
-		for (int i = 0; i < 7; i++) {
-			ringPaletteAdd(1, old_cylon_center + 1 + i, current_palette, old_cylon_index, old_cylon_brightness - i * 43, current_blending);
-			ringPaletteAdd(1, old_cylon_center - 1 - i, current_palette, old_cylon_index, old_cylon_brightness - i * 43, current_blending);
+		for (uint8_t i = 0; i < 15; i++) {
+			if (old_cylon_center - 7 + i >= 0 && old_cylon_center - 7 + i < STRIP_LENGTH) {
+				ringPaletteAdd(1, old_cylon_center - 7 + i, current_palette, old_cylon_index, old_cylon_brightness - i * 43, current_blending);
+			}
 		}
 
 		switch (old_cylon_step) {
@@ -28,10 +30,10 @@ void cylon(bool old) {
 		}
 	}
 	else {
-		ringPaletteAdd(0, cylon_center, current_palette, cylon_index, cylon_brightness, current_blending);
-		for (int i = 0; i < 7; i++) {
-			ringPaletteAdd(0, cylon_center + 1 + i, current_palette, cylon_index, cylon_brightness - i * 43, current_blending);
-			ringPaletteAdd(0, cylon_center - 1 - i, current_palette, cylon_index, cylon_brightness - i * 43, current_blending);
+		for (uint8_t i = 0; i < 15; i++) {
+			if (cylon_center - 7 + i >= 0 && cylon_center - 7 + i < STRIP_LENGTH) {
+				ringPaletteAdd(0, cylon_center - 7 + i, current_palette, cylon_index, cylon_brightness - i * 43, current_blending);
+			}
 		}
 
 		switch (cylon_step) {
@@ -47,6 +49,9 @@ void cylon(bool old) {
 		}
 	}
 }
+
+
+
 
 
 

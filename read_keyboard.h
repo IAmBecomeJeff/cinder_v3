@@ -23,7 +23,7 @@ void readkeyboard() {
 		switch (in_byte) {
 
 				// A spiral_width
-			case 73:
+			case 65:
 				this_arg = Serial.parseInt();
 				spiral_width = constrain(this_arg, 0, 255);
 				Serial.print("spiral_width: ");
@@ -31,7 +31,7 @@ void readkeyboard() {
 				break;
 
 				// B spiral_inc
-			case 73:
+			case 66:
 				this_arg = Serial.parseInt();
 				spiral_inc = constrain(this_arg, 0, 255);
 				Serial.print("spiral_inc: ");
@@ -180,7 +180,7 @@ void readkeyboard() {
 				break;
 
 				// N scale2 
-			case 73:
+			case 78:
 				this_arg = Serial.parseInt();
 				scale2 = constrain(this_arg, 0, 255);
 				Serial.print("scale2: ");
@@ -188,7 +188,7 @@ void readkeyboard() {
 				break;
 
 				// O rip_fade
-			case 73:
+			case 79:
 				this_arg = Serial.parseInt();
 				rip_fade = constrain(this_arg, 0, 255);
 				Serial.print("rip_fade: ");
@@ -270,7 +270,7 @@ void readkeyboard() {
 				break;
 
 				// V - Change vImpact0
-			case 83:
+			case 86:
 				this_arg = float(Serial.parseInt());
 				vImpact0 = constrain(this_arg, 0, 255);
 				Serial.print("vImpact0: ");

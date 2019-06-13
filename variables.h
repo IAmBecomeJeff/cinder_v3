@@ -70,7 +70,7 @@ uint8_t default_mode              = 34;                             // Default m
 
 // LED Overall Variables
 uint8_t max_bright  = 128;		// Overall brightness, it can be changed on the fly.  TODO: Maybe lower this to 100?
-uint8_t max_mode    = 51;		// maximum number of modes
+uint8_t max_mode    = 72;		// maximum number of modes
 uint8_t demo_run    = 0;		// 0 = regular mode, 1 = demo mode, 2 = shuffle mode
 int led_mode;				// Starting mode is typically 0
 uint8_t old_mode;
@@ -133,7 +133,7 @@ uint8_t num_mat_dots = 5;
 uint8_t this_scale = 30;
 
 // fader
-uint8_t fader;
+//uint8_t fader;
 
 
 //
@@ -200,11 +200,11 @@ uint8_t sparking4;
 uint8_t cooling_simple[] = { 75, 84, 92, 80 };
 uint8_t sparking_simple[] = { 50, 49, 61, 69 };
 
-//Disco Variables
-uint8_t zooming_beats_per_minute = 122; // zooming for disco
-uint8_t color_index = 0;
-uint8_t color_speed = 1;
-uint8_t color_inc = 3;
+////Disco Variables
+//uint8_t zooming_beats_per_minute = 122; // zooming for disco
+//uint8_t color_index = 0;
+//uint8_t color_speed = 1;
+//uint8_t color_inc = 3;
 
 // KY-040 Rotary Module variables
 int pinA = 21;
@@ -272,7 +272,7 @@ uint8_t mul3r;
 uint8_t that_hue = 140;                                        // You can change the starting hue for other wave.
 uint8_t that_rot = 0;                                          // You can change how quickly the hue rotates for the other wave. Currently 0.
 //int8_t thatspeed = 4;                                         // You can change the speed, and use negative values.
-int that_phase = 0;                                            // Phase change value gets calculated.
+//int that_phase = 0;                                            // Phase change value gets calculated.
 uint8_t that_cutoff = 192;                                     // You can change the cutoff value to display that wave. Lower value = longer wave.
 
 // cylon variables
@@ -294,7 +294,15 @@ long  tLast[NUM_BALLS];                     // The clock time of the last ground
 float COR[NUM_BALLS];                       // Coefficient of Restitution (bounce damping)
 uint8_t ball_hue = 0;
 
-
+// circnoise variables
+uint16_t shift_x;
+uint16_t shift_y;
+uint32_t real_x;
+uint32_t real_y;
+uint8_t noise;
+uint8_t circ_index;
+uint8_t circ_bri;
+uint32_t real_z;
 
 
 ///////// Variables for transitioning:
@@ -342,10 +350,10 @@ uint8_t old_sparking, old_sparking1, old_sparking2, old_sparking3, old_sparking4
 uint8_t old_cooling_simple[] = { 75, 84, 92, 80 };
 uint8_t old_sparking_simple[] = { 50, 49, 61, 69 };
 
-uint8_t old_zooming_beats_per_minute = 122;
-uint8_t old_color_index = 0;
-uint8_t old_color_speed = 1;
-uint8_t old_color_inc = 3;
+//uint8_t old_zooming_beats_per_minute = 122;
+//uint8_t old_color_index = 0;
+//uint8_t old_color_speed = 1;
+//uint8_t old_color_inc = 3;
 
 uint16_t old_dist = 12345;
 uint16_t old_scale = 30;
@@ -371,11 +379,11 @@ uint8_t old_mul1, old_mul2, old_mul3;
 int old_wave1r, old_wave2r, old_wave3r;
 uint8_t old_mul1r, old_mul2r, old_mul3r;
 
-uint8_t old_thathue = 140;
-uint8_t old_thatrot = 0;
-int8_t old_thatspeed = 4;
-int old_thatphase = 0;
-uint8_t old_thatcutoff = 192;
+uint8_t old_that_hue = 140;
+uint8_t old_that_rot = 0;
+//int8_t old_thatspeed = 4;
+//int old_thatphase = 0;
+uint8_t old_that_cutoff = 192;
 
 int old_spiral_start;
 int old_spiral_inc;
@@ -406,3 +414,13 @@ int   old_pos[NUM_BALLS];                       // The integer position of the d
 long  old_tLast[NUM_BALLS];                     // The clock time of the last ground strike
 float old_COR[NUM_BALLS];                       // Coefficient of Restitution (bounce damping)
 uint8_t old_ball_hue;
+
+// circnosie variables
+uint16_t old_shift_x;
+uint16_t old_shift_y;
+uint32_t old_real_x;
+uint32_t old_real_y;
+uint32_t old_real_z;
+uint8_t old_noise;
+uint8_t old_circ_index;
+uint8_t old_circ_bri;

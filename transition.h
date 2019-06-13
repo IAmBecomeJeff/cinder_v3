@@ -41,8 +41,8 @@ void update_old_variables() {
 	old_rip_fadeRate = rip_fadeRate;
 	old_rip_currentBg = rip_currentBg;
 	old_rip_nextBg = rip_nextBg;
-	old_myfade = myfade;
-	old_fadeval = fadeval;
+	//old_myfade = myfade;
+	//old_fadeval = fadeval;
 	old_twinkle_speed = twinkle_speed;
 	old_twinkle_density = twinkle_density;
 	old_twinkle_bg = twinkle_bg;
@@ -63,10 +63,10 @@ void update_old_variables() {
 	old_sparking2 = sparking2;
 	old_sparking3 = sparking3;
 	old_sparking4 = sparking4;
-	old_zooming_beats_per_minute = zooming_beats_per_minute;
-	old_color_index = color_index;
-	old_color_speed = color_speed;
-	old_color_inc = color_inc;
+	//old_zooming_beats_per_minute = zooming_beats_per_minute;
+	//old_color_index = color_index;
+	//old_color_speed = color_speed;
+	//old_color_inc = color_inc;
 	old_dist = dist;
 	old_scale = scale;
 	old_dist2 = dist2;
@@ -95,11 +95,11 @@ void update_old_variables() {
 	old_mul1r = mul1r;
 	old_mul2r = mul2r;
 	old_mul3r = mul3r;
-	old_thathue = thathue;
-	old_thatrot = thatrot;
-	old_thatspeed = thatspeed;
-	old_thatphase = thatphase;
-	old_thatcutoff = thatcutoff;
+	old_that_hue = that_hue;
+	old_that_rot = that_rot;
+	old_that_speed = that_speed;
+	old_that_phase = that_phase;
+	old_that_cutoff = that_cutoff;
 	for (int i = 0; i < NUM_LEDS; i++) {
 		old_xd[i] = xd[i];
 		old_yd[i] = yd[i];
@@ -127,9 +127,9 @@ void update_old_variables() {
 	old_h16_128 = h16_128;
 	old_b16 = b16;
 	old_bri16 = bri16;
-  old_sPseudotime = sPseudotime;
-  old_sLastMillis = sLastMillis;
-  old_sHue16 = sHue16;
+    old_sPseudotime = sPseudotime;
+    old_sLastMillis = sLastMillis;
+    old_sHue16 = sHue16;
 	old_pixelnumber = pixelnumber;
 	for (int i = 0; i < NUM_BALLS; i++) {   
 		old_tLast[i] =tLast[i];
@@ -140,6 +140,14 @@ void update_old_variables() {
 		old_COR[i] = COR[i];
 	}
 	old_ball_hue = ball_hue;
+	old_shift_x = shift_x;
+	old_shift_y = shift_y;
+	old_real_x = real_x;
+	old_real_y = real_y;
+	old_real_z = real_z;
+	old_noise = noise;
+	old_circ_index = circ_index;
+	old_circ_bri = circ_bri;
 }
 //
 //class led_class {

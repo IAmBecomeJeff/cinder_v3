@@ -143,7 +143,7 @@ void ripple2(bool old) {
 			break;
 
 		case 0:
-			cur_leds[rip_center] = ColorFromPalette(current_palette, rip_color, ripfade, current_blending);
+			cur_leds[rip_center] = ColorFromPalette(current_palette, rip_color, rip_fade, current_blending);
 			rip_step++;
 			break;
 

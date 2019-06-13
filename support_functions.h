@@ -303,7 +303,15 @@ void print_mode(uint8_t mn) {
 			break;
 
 		case 55:
-			Serial.println("fadein");
+			Serial.println("circnoise_pal_1_ring");
+			break;
+
+		case 56:
+			Serial.println("circnoise_pal_4_ring");
+			break;
+
+		case 57:
+			Serial.println("cylon");
 			break;
 
 		default:

@@ -140,10 +140,10 @@ void loop() {
   // Dynamically change delay
   EVERY_N_MILLIS_I(this_timer, this_delay) {
     this_timer.setPeriod(this_delay);
+	if (transitioning) {
+		strobe_mode(old_mode, 0, 1);
+	}
 	  strobe_mode(led_mode, 0, 0);
-	  if (transitioning) {
-		  strobe_mode(old_mode, 0, 1);
-	  }
   }
 
   if (transitioning) {
@@ -229,67 +229,67 @@ void strobe_mode(uint8_t newMode, bool mc, bool old) {
 
 		// 0 - two-sin TODO COMBINE with others or remove
 	case  0:
-		if (mc) { this_delay = 10; all_freq = 4; this_speed = 1; thatspeed = 1; this_hue = 0; thathue = 128; this_rot = 1; thatrot = 1; this_cutoff = 128; thatcutoff = 192; }
+		if (mc) { this_delay = 10; all_freq = 4; this_speed = 1; that_speed = 1; this_hue = 0; that_hue = 128; this_rot = 1; that_rot = 1; this_cutoff = 128; that_cutoff = 192; }
 		two_sin(old);
 		break;
 
 		// 1 - two-sin TODO combine with others or remove
 	case  1:
-		if (mc) { this_delay = 10; all_freq = 4; this_speed = -1; thatspeed = 0; this_hue = 64; thathue = 192; this_rot = 0; thatrot = 0; this_cutoff = 64; thatcutoff = 192; }
+		if (mc) { this_delay = 10; all_freq = 4; this_speed = -1; that_speed = 0; this_hue = 64; that_hue = 192; this_rot = 0; that_rot = 0; this_cutoff = 64; that_cutoff = 192; }
 		two_sin(old);
 		break;
 
 		// 2 - two-sin // TODO combine with others or REMOVE
 	case  2:
-		if (mc) { this_delay = 10; all_freq = 6; this_speed = 2; thatspeed = 3; this_hue = 96; thathue = 224; this_rot = 0; thatrot = 0; this_cutoff = 64; thatcutoff = 64; }
+		if (mc) { this_delay = 10; all_freq = 6; this_speed = 2; that_speed = 3; this_hue = 96; that_hue = 224; this_rot = 0; that_rot = 0; this_cutoff = 64; that_cutoff = 64; }
 		two_sin(old);
 		break;
 
 		// 3 - two-sin TODO combine with other two sins or remove
 	case 3:
-		if (mc) { this_delay = 20; all_freq = 10; this_speed = 1; thatspeed = -2; this_hue = 48; thathue = 160; this_rot = 1; thatrot = -1; this_cutoff = 128; thatcutoff = 192; }
+		if (mc) { this_delay = 20; all_freq = 10; this_speed = 1; that_speed = -2; this_hue = 48; that_hue = 160; this_rot = 1; that_rot = -1; this_cutoff = 128; that_cutoff = 192; }
 		two_sin(old);
 		break;
 
 		// 4 - two-sin_ring TODO Transition with 52
 	case 4:
-		if (mc) { this_delay = 20; all_freq = 10; this_speed = 1; thatspeed = -2; this_hue = 48; thathue = 160; this_rot = 1; thatrot = -1; this_cutoff = 128; thatcutoff = 192; }
+		if (mc) { this_delay = 20; all_freq = 10; this_speed = 1; that_speed = -2; this_hue = 48; that_hue = 160; this_rot = 1; that_rot = -1; this_cutoff = 128; that_cutoff = 192; }
 		two_sin_ring(old);
 		break;
 
 		// 5 - two-sin TODO this looks really cool... nice rotating trade-off... find out why
 	case 5:
-		if (mc) { this_delay = 10; all_freq = 20; this_speed = 2; thatspeed = -1; this_hue = 24; thathue = 180; this_rot = 0; thatrot = 1; this_cutoff = 64; thatcutoff = 128; }
+		if (mc) { this_delay = 10; all_freq = 20; this_speed = 2; that_speed = -1; this_hue = 24; that_hue = 180; this_rot = 0; that_rot = 1; this_cutoff = 64; that_cutoff = 128; }
 		two_sin(old);
 		break;
 
 		// 6 - two-sin_ring TODO tranisition with 48 and 52, maybe some back and forths
 	case 6:
-		if (mc) { this_delay = 10; all_freq = 20; this_speed = 2; thatspeed = -1; this_hue = 24; thathue = 180; this_rot = 0; thatrot = 1; this_cutoff = 64; thatcutoff = 128; }
+		if (mc) { this_delay = 10; all_freq = 20; this_speed = 2; that_speed = -1; this_hue = 24; that_hue = 180; this_rot = 0; that_rot = 1; this_cutoff = 64; that_cutoff = 128; }
 		two_sin_ring(old);
 		break;
 
 		// 7 - two-sin ring, transition with other two-sins, 44, 48, 52, especially 52
 	case 7:
-		if (mc) { this_delay = 10; all_freq = 6; this_speed = 2; thatspeed = 3; this_hue = 96; thathue = 224; this_rot = 0; thatrot = 0; this_cutoff = 64; thatcutoff = 64; }
+		if (mc) { this_delay = 10; all_freq = 6; this_speed = 2; that_speed = 3; this_hue = 96; that_hue = 224; this_rot = 0; that_rot = 0; this_cutoff = 64; that_cutoff = 64; }
 		two_sin_ring(old);
 		break;
 
 		// 8 - two-sin ring, TODO mix with other twosins or m2
 	case 8:
-		if (mc) { this_delay = 10; all_freq = 16; this_speed = 4; thatspeed = 1; this_hue = 0; thathue = 128; this_rot = 1; thatrot = 1; this_cutoff = 128; thatcutoff = 192; }
+		if (mc) { this_delay = 10; all_freq = 16; this_speed = 4; that_speed = 1; this_hue = 0; that_hue = 128; this_rot = 1; that_rot = 1; this_cutoff = 128; that_cutoff = 192; }
 		two_sin_ring(old);
 		break;
 
 		// 9 - two-sin_ring GOOD AS IS, transition with 48
 	case 9:
-		if (mc) { this_delay = 10; this_speed = 2; thatspeed = 3; this_hue = 96; thathue = 224; this_rot = 1; thatrot = 2; this_cutoff = 128; thatcutoff = 64; }
+		if (mc) { this_delay = 10; this_speed = 2; that_speed = 3; this_hue = 96; that_hue = 224; this_rot = 1; that_rot = 2; this_cutoff = 128; that_cutoff = 64; }
 		two_sin_ring(old);
 		break;
 
 		// 10 - two-sin TODO REMOVE or combine in transitions
 	case 10:
-		if (mc) { this_delay = 10; all_freq = 16; this_speed = 2; thatspeed = 3; this_hue = 96; thathue = 224; this_rot = 1; thatrot = 2; this_cutoff = 128; thatcutoff = 64; }
+		if (mc) { this_delay = 10; all_freq = 16; this_speed = 2; that_speed = 3; this_hue = 96; that_hue = 224; this_rot = 1; that_rot = 2; this_cutoff = 128; that_cutoff = 64; }
 		two_sin(old);
 		break;
 
@@ -409,7 +409,7 @@ void strobe_mode(uint8_t newMode, bool mc, bool old) {
 
 		// 30 - ripple2
 	case 30:
-		if (mc) { this_delay = 25; myfade = 255; fadeval = 128; }
+		if (mc) { this_delay = 25; this_fade = 255; rip_fade = 128; }
 		ripple2(old);
 		break;
 
@@ -521,10 +521,10 @@ void strobe_mode(uint8_t newMode, bool mc, bool old) {
 		matrix_saw(old);
 		break;
 
-		// 49 - fadein
+		// 49 - plasma
 	case 49:
 		if (mc) { this_delay = 10; target_palette = ib15_gp; }
-		fadein(old);
+		plasma(old);
 		break;
 
 		// 50 - fire
@@ -537,6 +537,132 @@ void strobe_mode(uint8_t newMode, bool mc, bool old) {
 	case 51:
 		if (mc) { this_delay = 10; cooling = 50; sparking = 90; target_palette = lava_gp; }
 		fire_pal(old);
+		break;
+
+		// 52 - two_sin_pal_ring
+	case 52:
+		if (mc) { this_delay = 10; all_freq = 16; this_speed = 4; that_speed = 1; this_hue = 0; that_hue = 128; this_rot = 1; that_rot = 1; this_cutoff = 128; that_cutoff = 192; }
+		two_sin_pal_ring(old);
+		break;
+
+		// 53 - three_sin_pal
+	case 53:
+		if (mc) { this_delay = 20; mul1 = 10; mul2 = 2; mul3 = 11; target_palette = bhw2_14_gp; }
+		three_sin_pal(old);
+		break;
+
+		// 54 - serenditpitous_pal_ring
+	case 54:
+		if(mc) {this_delay = 10; target_palette = lava_gp; this_fade = 64;}
+		serendipitous_pal_ring(old);
+		break;
+
+		// 55 - matrix_random_walk
+	case 55:
+		if (mc) { this_delay = 10; this_rot = 4; target_palette = slope_gp; this_fade = 32; }
+		matrix_random_walk(old);
+		break;
+
+		// 56 - juggle_pal_individual_ring_all
+	case 56:
+		if (mc) { this_delay = 7; target_palette = hallows_gp; numdots_ring_arr[0] = 4; numdots_ring_arr[1] = 3; numdots_ring_arr[2] = random8(5); numdots_ring_arr[3] = 3; ringBeat[0] = 12; ringBeat[1] = 5; ringBeat[2] = 12; ringBeat[3] = 6; this_diff = 32; this_fade = 16; juggle_index_reset = 0; }
+		juggle_pal_individual_ring_all(old);
+		break;
+
+		// 57 - spiral
+	case 57:
+		if (mc) { this_delay = 10; spiral_width = 3; spiral_inc = 2; this_hue = 200; }
+		spiral(old);
+		break;
+
+		// 58 - spiral_pal
+	case 58:
+		if (mc) { this_delay = 8; target_palette = bhw2_14_gp; spiral_width = 6; spiral_inc = 3; this_hue = 32; this_inc = 10; }
+		spiral_pal(old);
+		break;
+
+		// 59 - spiral_sin_sub
+	case 59:
+		if (mc) { this_delay = 10; target_palette = slope_gp; this_inc = 4; this_speed = 2; this_rot = 1; all_freq = 2; }
+		spiral_sin_sub(old);
+		break;
+
+		// 60 - helix_spiral
+	case 60:
+		if (mc) { this_delay = 10; target_palette = bhw2_23_gp; this_inc = 2; this_speed = 1; this_rot = 10; all_freq = 8; that_speed = 2; bg_clr = 30; bg_bri = 16; }
+		helix_spiral(old);
+		break;
+
+		// 61 - plasma_spiral
+	case 61:
+		if (mc) { this_delay = 10; target_palette = cw1_029_gp; }
+		plasma_spiral(old);
+		break;
+
+		// 62 - plasma_spiral2
+	case 62: 
+		if (mc) { this_delay = 15; target_palette = vibrant_gp; }
+		plasma_spiral2(old);
+		break;
+
+		// 63 -palette_spiral
+	case 63:
+		if (mc) { this_delay = 12; this_speed = 1; this_inc = 2; target_palette = es_landscape_59_gp; }
+		palette_spiral(old);
+		break;
+
+		// 64 - fire
+	case 64:
+		if (mc) { this_delay = 10; cooling = 35; sparking = 35; }
+		fire(old);
+		break;
+
+		// 65 - fire_pal
+	case 65:
+		if (mc) { this_delay = 15; cooling = 80; sparking = 80; target_palette = lava_gp; }
+		fire_pal(old);
+		break;
+
+		// 66 - fire_mirror
+	case 66:
+		if (mc) { this_delay = 10; cooling = 40; sparking = 80; }
+		fire_mirror(old);
+		break;
+
+		// 67 - fire_mirror_pal
+	case 67:
+		if (mc) { this_delay = 10; cooling = 80; sparking = 60; target_palette = Sunset_Real_gp; }
+		fire_mirror_pal(old);
+		break;
+
+		// 68 - fire_pal_rings
+	case 68:
+		if (mc) { this_delay = 10; target_palette = parrot_gp; cooling1 = 30; cooling2 = 40; cooling3 = 50; cooling4 = 60; sparking1 = 80; sparking2 = 70; sparking3 = 60; sparking4 = 50; }
+		fire_pal_rings(old);
+		break;
+
+		// 69 (nice) - fire_mirror_pal_rings
+	case 69: //nice
+		if(mc){ this_delay = 10; target_palette = cyberpunk_neon_gp; cooling1 = 60; cooling2 = 40; cooling3 = 90; cooling4 = 60; sparking1 = 80; sparking2 = 110; sparking3 = 160; sparking4 = 50; }
+		fire_mirror_pal_rings(old);
+		break;
+
+		// 70 - circnoise_pal_1_ring
+	case 70: 
+		if (mc) { this_delay = 10; target_palette = bhw1_sunconure_gp; scale = 500; }
+		circnoise_pal_1_ring(old);
+		break;
+
+		// 71 - circnoise_pal_4_ring
+	case 71:
+		if (mc) { this_delay = 15; target_palette = xanidu_2_gp; scale = 3000; }
+		circnoise_pal_4_ring(old);
+		break;
+
+		// 72 - cylon
+	case 72:
+		if (mc) { this_delay = 10; target_palette = apple_green_gp; }
+		cylon(old);
 		break;
 
 		// if more modes added, must update max_modes in variables
