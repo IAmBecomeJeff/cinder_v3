@@ -59,13 +59,13 @@ void inoise_fire(bool old) {
 	mode_number = 63;
 	if (old) {
 		for (uint8_t i = 0; i < STRIP_LENGTH; i++) {
-			old_this_index = inoise8(i * old_scale, milis() * old_scale2 * STRIP_LENGTH / 255);
+			old_this_index = inoise8(i * old_scale, millis() * old_scale2 * STRIP_LENGTH / 255);
 			ringPalette(1, i, old_palette, min(i * (old_this_index) >> 6, 255), i * 255 / STRIP_LENGTH, current_blending);
 		}
 	}
 	else {
 		for (uint8_t i = 0; i < STRIP_LENGTH; i++) {
-			this_index = inoise8(i * scale, milis() * scale2 * STRIP_LENGTH / 255);
+			this_index = inoise8(i * scale, millis() * scale2 * STRIP_LENGTH / 255);
 			ringPalette(0, i, current_palette, min(i * (this_index) >> 6, 255), i * 255 / STRIP_LENGTH, current_blending);
 		}
 	}

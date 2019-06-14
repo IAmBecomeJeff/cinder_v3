@@ -140,9 +140,9 @@ void matrix_random_walk(bool old) {                                           //
 
 		if (random8(90) > 80) {
 			if (old_this_dir == 0)
-				old_leds[ringArray[random8(4)][0]] = ColorFromPalette(old_palette, old_this_index, old_this_bright, current_blending);
+				old_leds[ringArray[0][random8(4)]] = ColorFromPalette(old_palette, old_this_index, old_this_bright, current_blending);
 			else
-				old_leds[ringArray[random8(4)][STRIP_LENGTH - 1]] = ColorFromPalette(old_palette, old_this_index, old_this_bright, current_blending);
+				old_leds[ringArray[STRIP_LENGTH - 1][random8(4)]] = ColorFromPalette(old_palette, old_this_index, old_this_bright, current_blending);
 		}
 		else {
 			for (int i = 0; i < 4; i++) {
@@ -191,9 +191,9 @@ void matrix_random_walk(bool old) {                                           //
 
 		if (random8(90) > 80) {
 			if (this_dir == 0)
-				cur_leds[ringArray[random8(4)][0]] = ColorFromPalette(current_palette, this_index, this_bright, current_blending);
+				cur_leds[ringArray[0][random8(4)]] = ColorFromPalette(current_palette, this_index, this_bright, current_blending);
 			else
-				cur_leds[ringArray[random8(4)][STRIP_LENGTH - 1]] = ColorFromPalette(current_palette, this_index, this_bright, current_blending);
+				cur_leds[ringArray[STRIP_LENGTH - 1][random8(4)]] = ColorFromPalette(current_palette, this_index, this_bright, current_blending);
 		}
 		else {
 			for (int i = 0; i < 4; i++){
@@ -288,7 +288,6 @@ void matrix_ray(bool old) {
 				}
 			}
 		}
-	}
 	}
 	else {
 		this_phase += beatsin8(1, 20, 50);

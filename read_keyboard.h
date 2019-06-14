@@ -270,7 +270,7 @@ void readkeyboard() {
 				break;
 
 				// T - jug16_phase
-			case 82:
+			case 84:
 				this_arg = Serial.parseInt();
 				jug16_phase = constrain(this_arg, 0, 65535);
 				Serial.print("jug16_phase: ");
