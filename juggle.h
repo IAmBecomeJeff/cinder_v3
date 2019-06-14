@@ -249,10 +249,10 @@ void juggle_pal_individual_ring_onedir_phase(bool old) {                        
 		for (uint8_t ring = 0; ring < 4; ring++) {
 			for (int i = 0; i < old_numdots; i++) {
 				if (old_this_dir) {
-					old_leds[ringArray[beatsin16_halfdown(old_this_beat + i + old_numdots, 0, STRIP_LENGTH - 1)][ring]] += ColorFromPalette(old_palette, old_this_index, old_this_bright, current_blending);
+					old_leds[ringArray[beatsin16_halfdown(old_this_beat + i + old_numdots, 0, STRIP_LENGTH - 1, 0, old_jug16_phase * ring)][ring]] += ColorFromPalette(old_palette, old_this_index, old_this_bright, current_blending);
 				}
 				else {
-					old_leds[ringArray[beatsin16_halfup(old_this_beat + i + old_numdots, 0, STRIP_LENGTH - 1)][ring]] += ColorFromPalette(old_palette, old_this_index, old_this_bright, current_blending);
+					old_leds[ringArray[beatsin16_halfup(old_this_beat + i + old_numdots, 0, STRIP_LENGTH - 1, 0, old_jug16_phase * ring)][ring]] += ColorFromPalette(old_palette, old_this_index, old_this_bright, current_blending);
 				}
 				// Munge the values and pick a colour from the palette
 				old_this_index += old_this_diff;
@@ -265,10 +265,10 @@ void juggle_pal_individual_ring_onedir_phase(bool old) {                        
 		for (uint8_t ring = 0; ring < 4; ring++) {
 			for (int i = 0; i < numdots; i++) {
 				if (this_dir) {
-					cur_leds[ringArray[beatsin16_halfdown(this_beat + i + numdots, 0, STRIP_LENGTH - 1, 0, 8192 * ring)][ring]] += ColorFromPalette(current_palette, this_index, this_bright, current_blending);
+					cur_leds[ringArray[beatsin16_halfdown(this_beat + i + numdots, 0, STRIP_LENGTH - 1, 0, jug16_phase * ring)][ring]] += ColorFromPalette(current_palette, this_index, this_bright, current_blending);
 				}
 				else {
-					cur_leds[ringArray[beatsin16_halfup(this_beat + i + numdots, 0, STRIP_LENGTH - 1, 0, 8192 * ring)][ring]] += ColorFromPalette(current_palette, this_index, this_bright, current_blending);
+					cur_leds[ringArray[beatsin16_halfup(this_beat + i + numdots, 0, STRIP_LENGTH - 1, 0, jug16_phase * ring)][ring]] += ColorFromPalette(current_palette, this_index, this_bright, current_blending);
 				}
 				this_index += this_diff;
 			}

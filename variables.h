@@ -70,7 +70,7 @@ uint8_t default_mode              = 34;                             // Default m
 
 // LED Overall Variables
 uint8_t max_bright  = 128;		// Overall brightness, it can be changed on the fly.  TODO: Maybe lower this to 100?
-uint8_t max_mode    = 76;		// maximum number of modes
+uint8_t max_mode    = 78;		// maximum number of modes
 uint8_t demo_run    = 0;		// 0 = regular mode, 1 = demo mode, 2 = shuffle mode
 int led_mode;				// Starting mode is typically 0
 uint8_t old_mode;
@@ -93,7 +93,7 @@ uint8_t this_cutoff     = 192;    // Cutoff value; lower = longer wave
 int     this_delay      = 0;      // Standard delay
 uint8_t this_diff       = 1;      // Standard palette index jump
 uint8_t this_dir        = 0;      // Standard direction
-uint8_t this_fade       = 16;    // Standard fade rate
+uint8_t this_fade       = 16;     // Standard fade rate
 uint8_t this_hue        = 0;      // Standard hue
 uint8_t this_index      = 0;      // Standard palette index
 uint8_t this_inc        = 1;      // Standard increment. Changes starting color for each pass (sine-routines)
@@ -112,6 +112,7 @@ int spiralArrayRev[4][144];
 int w = 3; 						  // width of spirals
 uint8_t jug_fade = 16;
 uint8_t jug_index = 0;
+uint16_t jug16_phase = 0;
 bool juggle_index_reset = 1;
 int ringBeat[] = { 3, 2, 0, 1 };
 int numdots_ring_arr[] = {4, 6, 5, 8};
@@ -151,8 +152,8 @@ int rip_pause = -10;
 #define rip_maxSteps 16
 float rip_fadeRate = 0.8;
 //Ripple background color
-uint32_t rip_currentBg = random(256);
-uint32_t rip_nextBg = rip_currentBg;
+uint8_t rip_currentBg = random(256);
+uint8_t rip_nextBg = rip_currentBg;
 uint8_t rip_fade = 255;
 // fadeval = 128;
 //uint8_t bgcol = 0;
@@ -331,6 +332,7 @@ CRGB old_bg;
 
 uint8_t old_numdots, old_numdots_ring;
 bool old_juggle_index_reset;
+uint16_t old_jug16_phase;
 
 uint8_t old_cooling, old_cooling1, old_cooling2, old_cooling3, old_cooling4;
 uint8_t old_sparking, old_sparking1, old_sparking2, old_sparking3, old_sparking4;

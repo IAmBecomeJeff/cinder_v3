@@ -330,6 +330,14 @@ void print_mode(uint8_t mn) {
 			Serial.println("juggle_pal_individual_ring_onedir_phase");
 			break;
 
+		case 62:
+			Serial.println("inoise_mover");
+			break;
+
+		case 63:
+			Serial.println("inoise_fire");
+			break;
+
 		default:
 			Serial.println("Undefined");
 			break;

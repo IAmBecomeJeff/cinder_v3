@@ -685,8 +685,20 @@ void strobe_mode(uint8_t newMode, bool mc, bool old) {
 
 		// 76 - juggle_pal_individual_ring_onedir_phase
 	case 76:
-		if (mc) { this_delay = 10; target_palette = Secondary_01a_gp; juggle_index_reset = 0; this_fade = 64; numdots = 4; this_beat = 8; this_diff = 4; }
+		if (mc) { this_delay = 10; target_palette = Secondary_01a_gp; juggle_index_reset = 0; this_fade = 64; numdots = 4; this_beat = 8; this_diff = 4; jug16_phase = 8192; }
 		juggle_pal_individual_ring_onedir_phase(old);
+		break;
+
+		// 77 - inoise_mover
+	case 77:
+		if (mc) { this_delay = 15; target_palette = a_gp; scale = 30; scale2 = 30; dist = 12345; }
+		inoise_mover(old);
+		break;
+
+		// 78 - inoise_fire
+	case 78:
+		if (mc) { this_delay = 12; target_palette = lava_gp; scale = 20; scale2 = 3; this_index = 0; }
+		inoise_fire(old);
 		break;
 
 

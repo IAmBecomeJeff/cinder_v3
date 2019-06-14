@@ -149,6 +149,7 @@ void update_old_variables() {
 	old_circ_index = circ_index;
 	old_circ_bri = circ_bri;
 	old_fader = fader;
+	old_jug16_phase = jug16_phase;
 }
 //
 //class led_class {

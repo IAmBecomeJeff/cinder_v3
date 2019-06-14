@@ -269,6 +269,14 @@ void readkeyboard() {
 				}
 				break;
 
+				// T - jug16_phase
+			case 82:
+				this_arg = Serial.parseInt();
+				jug16_phase = constrain(this_arg, 0, 65535);
+				Serial.print("jug16_phase: ");
+				Serial.println(jug16_phase);
+				break;
+
 				// V - Change vImpact0
 			case 86:
 				this_arg = float(Serial.parseInt());
