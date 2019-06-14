@@ -257,4 +257,67 @@ void matrix_saw(bool old) {
 	}
 }
 
+
+void matrix_ray(bool old) {
+	mode_number = 60;
+	this_index = millis() >> 4;
+	if (old) {
+		old_this_phase += beatsin8(1, 20, 50);
+		old_this_cutoff = beatsin8(50, 164, 248);
+
+		old_this_bright = qsubd(cubicwave8(old_this_phase), old_this_cutoff);
+
+		if (old_this_dir == 0) {
+			ringPalette(0, 0, old_palette, old_this_index, old_this_bright, current_blending);
+		}
+		else {
+			ringPalette(0, STRIP_LENGTH - 1, old_palette, old_this_index, old_this_bright, current_blending);
+		}
+
+		if (old_this_dir == 0) {
+			for (int i = STRIP_LENGTH - 1; i > 0; i--) {
+				for (int j = 0; j < 4; j++) {
+					old_leds[ringArray[i][j]] = old_leds[ringArray[i - 1][j]];
+				}
+			}
+		}
+		else {
+			for (int i = 0; i < STRIP_LENGTH - 1; i++) {
+				for (int j = 0; j < 4; j++) {
+					old_leds[ringArray[i][j]] = old_leds[ringArray[i + 1][j]];
+				}
+			}
+		}
+	}
+	}
+	else {
+		this_phase += beatsin8(1, 20, 50);
+		this_cutoff = beatsin8(50, 164, 248);
+
+		this_bright = qsubd(cubicwave8(this_phase), this_cutoff);
+
+		if (this_dir == 0) {
+			ringPalette(0, 0, current_palette, this_index, this_bright, current_blending);
+		}
+		else {
+			ringPalette(0, STRIP_LENGTH - 1, current_palette, this_index, this_bright, current_blending);
+		}
+
+		if (this_dir == 0) {
+			for (int i = STRIP_LENGTH - 1; i > 0; i--) {
+				for (int j = 0; j < 4; j++) {
+					cur_leds[ringArray[i][j]] = cur_leds[ringArray[i - 1][j]];
+				}
+			}
+		}
+		else {
+			for (int i = 0; i < STRIP_LENGTH - 1; i++) {
+				for (int j = 0; j < 4; j++) {
+					cur_leds[ringArray[i][j]] = cur_leds[ringArray[i + 1][j]];
+				}
+			}
+		}
+	}
+}
+
 #endif

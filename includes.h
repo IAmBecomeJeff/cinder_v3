@@ -17,7 +17,7 @@
 #include "colorwave.h"
 #include "confetti.h"
 #include "cylon.h"
-//#include "fade.h"
+#include "fade.h"
 #include "fire.h"
 #include "gradient_palettes.h"
 #include "juggle.h"

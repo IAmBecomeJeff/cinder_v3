@@ -70,7 +70,7 @@ uint8_t default_mode              = 34;                             // Default m
 
 // LED Overall Variables
 uint8_t max_bright  = 128;		// Overall brightness, it can be changed on the fly.  TODO: Maybe lower this to 100?
-uint8_t max_mode    = 72;		// maximum number of modes
+uint8_t max_mode    = 76;		// maximum number of modes
 uint8_t demo_run    = 0;		// 0 = regular mode, 1 = demo mode, 2 = shuffle mode
 int led_mode;				// Starting mode is typically 0
 uint8_t old_mode;
@@ -133,20 +133,7 @@ uint8_t num_mat_dots = 5;
 uint8_t this_scale = 30;
 
 // fader
-//uint8_t fader;
-
-
-//
-//typedef struct balls {
-//	int distanceold;
-//	int distance;
-//	int velocityold;
-//	int velocity;
-//	int ballhue;
-//} ;
-
-
-//balls myballs[numballs];
+uint8_t fader;
 
 //Variables for plasma
 int plasma_phase1;
@@ -424,3 +411,5 @@ uint32_t old_real_z;
 uint8_t old_noise;
 uint8_t old_circ_index;
 uint8_t old_circ_bri;
+
+uint8_t old_fader = 0;

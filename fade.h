@@ -1,24 +1,42 @@
 #ifndef FADE_H
 #define FADE_H
 
-void fadein(bool old) {
-	mode_number = 55;
+void fade(bool old) {
+	mode_number = 58;
 	if (old) {
-		random16_set_seed(535);
-		for (uint16_t i = 0; i < NUM_LEDS; i++) {
-			fader = sin8(millis() / random8(10, 20));
-			old_leds[i] = ColorFromPalette(old_palette, i * 20, fader, current_blending);
+		old_this_bright = cubicwave8(old_fader);
+		for (uint16_t = 0; i < NUM_LEDS; i++) {
+			old_leds[i] = CHSV(old_this_hue, old_this_sat, old_this_bright);
 		}
-		random16_set_seed(millis());
+		old_fader++;
 	}
 	else {
-		random16_set_seed(535);
-		for (uint16_t i = 0; i < NUM_LEDS; i++) {
-			fader = sin8(millis() / random8(10, 20));
-			cur_leds[i] = ColorFromPalette(current_palette, i * 20, fader, current_blending);
+		this_bright = cubicwave8(fader);
+		for (uint16_t = 0; i < NUM_LEDS; i++) {
+			cur_leds[i] = CHSV(this_hue, this_sat, this_bright);
 		}
-		random16_set_seed(millis());
+		fader++;
 	}
 }
 
+
+void fade_rainbow(bool old) {
+	mode_number = 59;
+	if (old) {
+		old_this_bright = sin8(old_fader);
+		for (uint16_t = 0; i < NUM_LEDS; i++) {
+			old_leds[i] = CHSV(old_this_hue, old_this_sat, old_this_bright);
+		}
+		old_fader++;
+		old_this_hue++;
+	}
+	else {
+		this_bright = sin8(fader);
+		for (uint16_t = 0; i < NUM_LEDS; i++) {
+			cur_leds[i] = CHSV(this_hue, this_sat, this_bright);
+		}
+		fader++;
+		this_hue++;
+	}
+}
 #endif

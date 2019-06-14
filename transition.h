@@ -148,6 +148,7 @@ void update_old_variables() {
 	old_noise = noise;
 	old_circ_index = circ_index;
 	old_circ_bri = circ_bri;
+	old_fader = fader;
 }
 //
 //class led_class {

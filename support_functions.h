@@ -314,6 +314,22 @@ void print_mode(uint8_t mn) {
 			Serial.println("cylon");
 			break;
 
+		case 58:
+			Serial.println("fade");
+			break;
+
+		case 59: 
+			Serial.println("fade_rainbow");
+			break;
+
+		case 60:
+			Serial.println("matrix_ray");
+			break;
+
+		case 61:
+			Serial.println("juggle_pal_individual_ring_onedir_phase");
+			break;
+
 		default:
 			Serial.println("Undefined");
 			break;

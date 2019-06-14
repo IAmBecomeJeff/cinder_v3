@@ -665,6 +665,31 @@ void strobe_mode(uint8_t newMode, bool mc, bool old) {
 		cylon(old);
 		break;
 
+		// 73 - fade
+	case 73:
+		if (mc) { this_delay = 20; this_hue = 69; }
+		fade(old);
+		break;
+
+		// 74 - fade_rainbow
+	case 74:
+		if (mc) { this_delay = 30; }
+		fade_rainbow(old);
+		break;
+
+		// 75 - matrix_ray
+	case 75:
+		if (mc) { this_delay = 15; target_palette = blueice_gp; }
+		matrix_ray(old);
+		break;
+
+		// 76 - juggle_pal_individual_ring_onedir_phase
+	case 76:
+		if (mc) { this_delay = 10; target_palette = Secondary_01a_gp; juggle_index_reset = 0; this_fade = 64; numdots = 4; this_beat = 8; this_diff = 4; }
+		juggle_pal_individual_ring_onedir_phase(old);
+		break;
+
+
 		// if more modes added, must update max_modes in variables
 	}
 }
