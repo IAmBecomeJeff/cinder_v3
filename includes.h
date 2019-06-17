@@ -22,6 +22,7 @@
 #include "gradient_palettes.h"
 #include "juggle.h"
 #include "matrix.h"
+#include "movinddot.h"
 //#include "noise16_pal.h"
 #include "noise8.h"
 #include "one_sin.h"

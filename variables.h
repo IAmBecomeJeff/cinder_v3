@@ -70,7 +70,7 @@ uint8_t default_mode              = 34;                             // Default m
 
 // LED Overall Variables
 uint8_t max_bright  = 128;		// Overall brightness, it can be changed on the fly.  TODO: Maybe lower this to 100?
-uint8_t max_mode    = 78;		// maximum number of modes
+uint8_t max_mode    = 79;		// maximum number of modes
 uint8_t demo_run    = 0;		// 0 = regular mode, 1 = demo mode, 2 = shuffle mode
 int led_mode;				// Starting mode is typically 0
 uint8_t old_mode;
@@ -247,12 +247,6 @@ uint8_t mul1;
 uint8_t mul2;
 uint8_t mul3;
 
-int wave1r;
-int wave2r;
-int wave3r;
-uint8_t mul1r;
-uint8_t mul2r;
-uint8_t mul3r;
 
 
 // two_sin_pal variables-------------------------------------------------------------------------
@@ -292,6 +286,9 @@ uint8_t circ_index;
 uint8_t circ_bri;
 uint32_t real_z;
 
+// moving dot variables
+CRGB lead_led;
+uint8_t blue_angle, blue_low, blue_high, green_angle, green_low, green_high, red_angle, red_low, red_high;
 
 ///////// Variables for transitioning:
 // LED Routine/Shared Variables
@@ -365,8 +362,6 @@ uint16_t old_Yn2;
 
 int old_wave1, old_wave2, old_wave3;
 uint8_t old_mul1, old_mul2, old_mul3;
-int old_wave1r, old_wave2r, old_wave3r;
-uint8_t old_mul1r, old_mul2r, old_mul3r;
 
 uint8_t old_that_hue = 140;
 uint8_t old_that_rot = 0;
@@ -415,3 +410,7 @@ uint8_t old_circ_index;
 uint8_t old_circ_bri;
 
 uint8_t old_fader = 0;
+
+// moving dot variables
+CRGB old_lead_led;
+uint8_t old_blue_angle, old_blue_low, old_blue_high, old_green_angle, old_green_low, old_green_high, old_red_angle, old_red_low, old_red_high;

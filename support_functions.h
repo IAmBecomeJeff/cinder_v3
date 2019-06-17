@@ -74,6 +74,9 @@ void array_init() {
 		tCycle[i] = 0;
 		COR[i] = 0.90 - float(i) / pow(NUM_BALLS, 2);
 	}
+
+	// blue fire palette
+	bluefire_gp = CRGBPalette16(CRGB::Black, CRGB::Blue, CRGB::Aqua, CRGB::White);
 }
 
 void(* resetFunc)(void) = 0; // reset function.... resetFunc();
@@ -336,6 +339,10 @@ void print_mode(uint8_t mn) {
 
 		case 63:
 			Serial.println("inoise_fire");
+			break;
+
+		case 64:
+			Serial.println("movingdot");
 			break;
 
 		default:
@@ -732,6 +739,14 @@ void print_palette(uint8_t pn) {
 
 	case 96:
 		Serial.println("cyberpunk_neon_gp");
+		break;
+
+	case 97:
+		Serial.println("blue_fire_gp");
+		break;
+
+	case 98:
+		Serial.println("bluefire_gp");
 		break;
 
 	default:

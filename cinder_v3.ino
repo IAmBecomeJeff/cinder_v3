@@ -295,19 +295,19 @@ void strobe_mode(uint8_t newMode, bool mc, bool old) {
 
 		// 11 - three-sin with palette kinda weird/redundant
 	case 11:
-		if (mc) { this_delay = 20; mul1r = 5; mul2r = 8; mul3r = 2; }
+		if (mc) { this_delay = 20; mul1 = 5; mul2 = 8; mul3 = 2; }
 		three_sin_pal_ring(old);
 		break;
 
 		// 12 - three-sin with palette
 	case 12:
-		if (mc) { this_delay = 20; mul1r = 6; mul2r = 9; mul3r = 11; target_palette = bhw2_14_gp; }
+		if (mc) { this_delay = 20; mul1 = 6; mul2 = 9; mul3 = 11; target_palette = bhw2_14_gp; }
 		three_sin_pal_ring(old);
 		break;
 
 		// 13 - three-sin with palette // looks cool with ofaurora_gp palette TODO find more palettes
 	case 13:
-		if (mc) { this_delay = 20; mul1r = 3; mul2r = 4; mul3r = 5; target_palette = cequal_gp; }
+		if (mc) { this_delay = 20; mul1 = 3; mul2 = 4; mul3 = 5; target_palette = cequal_gp; }
 		three_sin_pal_ring(old);
 		break;
 
@@ -535,7 +535,7 @@ void strobe_mode(uint8_t newMode, bool mc, bool old) {
 
 		// 51 - fire_pal
 	case 51:
-		if (mc) { this_delay = 10; cooling = 50; sparking = 90; target_palette = lava_gp; }
+		if (mc) { this_delay = 10; cooling = 50; sparking = 90; target_palette = bluefire_gp; }
 		fire_pal(old);
 		break;
 
@@ -699,6 +699,12 @@ void strobe_mode(uint8_t newMode, bool mc, bool old) {
 	case 78:
 		if (mc) { this_delay = 12; target_palette = lava_gp; scale = 20; scale2 = 3; this_index = 0; }
 		inoise_fire(old);
+		break;
+
+		// 79 - movingdot
+	case 79:
+		if (mc) { this_delay = 10; this_fade = 32; this_index = 1; blue_angle = 20; blue_low = 180; blue_high = 255; green_angle = 2; green_low = 100; green_high = 180; red_angle = 3; red_low = 0; red_high = 255; }
+		movingdot(old);
 		break;
 
 

@@ -71,58 +71,28 @@ void readkeyboard() {
 				}
 				break;
 
-				// D mul123r (0-255)
+				// D mul1 (0-255)
 			case 68:
 				this_arg = Serial.parseInt();
-				if (this_arg < 256) {
-					mul1r = constrain(this_arg, 0, 255);
-					Serial.print("mul1r: ");
-					Serial.println(mul1r);
-				}
-				else if (this_arg > 1000 && this_arg < 1256) {
-					this_arg = Serial.parseInt();
-					mul2r = constrain(this_arg % 1000, 0, 255);
-					Serial.print("mul2r: ");
-					Serial.println(mul2r);
-				}
-				else if (this_arg > 2000 && this_arg < 2256) {
-					this_arg = Serial.parseInt();
-					mul3r = constrain(this_arg, 0, 255);
-					Serial.print("mul3r: ");
-					Serial.println(mul3r);
-				}
-				else {
-					Serial.println("mul#r out of range");
-				}
+				mul1 = constrain(this_arg, 0, 255);
+				Serial.print("mul1: ");
+				Serial.println(mul1);
 				break;
 
-				// E mul123 (0-255)
+				// E mul2 (0-255)
 			case 69:
 				this_arg = Serial.parseInt();
-				if (this_arg < 256) {
-					mul1 = constrain(this_arg, 0, 255);
-					Serial.print("mul1: ");
-					Serial.println(mul1);
-				}
-				else if (this_arg > 1000 && this_arg < 1256) {
-					this_arg = Serial.parseInt();
-					mul2 = constrain(this_arg % 1000, 0, 255);
-					Serial.print("mul2: ");
-					Serial.println(mul2);
-				}
-				else if (this_arg > 2000 && this_arg < 2256) {
-					this_arg = Serial.parseInt();
-					mul3 = constrain(this_arg, 0, 255);
-					Serial.print("mul3: ");
-					Serial.println(mul3);
-				}
-				else {
-					Serial.println("mul# out of range");
-				}
+				mul2 = constrain(this_arg, 0, 255);
+				Serial.print("mul2: ");
+				Serial.println(mul2);
 				break;
 
-				// F 
+				// F mul3 (0-255)
 			case 70:
+				this_arg = Serial.parseInt();
+				mul3 = constrain(this_arg, 0, 255);
+				Serial.print("mul3: ");
+				Serial.println(mul3);
 				break;
 
 				// G bg_clr (0-255)
@@ -275,6 +245,54 @@ void readkeyboard() {
 				jug16_phase = constrain(this_arg, 0, 65535);
 				Serial.print("jug16_phase: ");
 				Serial.println(jug16_phase);
+				break;
+
+				// U - blue_angle
+			case 85:
+				this_arg = Serial.parseInt();
+				blue_angle = constrain(this_arg, 0, 255);
+				Serial.print("blue_angle: ");
+				Serial.println(blue_angle);
+				break;
+
+				// V - blue_low
+			case 86:
+				this_arg = Serial.parseInt();
+				blue_low = constrain(this_arg, 0, 255);
+				Serial.print("blue_low: ");
+				Serial.println(blue_low);
+				break;
+
+				// W - blue_high
+			case 87:
+				this_arg = Serial.parseInt();
+				blue_high = constrain(this_arg, 0, 255);
+				Serial.print("blue_high: ");
+				Serial.println(blue_high);
+				break;
+
+				// X - green_angle
+			case 88:
+				this_arg = Serial.parseInt();
+				green_angle = constrain(this_arg, 0, 255);
+				Serial.print("green_angle: ");
+				Serial.println(green_angle);
+				break;
+
+				// Y - green_low
+			case 89:
+				this_arg = Serial.parseInt();
+				green_low = constrain(this_arg, 0, 255);
+				Serial.print("green_low: ");
+				Serial.println(green_low);
+				break;
+
+				// Z - green_high
+			case 90:
+				this_arg = Serial.parseInt();
+				green_high = constrain(this_arg, 0, 255);
+				Serial.print("green_high: ");
+				Serial.println(green_high);
 				break;
 
 				// a {hue} - set entire strip to {hue} (0-255)
@@ -442,12 +460,12 @@ void readkeyboard() {
 				Serial.println(juggle_index_reset);
 				break;
 
-				// u Change this_bright (0-255)
+				// u Change red_angle (0-255)
 			case 117:
 				this_arg = Serial.parseInt();
-				this_bright = constrain(this_arg, 0, 255);
-				Serial.print("this_bright: ");
-				Serial.println(this_bright);
+				red_angle = constrain(this_arg, 0, 255);
+				Serial.print("red_angle: ");
+				Serial.println(red_angle);
 				break;
 
 				// v Change numdots (0-255)
@@ -471,6 +489,22 @@ void readkeyboard() {
 				all_freq = constrain(this_arg, 0, 255);
 				Serial.print("all_freq: ");
 				Serial.println(all_freq);
+				break;
+
+				// y - red_low
+			case 121:
+				this_arg = Serial.parseInt();
+				red_low = constrain(this_arg, 0, 255);
+				Serial.print("red_low: ");
+				Serial.println(red_low);
+				break;
+
+				// z - red_high
+			case 122:
+				this_arg = Serial.parseInt();
+				red_high = constrain(this_arg, 0, 255);
+				Serial.print("red_high: ");
+				Serial.println(red_high);
 				break;
                 
 		}

@@ -89,12 +89,6 @@ void update_old_variables() {
 	old_mul1 = mul1;
 	old_mul2 = mul2;
 	old_mul3 = mul3;
-	old_wave1r = wave1r;
-	old_wave2r = wave2r;
-	old_wave3r = wave3r;
-	old_mul1r = mul1r;
-	old_mul2r = mul2r;
-	old_mul3r = mul3r;
 	old_that_hue = that_hue;
 	old_that_rot = that_rot;
 	old_that_speed = that_speed;
@@ -150,6 +144,17 @@ void update_old_variables() {
 	old_circ_bri = circ_bri;
 	old_fader = fader;
 	old_jug16_phase = jug16_phase;
+
+	old_lead_led = lead_led;
+	old_blue_angle = blue_angle;
+	old_blue_low = blue_low;
+	old_blue_high = blue_high;
+	old_green_angle = green_angle;
+	old_green_low = green_low;
+	old_green_high = green_high;
+	old_red_angle = red_angle;
+	old_red_low = red_low;
+	old_red_high = red_high;;
 }
 //
 //class led_class {
