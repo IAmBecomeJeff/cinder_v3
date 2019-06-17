@@ -277,14 +277,6 @@ void readkeyboard() {
 				Serial.println(jug16_phase);
 				break;
 
-				// V - Change vImpact0
-			case 86:
-				this_arg = float(Serial.parseInt());
-				vImpact0 = constrain(this_arg, 0, 255);
-				Serial.print("vImpact0: ");
-				Serial.println(vImpact0);
-				break;
-
 				// a {hue} - set entire strip to {hue} (0-255)
 			case 97:
 				led_mode = 0;
