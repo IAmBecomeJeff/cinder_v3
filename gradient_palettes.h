@@ -2515,7 +2515,6 @@ const TProgmemRGBGradientPalettePtr g_gradient_palettes[] = {
   Complementary_01a_gp,
   cyberpunk_neon_gp,
   blue_fire_gp
- // bluefire_gp
   };
 
 

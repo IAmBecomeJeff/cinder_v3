@@ -57,156 +57,130 @@ void setup() {
 }
 
 void loop() {
-  // Get keyboard input
-  readkeyboard();
-
-  // Check rotary dial
-  checkDial();
-
-  // Check switchA for direction
-  if (digitalRead(switchA)) {
-	  this_dir = 0;
-  }
-  else {
-	  this_dir = 1;
-  }
-
-  // Check switchB for demo
-  EVERY_N_SECONDS(30) {
-	  if (!digitalRead(switchB)) {
-		  if (rotary_function == 1) {// Change palette on rotary 1
-			  updatePaletteIndex(target_palette);
-			  //		  palette_index++;
-			  //		  if (palette_index > g_gradient_palette_count -1){palette_index= 0;}
-			  palette_index = random8(g_gradient_palette_count + 1);
-			  target_palette = g_gradient_palettes[palette_index];
-			  pal_change = 0;
-			  Serial.print("Palette number: ");
-			  Serial.println(palette_index);
-			  print_palette(palette_index);
-		  }
-		  else if (rotary_function == 3)
-		  {
-			  old_mode = led_mode;
-			  led_mode = random8(max_mode + 1);;
-			  update_old_variables();
-			  transitioning = 1;
-			  strobe_mode(led_mode, 1, 0);
-			  print_mode(mode_number);
-			  target_delay = this_delay;
-			  this_delay = old_this_delay;
-		  }
-		  else {
-			  old_mode = led_mode;
-			  led_mode++;
-			  if (led_mode > max_mode) {
-				  led_mode = 0;
-			  }
-			  update_old_variables();
-			  transitioning = 1;
-			  strobe_mode(led_mode, 1, 0);
-			  print_mode(mode_number);
-			  target_delay = this_delay;
-			  this_delay = old_this_delay;
-		  }
-	  }
-  }
-
-  EVERY_N_SECONDS(15) { // Change palettes and mode a bit more frequently if on second click
-	  if (!digitalRead(switchB)) {
-		  if (rotary_function >= 2) {
-			  if (pal_change) {
-				  updatePaletteIndex(target_palette);
-				  //palette_index++;
-				  palette_index = random8(g_gradient_palette_count + 1);
-				  //if (palette_index > g_gradient_palette_count - 1) { palette_index = 0; }
-				  target_palette = g_gradient_palettes[palette_index];
-				  Serial.print("Palette number: ");
-				  Serial.println(palette_index);
-				  print_palette(palette_index);
-			  }
-			  pal_change = 1;
-		  }
-	  }
-  }
-
-
-  // Palette transitions - always running TODO consider shortening this?
-  EVERY_N_MILLISECONDS(50) {
-    uint8_t maxChanges = 24;
-    nblendPaletteTowardPalette(current_palette, target_palette, maxChanges);
-  }
-
-  // Dynamically change delay
-  EVERY_N_MILLIS_I(this_timer, this_delay) {
-    this_timer.setPeriod(this_delay);
-	if (transitioning) {
-		strobe_mode(old_mode, 0, 1);
+	// Reset every 20 minutes
+	EVERY_N_MINUTES(20) {
+		reset();
 	}
-	  strobe_mode(led_mode, 0, 0);
-  }
 
-  if (transitioning) {
-	  glitter = 1;
-    if (transition_wait){
-  	   blending_ratio += 1;
-     }
-	  for (int i = 0; i < NUM_LEDS; i++) {
-		  leds[i] = blend(old_leds[i], cur_leds[i], blending_ratio);
-	  }
-	  this_delay = (this_delay + target_delay) / 2;
-	  if (blending_ratio >= 255) {
-		  transitioning = 0;
-		  blending_ratio = 0;
-		  glitter = 0;
-		  fill_solid(old_leds, NUM_LEDS, CRGB(0,0,0));
-		  this_delay = target_delay;
-	  }
-    transition_wait = !transition_wait;
-  }
-  else {
-	  for (int i = 0; i < NUM_LEDS; i++) {
-		  leds[i] = cur_leds[i];
-	  }
-  }
+	// Get keyboard input
+	readkeyboard();
+
+	// Check rotary dial
+	checkDial();
+
+	// Check switchA for direction
+	if (digitalRead(switchA)) {
+		this_dir = 0;
+	}
+	else {
+		this_dir = 1;
+	}
+
+	// Check switchB for demo
+	EVERY_N_SECONDS(30) {
+		if (!digitalRead(switchB)) {
+			if (rotary_function == 1) {// Change palette on rotary 1
+				updatePaletteIndex(target_palette);
+				//		  palette_index++;
+				//		  if (palette_index > g_gradient_palette_count -1){palette_index= 0;}
+				palette_index = random8(g_gradient_palette_count + 1);
+				target_palette = g_gradient_palettes[palette_index];
+				pal_change = 0;
+				Serial.print("Palette number: ");
+				Serial.println(palette_index);
+				print_palette(palette_index);
+			}
+			else if (rotary_function == 3)
+			{
+				old_mode = led_mode;
+				led_mode = random8(max_mode + 1);;
+				update_old_variables();
+				transitioning = 1;
+				strobe_mode(led_mode, 1, 0);
+				print_mode(mode_number);
+				target_delay = this_delay;
+				this_delay = old_this_delay;
+			}
+			else {
+				old_mode = led_mode;
+				led_mode++;
+				if (led_mode > max_mode) {
+					led_mode = 0;
+				}
+				update_old_variables();
+				transitioning = 1;
+				strobe_mode(led_mode, 1, 0);
+				print_mode(mode_number);
+				target_delay = this_delay;
+				this_delay = old_this_delay;
+			}
+		}
+	}
+
+	EVERY_N_SECONDS(15) { // Change palettes and mode a bit more frequently if on second click
+		if (!digitalRead(switchB)) {
+			if (rotary_function >= 2) {
+				if (pal_change) {
+					updatePaletteIndex(target_palette);
+					//palette_index++;
+					palette_index = random8(g_gradient_palette_count + 1);
+					//if (palette_index > g_gradient_palette_count - 1) { palette_index = 0; }
+					target_palette = g_gradient_palettes[palette_index];
+					Serial.print("Palette number: ");
+					Serial.println(palette_index);
+					print_palette(palette_index);
+				}
+				pal_change = 1;
+			}
+		}
+	}
 
 
-  // Optionally add glitter
-  if(glitter) addglitter(10);
+	// Palette transitions - always running TODO consider shortening this?
+	EVERY_N_MILLISECONDS(50) {
+		uint8_t maxChanges = 24;
+		nblendPaletteTowardPalette(current_palette, target_palette, maxChanges);
+	}
 
-  // Add fire
-  EVERY_N_SECONDS(150) { 
-	  if (random8() > 150) {
-		  fire_it_up = 1;
-		  Serial.println("Commencing flames!!!");
-	  }
-  }
+	// Dynamically change delay
+	EVERY_N_MILLIS_I(this_timer, this_delay) {
+		this_timer.setPeriod(this_delay);
+		if (transitioning) {
+			strobe_mode(old_mode, 0, 1);
+		}
+		strobe_mode(led_mode, 0, 0);
+	}
 
-  if (fire_it_down) {
-	  addFire();
-	  fire_blend--;
-	  for (int i = 0; i < NUM_LEDS; i++) {
-		  leds[i] += blend(blank_leds[i], fire_leds[i], fire_blend);
-	  }
-	  if (fire_blend <= 0) {
-		  fire_it_down = 0;
-	  }
-  }
+	if (transitioning) {
+		glitter = 1;
+		if (transition_wait) {
+			blending_ratio += 1;
+		}
+		for (int i = 0; i < NUM_LEDS; i++) {
+			leds[i] = blend(old_leds[i], cur_leds[i], blending_ratio);
+		}
+		this_delay = (this_delay + target_delay) / 2;
+		if (blending_ratio >= 255) {
+			transitioning = 0;
+			blending_ratio = 0;
+			glitter = 0;
+			fill_solid(old_leds, NUM_LEDS, CRGB(0, 0, 0));
+			this_delay = target_delay;
+		}
+		transition_wait = !transition_wait;
+	}
+	else {
+		for (int i = 0; i < NUM_LEDS; i++) {
+			leds[i] = cur_leds[i];
+		}
+	}
 
-  if (fire_it_up) {
-	  addFire();
-	  fire_blend++;
-	  for (int i = 0; i < NUM_LEDS; i++) {
-		  leds[i] += blend(blank_leds[i], fire_leds[i], fire_blend);
-	  }
-	  if (fire_blend == 255) {
-		  fire_it_up = 0;
-		  fire_it_down = 1;
-	  }
-  }
 
-  //show_at_max_brightness_for_power();
-  FastLED.show();
+	// Optionally add glitter
+	if (glitter) addglitter(10);
+
+	//show_at_max_brightness_for_power();
+	FastLED.show();
 }
 
 /*
@@ -569,20 +543,23 @@ void strobe_mode(uint8_t newMode, bool mc, bool old) {
 		juggle_pal_individual_ring_all(old);
 		break;
 
-		// 57 - spiral
+		// 57 - spiral - broken
 	case 57:
-		if (mc) { this_delay = 10; spiral_width = 3; spiral_inc = 2; this_hue = 200; }
-		spiral(old);
+		led_mode = 60;
+		//if (mc) { this_delay = 10; spiral_width = 3; spiral_inc = 2; this_hue = 200; }
+		//spiral(old);
 		break;
 
-		// 58 - spiral_pal
+		// 58 - spiral_pal - broken
 	case 58:
-		if (mc) { this_delay = 8; target_palette = bhw2_14_gp; spiral_width = 6; spiral_inc = 3; this_hue = 32; this_inc = 10; }
-		spiral_pal(old);
+		led_mode = 60;
+		//if (mc) { this_delay = 8; target_palette = bhw2_14_gp; spiral_width = 6; spiral_inc = 3; this_hue = 32; this_inc = 10; }
+		//spiral_pal(old);
 		break;
 
 		// 59 - spiral_sin_sub
 	case 59:
+
 		if (mc) { this_delay = 10; target_palette = slope_gp; this_inc = 4; this_speed = 2; this_rot = 1; all_freq = 2; }
 		spiral_sin_sub(old);
 		break;

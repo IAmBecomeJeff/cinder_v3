@@ -7,7 +7,6 @@
 #include "transition.h"
 #include "read_keyboard.h"
 #include "check_dial.h"
-//#include "checkDial.h"
 #include "make_palettes.h"
 #include "rings.h"
 

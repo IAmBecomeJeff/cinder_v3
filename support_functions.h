@@ -1,6 +1,12 @@
 #ifndef SUPPORT_FUNCTIONS_H
 #define SUPPORT_FUNCTIONS_H
 
+void addglitter(fract8 chanceOfGlitter)
+{
+	if (random8() < chanceOfGlitter) {
+		leds[random16(NUM_LEDS - 1)] += CRGB::White;
+	}
+}
 
 void array_init() {
 	// Init ring array
@@ -74,14 +80,21 @@ void array_init() {
 		tCycle[i] = 0;
 		COR[i] = 0.90 - float(i) / pow(NUM_BALLS, 2);
 	}
-
-	// blue fire palette
-	CRGBPalette16 bluefire_gp = CRGBPalette16(CRGB::Black, CRGB::Blue, CRGB::Aqua, CRGB::White);
 }
 
 void(* resetFunc)(void) = 0; // reset function.... resetFunc();
 
-
+void reset(void) {
+	fill_solid(blank_leds, NUM_LEDS, CRGB(0, 0, 0));
+	for (uint8_t i = 0; i < 255; i++) {
+		for (uint8_t j = 0; j < NUM_LEDS; j++) {
+			leds[j] = blend(cur_leds[j], blank_leds[j], i);
+		}
+		FastLED.show();
+		FastLED.delay(this_delay);
+	}
+	resetFunc();
+}
 
 void print_mode(uint8_t mn) {
 	switch (mn) {

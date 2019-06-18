@@ -88,15 +88,15 @@ void checkDial() {
 
 			case 3:
 				if (digitalRead(pinB) != aVal) {
-					this_bright++;
+					max_bright++;
 				}
 				else {
-					this_bright--;
+					max_bright--;
 				}
-				constrain(this_bright, 0, 128);
-				LEDS.setBrightness(this_bright);
+				constrain(max_bright, 0, 128);
+				LEDS.setBrightness(max_bright);
 				Serial.print("Brightness: ");
-				Serial.println(this_bright);
+				Serial.println(max_bright);
 				break;
 
 			}

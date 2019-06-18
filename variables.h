@@ -56,7 +56,7 @@ struct CRGB leds[NUM_LEDS];
 struct CRGB old_leds[NUM_LEDS];
 struct CRGB cur_leds[NUM_LEDS];
 struct CRGB jug_leds[NUM_LEDS];
-struct CRGB fire_leds[NUM_LEDS];
+//struct CRGB fire_leds[NUM_LEDS];
 struct CRGB blank_leds[NUM_LEDS];
 CRGBPalette16 current_palette;         // Current palette we're using
 CRGBPalette16 target_palette;          // Next palette to transition to
@@ -66,7 +66,7 @@ extern const TProgmemRGBGradientPalettePtr g_gradient_palettes[];   // from grad
 extern const uint8_t g_gradient_palette_count;                      // # of fixed palettes
 uint8_t g_current_palette_number  = 0;                              // Current palette number
 uint8_t current_pattern_index     = 5;                              // Index of current pattern
-uint8_t default_mode              = 34;                             // Default mode to go to
+//uint8_t default_mode              = 34;                             // Default mode to go to
 
 // LED Overall Variables
 uint8_t max_bright  = 128;		// Overall brightness, it can be changed on the fly.  TODO: Maybe lower this to 100?
@@ -120,7 +120,7 @@ bool fire_it_up = 0;
 bool fire_it_down = 0;
 uint8_t fire_blend = 0;
 
-// colorwave variables
+// colorwave variables-------------------
 uint16_t sPseudotime = 0;
 uint16_t sLastMillis = 0;
 uint16_t sHue16 = 0;
@@ -128,7 +128,7 @@ uint16_t sHue16 = 0;
 uint8_t brightdepth, msmultiplier, hue8, bri8, cwave_index;
 uint16_t brightnessthetainc16, hue16, hueinc16, ms, deltams, brightnesstheta16, h16_128, b16, bri16, pixelnumber;
 
-// matrix_saw
+// matrix_saw--------------------
 uint8_t matrix_rate[] = { 2, 4, 6, 8, 10 };
 uint8_t num_mat_dots = 5;
 uint8_t this_scale = 30;
@@ -136,14 +136,14 @@ uint8_t this_scale = 30;
 // fader
 uint8_t fader;
 
-//Variables for plasma
+//Variables for plasma-----------------
 int plasma_phase1;
 int plasma_phase2;
 int plasmaIndex;
 int plasmaBright;
 
 
-//Variables for ripple 
+//Variables for ripple -----------------
 int rip_color;
 int rip_center = 0;
 int rip_step = -1;
@@ -160,7 +160,7 @@ uint8_t rip_fade = 255;
 
 
 
-//Twinkle Variables
+//Twinkle Variables---------------
 byte twinkle_speed = 4; // 0 - 8
 byte twinkle_density = 5;	// 0 - 8
 CRGB twinkle_bg = CRGB::Black; // CRGB(CRGB::FairyLight).nscale8_video(16);
@@ -170,11 +170,11 @@ uint8_t bglight;
 uint8_t backgroundBrightness;
 CRGB bg;
 
-
+//Juggle Variables-------------------
 uint8_t numdots;
 uint8_t numdots_ring;   			// dots for juggle_pal_ring
 
-//Fire Variables
+//Fire Variables-------------------
 uint8_t cooling = 55;				// Cooling variable for fire
 uint8_t cooling1;
 uint8_t cooling2;
@@ -210,19 +210,19 @@ unsigned long debounceDelay = 50;
 
 Bounce debouncer = Bounce();
 
-//Spiral Variables
+//Spiral Variables----------------
 int spiral_start;
 int spiral_inc;
 int spiral_width;
 
-// noise8 variables
+// noise8 variables--------------
 
 uint16_t dist = 12345;         // A random number for our noise generator.
 uint16_t scale = 30;          // Wouldn't recommend changing this_ on the fly, or the animation will be really blocky.
 uint16_t dist2 = 12345;         // A random number for our noise generator.
 uint16_t scale2 = 30;          // Wouldn't recommend changing this_ on the fly, or the animation will be really blocky.
 
-// serendipitous variables
+// serendipitous variables--------------
 
 uint16_t Xorig = 0x013;
 uint16_t Yorig = 0x021;
@@ -238,7 +238,7 @@ uint16_t Y2=Yorig2;
 uint16_t Xn2;
 uint16_t Yn2;
 
-// three sin variables
+// three sin variables--------------
 
 int wave1;
 int wave2;
@@ -246,8 +246,6 @@ int wave3;
 uint8_t mul1;
 uint8_t mul2;
 uint8_t mul3;
-
-
 
 // two_sin_pal variables-------------------------------------------------------------------------
 
@@ -257,13 +255,13 @@ uint8_t that_rot = 0;                                          // You can change
 //int that_phase = 0;                                            // Phase change value gets calculated.
 uint8_t that_cutoff = 192;                                     // You can change the cutoff value to display that wave. Lower value = longer wave.
 
-// cylon variables
+// cylon variables---------------
 int cylon_step = 1;
 int cylon_center = 0;
 uint8_t cylon_index = 128;
 uint8_t cylon_brightness = 255;
 
-// Bouncing Ball Variables
+// Bouncing Ball Variables--------------
 #define GRAVITY           -1              // Downward (negative) acceleration of gravity in m/s^2
 #define h0                1                  // Starting height, in meters, of the ball (strip length)
 #define NUM_BALLS         6                  // Number of bouncing balls you want (recommend < 7, but 20 is fun in its own way)
@@ -276,7 +274,7 @@ long  tLast[NUM_BALLS];                     // The clock time of the last ground
 float COR[NUM_BALLS];                       // Coefficient of Restitution (bounce damping)
 uint8_t ball_hue = 0;
 
-// circnoise variables
+// circnoise variables----------------
 uint16_t shift_x;
 uint16_t shift_y;
 uint32_t real_x;
@@ -286,9 +284,18 @@ uint8_t circ_index;
 uint8_t circ_bri;
 uint32_t real_z;
 
-// moving dot variables
+// moving dot variables--------
 CRGB lead_led;
 uint8_t blue_angle, blue_low, blue_high, green_angle, green_low, green_high, red_angle, red_low, red_high;
+
+
+
+
+
+
+
+
+
 
 ///////// Variables for transitioning:
 // LED Routine/Shared Variables
