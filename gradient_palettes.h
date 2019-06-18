@@ -2398,7 +2398,7 @@ DEFINE_GRADIENT_PALETTE(blade_runner_2049_gp) {
 		255, 44, 9, 42
 };
 
-DEFIN_GRADIENT_PALETTE(blue_fire_gp) {
+DEFINE_GRADIENT_PALETTE(blue_fire_gp) {
 	0, 0, 0, 0,
 		64, 0, 0, 255,
 		200, 0, 255, 255,
@@ -2514,8 +2514,8 @@ const TProgmemRGBGradientPalettePtr g_gradient_palettes[] = {
   Cyan_Magenta_Blue_gp,
   Complementary_01a_gp,
   cyberpunk_neon_gp,
-  blue_fire_gp,
-  bluefire_gp
+  blue_fire_gp
+ // bluefire_gp
   };
 
 

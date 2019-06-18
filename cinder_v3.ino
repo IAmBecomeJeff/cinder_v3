@@ -535,7 +535,7 @@ void strobe_mode(uint8_t newMode, bool mc, bool old) {
 
 		// 51 - fire_pal
 	case 51:
-		if (mc) { this_delay = 10; cooling = 50; sparking = 90; target_palette = bluefire_gp; }
+		if (mc) { this_delay = 10; cooling = 50; sparking = 90; target_palette = blue_fire_gp; }
 		fire_pal(old);
 		break;
 

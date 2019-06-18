@@ -3,7 +3,7 @@
 
 
 
-void movingdot(old) {
+void movingdot(bool old) {
 	mode_number = 64;
 	if (old) {
 		old_lead_led.b = beatsin8(old_blue_angle, old_blue_low, old_blue_high);

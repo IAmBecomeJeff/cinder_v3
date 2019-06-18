@@ -76,7 +76,7 @@ void array_init() {
 	}
 
 	// blue fire palette
-	bluefire_gp = CRGBPalette16(CRGB::Black, CRGB::Blue, CRGB::Aqua, CRGB::White);
+	CRGBPalette16 bluefire_gp = CRGBPalette16(CRGB::Black, CRGB::Blue, CRGB::Aqua, CRGB::White);
 }
 
 void(* resetFunc)(void) = 0; // reset function.... resetFunc();
