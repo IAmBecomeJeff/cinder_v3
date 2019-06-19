@@ -636,20 +636,23 @@ void strobe_mode(uint8_t newMode, bool mc, bool old) {
 
 		// 72 - cylon
 	case 72:
-		if (mc) { this_delay = 10; target_palette = apple_green_gp; }
-		cylon(old);
+		led_mode = 71;
+		//if (mc) { this_delay = 10; target_palette = apple_green_gp; }
+		//cylon(old);
 		break;
 
 		// 73 - fade
 	case 73:
-		if (mc) { this_delay = 20; this_hue = 69; }
-		fade(old);
+		led_mode = 71;
+		//if (mc) { this_delay = 20; this_hue = 69; }
+		//fade(old);
 		break;
 
 		// 74 - fade_rainbow
 	case 74:
-		if (mc) { this_delay = 30; }
-		fade_rainbow(old);
+		led_mode = 71;
+		//if (mc) { this_delay = 30; }
+		//fade_rainbow(old);
 		break;
 
 		// 75 - matrix_ray
@@ -676,10 +679,11 @@ void strobe_mode(uint8_t newMode, bool mc, bool old) {
 		inoise_fire(old);
 		break;
 
-		// 79 - movingdot
+		// 79 - movingdot - doesn't work
 	case 79:
-		if (mc) { this_delay = 10; this_fade = 32; this_index = 1; blue_angle = 20; blue_low = 180; blue_high = 255; green_angle = 2; green_low = 100; green_high = 180; red_angle = 3; red_low = 0; red_high = 255; }
-		movingdot(old);
+		led_mode = 78;
+		//if (mc) { this_delay = 10; this_fade = 32; this_index = 1; blue_angle = 20; blue_low = 180; blue_high = 255; green_angle = 2; green_low = 100; green_high = 180; red_angle = 3; red_low = 0; red_high = 255; }
+		//movingdot(old);
 		break;
 
 

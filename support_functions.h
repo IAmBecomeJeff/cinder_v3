@@ -758,14 +758,1060 @@ void print_palette(uint8_t pn) {
 		Serial.println("blue_fire_gp");
 		break;
 
-	case 98:
-		Serial.println("bluefire_gp");
-		break;
-
 	default:
 		Serial.println("Not a gradient palette");
 		break;
 	}
+}
+
+void print_variables(uint8_t mode_number) {
+	switch (mode_number) {
+	case 1:
+		println("--------------------");
+		println("circnoise_pal_2_ring");
+		println("--------------------");
+		print("scale (I): ");
+		println(scale);
+		print("target_palette (f): ");
+		println(target_palette);
+		print("this_delay (d): ");
+		println(this_delay);
+		println("--------------------");
+		break;
+
+	case 2:
+		println("--------------------");
+		println("circnoise_pal_3_ring");
+		println("--------------------");
+		print("scale (I): ");
+		println(scale);
+		print("target_palette (f): ");
+		println(target_palette);
+		print("this_delay (d): ");
+		println(this_delay);
+		println("--------------------");
+		break;
+
+	case 3:
+		println("--------------------");
+		println("confetti_pal_ring");
+		println("--------------------");
+		print("this_diff: (r): ");
+		println(this_diff);
+		print("this_inc (i): ");
+		println(this_inc);
+		print("this_fade (o): ");
+		println(this_fade);
+		print("target_palette (f): ");
+		println(target_palette);
+		print("this_delay (d): ");
+		println(this_delay);
+		println("--------------------");
+		break;
+
+	case 4:
+		println("--------------------");
+		println("fire");
+		println("--------------------");
+		print("cooling (C) (0-255): ");
+		println(cooling);
+		print("sparking (S) (0-255): ");
+		println(sparking);
+		print("this_delay (d): ");
+		println(this_delay);
+		println("--------------------");
+		break;
+
+	case 5:
+		println("--------------------");
+		println("fire_pal");
+		println("--------------------");
+		print("cooling (C) (0-255): ");
+		println(cooling);
+		print("sparking (S) (0-255): ");
+		println(sparking);
+		print("this_delay (d): ");
+		println(this_delay);
+		print("target_palette (f): ");
+		println(target_palette);
+		println("--------------------");
+		break;
+
+	case 6:
+		println("--------------------");
+		println("fire_mirror");
+		println("--------------------");
+		print("cooling (C) (0-255): ");
+		println(cooling);
+		print("sparking (S) (0-255): ");
+		println(sparking);
+		print("this_delay (d): ");
+		println(this_delay);
+		println("--------------------");
+		break;
+
+	case 7:
+		println("fire_mirror_pal");
+		print("cooling (C) (0-255): ");
+		println(cooling);
+		print("sparking (S) (0-255): ");
+		println(sparking);
+		print("this_delay (d): ");
+		println(this_delay);
+		print("target_palette (f): ");
+		println(target_palette);
+		break;
+
+	case 8:
+		println("--------------------");
+		println("fire_rings");
+		println("--------------------");
+		print("cooling1 (C1) (0-255): ");
+		println(cooling1);
+		print("cooling2 (C2) (0-255): ");
+		println(cooling2);
+		print("cooling3 (C3) (0-255): ");
+		println(cooling3);
+		print("cooling4 (C4) (0-255): ");
+		println(cooling4);
+		print("sparking1 (S1) (0-255): ");
+		println(sparking1);
+		print("sparking2 (S2) (0-255): ");
+		println(sparking2);
+		print("sparking3 (S3) (0-255): ");
+		println(sparking3);
+		print("sparking4 (S4) (0-255): ");
+		println(sparking4);
+		print("this_delay (d): ");
+		println(this_delay);
+		println("--------------------");
+		break;
+
+	case 9:
+		println("--------------------");
+		println("fire_pal_rings");
+		println("--------------------");
+		print("cooling1 (C1) (0-255): ");
+		println(cooling1);
+		print("cooling2 (C2) (0-255): ");
+		println(cooling2);
+		print("cooling3 (C3) (0-255): ");
+		println(cooling3);
+		print("cooling4 (C4) (0-255): ");
+		println(cooling4);
+		print("sparking1 (S1) (0-255): ");
+		println(sparking1);
+		print("sparking2 (S2) (0-255): ");
+		println(sparking2);
+		print("sparking3 (S3) (0-255): ");
+		println(sparking3);
+		print("sparking4 (S4) (0-255): ");
+		println(sparking4);
+		print("this_delay (d): ");
+		println(this_delay);
+		print("target_palette (f): ");
+		println(target_palette);
+		println("--------------------");
+		break;
+
+	case 10:
+		println("--------------------");
+		println("fire_mirror_rings");
+		println("--------------------");
+		print("cooling1 (C1) (0-255): ");
+		println(cooling1);
+		print("cooling2 (C2) (0-255): ");
+		println(cooling2);
+		print("cooling3 (C3) (0-255): ");
+		println(cooling3);
+		print("cooling4 (C4) (0-255): ");
+		println(cooling4);
+		print("sparking1 (S1) (0-255): ");
+		println(sparking1);
+		print("sparking2 (S2) (0-255): ");
+		println(sparking2);
+		print("sparking3 (S3) (0-255): ");
+		println(sparking3);
+		print("sparking4 (S4) (0-255): ");
+		println(sparking4);
+		print("this_delay (d): ");
+		println(this_delay);
+		println("--------------------");
+		break;
+
+	case 11:
+		println("--------------------");
+		println("fire_mirror_pal_rings");
+		println("--------------------");
+		print("cooling1 (C1) (0-255): ");
+		println(cooling1);
+		print("cooling2 (C2) (0-255): ");
+		println(cooling2);
+		print("cooling3 (C3) (0-255): ");
+		println(cooling3);
+		print("cooling4 (C4) (0-255): ");
+		println(cooling4);
+		print("sparking1 (S1) (0-255): ");
+		println(sparking1);
+		print("sparking2 (S2) (0-255): ");
+		println(sparking2);
+		print("sparking3 (S3) (0-255): ");
+		println(sparking3);
+		print("sparking4 (S4) (0-255): ");
+		println(sparking4);
+		print("this_delay (d): ");
+		println(this_delay);
+		print("target_palette (f): ");
+		println(target_palette);
+		println("--------------------");
+		break;
+
+	case 12:
+		println("--------------------");
+		println("fire_mirror_opp");
+		println("--------------------");
+		print("cooling1 (C1) (0-255): ");
+		println(cooling1);
+		print("cooling2 (C2) (0-255): ");
+		println(cooling2);
+		print("cooling3 (C3) (0-255): ");
+		println(cooling3);
+		print("cooling4 (C4) (0-255): ");
+		println(cooling4);
+		print("sparking1 (S1) (0-255): ");
+		println(sparking1);
+		print("sparking2 (S2) (0-255): ");
+		println(sparking2);
+		print("sparking3 (S3) (0-255): ");
+		println(sparking3);
+		print("sparking4 (S4) (0-255): ");
+		println(sparking4);
+		print("this_delay (d): ");
+		println(this_delay);
+		println("--------------------");
+		break;
+
+	case 14:
+		println("--------------------");
+		println("juggle_pal_ring");
+		println("--------------------");
+		print("juggle_index_reset (t): ");
+		println(juggle_index_reset);
+		print("this_fade (o): ");
+		println(this_fade);
+		print("numdots_ring (p): ");
+		println(numdots_ring);
+		print("this_beat (q): ");
+		println(this_beat);
+		print("this_diff (r) :");
+		println(this_diff);
+		print("this_delay (d): ");
+		println(this_delay);
+		print("target_palette (f): ");
+		println(target_palette);
+		println("--------------------");
+		break;
+
+	case 15:
+		println("--------------------");
+		println("juggle_pal_ring_onedir");
+		println("--------------------");
+		print("juggle_index_reset (t): ");
+		println(juggle_index_reset);
+		print("this_fade (o): ");
+		println(this_fade);
+		print("numdots_ring (p): ");
+		println(numdots_ring);
+		print("this_beat (q): ");
+		println(this_beat);
+		print("this_diff (r) :");
+		println(this_diff);
+		print("this_delay (d): ");
+		println(this_delay);
+		print("target_palette (f): ");
+		println(target_palette);
+		println("--------------------");
+		break;
+
+	case 16:
+		println("--------------------");
+		println("juggle_fire");
+		println("--------------------");
+		print("juggle_index_reset (t): ");
+		println(juggle_index_reset);
+		print("this_fade (o): ");
+		println(this_fade);
+		print("numdots_ring (p): ");
+		println(numdots_ring);
+		print("this_beat (q): ");
+		println(this_beat);
+		print("this_diff (r) :");
+		println(this_diff);
+		print("cooling1 (C1) (0-255): ");
+		println(cooling1);
+		print("cooling2 (C2) (0-255): ");
+		println(cooling2);
+		print("cooling3 (C3) (0-255): ");
+		println(cooling3);
+		print("cooling4 (C4) (0-255): ");
+		println(cooling4);
+		print("sparking1 (S1) (0-255): ");
+		println(sparking1);
+		print("sparking2 (S2) (0-255): ");
+		println(sparking2);
+		print("sparking3 (S3) (0-255): ");
+		println(sparking3);
+		print("sparking4 (S4) (0-255): ");
+		println(sparking4);
+		print("this_delay (d): ");
+		println(this_delay);
+		print("target_palette (f): ");
+		println(target_palette);
+		println("--------------------");
+		break;
+
+	case 17:
+		println("--------------------");
+		println("juggle_pal_individual_ring_all");
+		println("--------------------");
+		print("juggle_index_reset (t): ");
+		println(juggle_index_reset);
+		print("this_fade (o): ");
+		println(this_fade);
+		print("numdots (R): ");
+		println(numdots);
+		print("this_beat (Q1-4): (may not work)");
+		println(this_beat);
+		print("this_diff (r) :");
+		println(this_diff);
+		print("this_delay (d): ");
+		println(this_delay);
+		print("target_palette (f): ");
+		println(target_palette);
+		println("--------------------");
+		break;
+
+	case 18:
+		println("--------------------");
+		println("juggle_pal_individual_ring_onedir_all");
+		println("--------------------");
+		print("juggle_index_reset (t): ");
+		println(juggle_index_reset);
+		print("this_fade (o): ");
+		println(this_fade);
+		print("numdots (R): ");
+		println(numdots);
+		print("ringBeat (Q1-4): (may not work)");
+		println(ringBeat);
+		print("this_diff (r) :");
+		println(this_diff);
+		print("this_delay (d): ");
+		println(this_delay);
+		print("target_palette (f): ");
+		println(target_palette);
+		println("--------------------");
+		break;
+
+	case 19:
+		println("--------------------");
+		println("juggle_fire_individual");
+		println("--------------------");
+		print("juggle_index_reset (t): ");
+		println(juggle_index_reset);
+		print("this_fade (o): ");
+		println(this_fade);
+		print("numdots (R): ");
+		println(numdots);
+		print("ringBeat (Q1-4): ");
+		println(ringBeat);
+		print("this_diff (r) :");
+		println(this_diff);
+		print("cooling1 (C1) (0-255): ");
+		println(cooling1);
+		print("cooling2 (C2) (0-255): ");
+		println(cooling2);
+		print("cooling3 (C3) (0-255): ");
+		println(cooling3);
+		print("cooling4 (C4) (0-255): ");
+		println(cooling4);
+		print("sparking1 (S1) (0-255): ");
+		println(sparking1);
+		print("sparking2 (S2) (0-255): ");
+		println(sparking2);
+		print("sparking3 (S3) (0-255): ");
+		println(sparking3);
+		print("sparking4 (S4) (0-255): ");
+		println(sparking4);
+		print("this_delay (d): ");
+		println(this_delay);
+		print("target_palette (f): ");
+		println(target_palette);
+		println("--------------------");
+		break;
+
+	case 20:
+		println("--------------------");
+		println("juggle_fire_individual_same_dir");
+		println("--------------------");
+		print("juggle_index_reset (t): ");
+		println(juggle_index_reset);
+		print("this_fade (o): ");
+		println(this_fade);
+		print("numdots (R): ");
+		println(numdots);
+		print("ringBeat (Q1-4): ");
+		println(ringBeat);
+		print("this_diff (r) :");
+		println(this_diff);
+		print("cooling1 (C1) (0-255): ");
+		println(cooling1);
+		print("cooling2 (C2) (0-255): ");
+		println(cooling2);
+		print("cooling3 (C3) (0-255): ");
+		println(cooling3);
+		print("cooling4 (C4) (0-255): ");
+		println(cooling4);
+		print("sparking1 (S1) (0-255): ");
+		println(sparking1);
+		print("sparking2 (S2) (0-255): ");
+		println(sparking2);
+		print("sparking3 (S3) (0-255): ");
+		println(sparking3);
+		print("sparking4 (S4) (0-255): ");
+		println(sparking4);
+		print("this_delay (d): ");
+		println(this_delay);
+		print("target_palette (f): ");
+		println(target_palette);
+		println("--------------------");
+		break;
+
+	case 21:
+		println("--------------------");
+		println("matrix_pal_ring");
+		println("--------------------");
+		print("this_rot (k): ");
+		println(this_rot);
+		print("this_fade (o): ");
+		println(this_fade);
+		print("bg_clr (G): ");
+		println(bg_clr);
+		print("bg_bri (H): ");
+		println(bg_bri);
+		print("this_delay (d): ");
+		println(this_delay);
+		print("target_palette (f): ");
+		println(target_palette);
+		println("--------------------");
+		break;
+
+	case 22:
+		println("--------------------");
+		println("matrix_random_walk");
+		println("--------------------");
+		print("this_rot (k): ");
+		println(this_rot);
+		print("this_fade (o): ");
+		println(this_fade);
+		print("this_delay (d): ");
+		println(this_delay);
+		print("target_palette (f): ");
+		println(target_palette);
+		println("--------------------");
+		break;
+
+	case 23:
+		println("--------------------");
+		println("noise8_pal");
+		println("--------------------");
+		print("scale (I): ");
+		println(scale);
+		print("this_delay (d): ");
+		println(this_delay);
+		print("target_palette (f): ");
+		println(target_palette);
+		println("--------------------");
+		break;
+
+	case 24:
+		println("--------------------");
+		println("noise8_pal_ring");
+		println("--------------------");
+		print("scale2 (N): ");
+		println(scale2);
+		print("this_delay (d): ");
+		println(this_delay);
+		print("target_palette (f): ");
+		println(target_palette);
+		println("--------------------");
+		break;
+
+	case 25:
+		println("--------------------");
+		println("one_sin_pal");
+		println("--------------------");
+		print("this_inc (i): ");
+		println(this_inc);
+		print("this_speed (j): ");
+		println(this_speed);
+		print("all_freq (x): ");
+		println(all_freq);
+		print("this_cutoff (l): ");
+		println(this_cutoff);
+		print("this_rot (k): ");
+		println(this_rot);
+		print("bg_clr (G): ");
+		println(bg_clr);
+		print("bg_bri (H): ");
+		println(bg_bri);
+		print("this_delay (d): ");
+		println(this_delay);
+		print("target_palette (f): ");
+		println(target_palette);
+		println("--------------------");
+		break;
+
+	case 26:
+		println("--------------------");
+		println("one_sin_pal_ring");
+		println("--------------------");
+		print("this_inc (i): ");
+		println(this_inc);
+		print("this_speed (j): ");
+		println(this_speed);
+		print("all_freq (x): ");
+		println(all_freq);
+		print("this_cutoff (l): ");
+		println(this_cutoff);
+		print("this_rot (k): ");
+		println(this_rot);
+		print("bg_clr (G): ");
+		println(bg_clr);
+		print("bg_bri (H): ");
+		println(bg_bri);
+		print("this_delay (d): ");
+		println(this_delay);
+		print("target_palette (f): ");
+		println(target_palette);
+		println("--------------------");
+		break;
+
+	case 28:
+		println("--------------------");
+		println("plasma");
+		println("--------------------");
+		print("this_delay (d): ");
+		println(this_delay);
+		print("target_palette (f): ");
+		println(target_palette);
+		println("--------------------");
+		break;
+
+	case 29:
+		println("--------------------");
+		println("pride");
+		println("--------------------");
+		print("this_delay (d): ");
+		println(this_delay);
+		println("--------------------");
+		break;
+
+	case 30:
+		println("--------------------");
+		println("rainbow_march");
+		println("--------------------");
+		print("this_rot (k): ");
+		println(this_rot);
+		print("this_diff (r): ");
+		println(this_diff);
+		print("this_delay (d): ");
+		println(this_delay);
+		println("--------------------");
+		break;
+
+	case 31:
+		println("--------------------");
+		println("rainbow_march_ring");
+		println("--------------------");
+		print("this_rot (k): ");
+		println(this_rot);
+		print("this_diff (r): ");
+		println(this_diff);
+		print("this_delay (d): ");
+		println(this_delay);
+		println("--------------------");
+		break;
+
+	case 32:
+		println("--------------------");
+		println("ripple2");
+		println("--------------------");
+		print("this_fade (o): ");
+		println(this_fade);
+		print("myfade (O): ");
+		println(myfade);
+		print("target_palette (f): ");
+		println(target_palette);
+		print("this_delay (d): ");
+		println(this_delay);
+		println("--------------------");
+		break;
+
+	case 33:
+		println("--------------------");
+		println("serendipitous_pal");
+		println("--------------------");
+		print("this_fade (o): ");
+		println(this_fade);
+		print("target_palette (f): ");
+		println(target_palette);
+		print("this_delay (d): ");
+		println(this_delay);
+		println("--------------------");
+		break;
+
+	case 34:
+		println("--------------------");
+		println("serendipitous_pal_ring");
+		println("--------------------");
+		print("this_fade (o): ");
+		println(this_fade);
+		print("target_palette (f): ");
+		println(target_palette);
+		print("this_delay (d): ");
+		println(this_delay);
+		println("--------------------");
+		break;
+
+	case 35:
+		println("--------------------");
+		println("spiral does not work");
+		println("--------------------");
+		break;
+
+	case 36:
+		println("--------------------");
+		println("spiral does not work");
+		println("--------------------");
+		break;
+
+	case 37:
+		println("--------------------");
+		println("spiral_sin");
+		println("--------------------");
+		print("this_inc (i): ");
+		println(this_inc);
+		print("this_speed (j): ");
+		println(this_speed);
+		print("all_freq (x): ");
+		println(all_freq);
+		print("this_cutoff (l): ");
+		println(this_cutoff);
+		print("this_rot (k): ");
+		println(this_rot);
+		print("target_palette (f): ");
+		println(target_palette);
+		print("this_delay (d): ");
+		println(this_delay);
+		println("--------------------");
+		break;
+
+	case 38:
+		println("--------------------");
+		println("spiral_sin_sub");
+		println("--------------------");
+		print("this_inc (i): ");
+		println(this_inc);
+		print("this_speed (j): ");
+		println(this_speed);
+		print("all_freq (x): ");
+		println(all_freq);
+		print("this_cutoff (l): ");
+		println(this_cutoff);
+		print("this_rot (k): ");
+		println(this_rot);
+		print("target_palette (f): ");
+		println(target_palette);
+		print("this_delay (d): ");
+		println(this_delay);
+		println("--------------------");
+		break;
+
+	case 39:
+		println("--------------------");
+		println("one_sin_spiral");
+		println("--------------------");
+		print("this_inc (i): ");
+		println(this_inc);
+		print("this_speed (j): ");
+		println(this_speed);
+		print("all_freq (x): ");
+		println(all_freq);
+		print("this_cutoff (l): ");
+		println(this_cutoff);
+		print("this_rot (k): ");
+		println(this_rot);
+		print("bg_clr (G): ");
+		println(bg_clr);
+		print("bg_bri (H):");
+		println(bg_bri);
+		print("target_palette (f): ");
+		println(target_palette);
+		print("this_delay (d): ");
+		println(this_delay);
+		println("--------------------");
+		break;
+
+	case 40:
+		println("--------------------");
+		println("helix_spiral");
+		println("--------------------");
+		print("this_inc (i): ");
+		println(this_inc);
+		print("this_speed (j): ");
+		println(this_speed);
+		print("all_freq (x): ");
+		println(all_freq);
+		print("this_cutoff (l): ");
+		println(this_cutoff);
+		print("this_rot (k): ");
+		println(this_rot);
+		print("bg_clr (G): ");
+		println(bg_clr);
+		print("bg_bri (H):");
+		println(bg_bri);
+		print("that_speed (J): ");
+		println(that_speed);
+		print("target_palette (f): ");
+		println(target_palette);
+		print("this_delay (d): ");
+		println(this_delay);
+		println("--------------------");
+		break;
+
+	case 41:
+		println("--------------------");
+		println("plasma_spiral");
+		println("--------------------");
+		print("this_delay (d): ");
+		println(this_delay);
+		print("target_palette (f): ");
+		println(target_palette);
+		println("--------------------");
+		break;
+
+	case 42:
+		println("--------------------");
+		println("plasma_spiral2");
+		println("--------------------");
+		print("this_delay (d): ");
+		println(this_delay);
+		print("target_palette (f): ");
+		println(target_palette);
+		println("--------------------");
+		break;
+
+	case 43:
+		println("--------------------");
+		println("palette_spiral");
+		println("--------------------");
+		print("this_inc (i): ");
+		println(this_inc);
+		print("this_speed (j): ");
+		println(this_speed);
+		print("this_delay (d): ");
+		println(this_delay);
+		print("target_palette (f): ");
+		println(target_palette);
+		println("--------------------");
+		break;
+
+	case 45:
+		println("--------------------");
+		println("three_sin_pal");
+		println("--------------------");
+		print("mul1 (D): ");
+		println(mul1);
+		print("mul2 (E): ");
+		println(mul2);
+		print("mul3 (F): ");
+		println(mul3);
+		print("this_delay (d): ");
+		println(this_delay);
+		print("target_palette (f): ");
+		println(target_palette);
+		println("--------------------");
+		break;
+
+	case 46:
+		println("--------------------");
+		println("three_sin_pal_ring");
+		println("--------------------");
+		print("mul1 (D): ");
+		println(mul1);
+		print("mul2 (E): ");
+		println(mul2);
+		print("mul3 (F): ");
+		println(mul3);
+		print("this_delay (d): ");
+		println(this_delay);
+		print("target_palette (f): ");
+		println(target_palette);
+		println("--------------------");
+		break;
+
+	case 47:
+		println("--------------------");
+		println("twinkle");
+		println("--------------------");
+		print("this_delay (d): ");
+		println(this_delay);
+		print("target_palette (f): ");
+		println(target_palette);
+		println("--------------------");
+		break;
+
+	case 48:
+		println("--------------------");
+		println("two_sin");
+		println("--------------------");
+		print("this_speed (j): ");
+		println(this_speed);
+		print("that_speed (J): ");
+		println(that_speed);
+		print("this_rot (k): ");
+		println(this_rot);
+		print("that_rot (K): ");
+		println(that_rot);
+		print("all_freq (x): ");
+		println(all_freq);
+		print("this_cutoff (l): ");
+		println(this_cutoff);
+		print("that_cutoff (L): ");
+		println(that_cutoff);
+		print("this_sat (s): ");
+		println(this_sat);
+		print("this_delay (d): ");
+		println(this_delay);
+		println("--------------------");
+		break;
+
+	case 49:
+		println("--------------------");
+		println("two_sin_ring");
+		println("--------------------");
+		print("this_speed (j): ");
+		println(this_speed);
+		print("that_speed (J): ");
+		println(that_speed);
+		print("this_rot (k): ");
+		println(this_rot);
+		print("that_rot (K): ");
+		println(that_rot);
+		print("all_freq (x): ");
+		println(all_freq);
+		print("this_cutoff (l): ");
+		println(this_cutoff);
+		print("that_cutoff (L): ");
+		println(that_cutoff);
+		print("this_sat (s): ");
+		println(this_sat);
+		print("this_delay (d): ");
+		println(this_delay);
+		println("--------------------");
+		break;
+
+	case 50:
+		println("--------------------");
+		println("two_sin_pal_ring");
+		println("--------------------");
+		print("this_speed (j): ");
+		println(this_speed);
+		print("that_speed (J): ");
+		println(that_speed);
+		print("this_rot (k): ");
+		println(this_rot);
+		print("that_rot (K): ");
+		println(that_rot);
+		print("all_freq (x): ");
+		println(all_freq);
+		print("this_cutoff (l): ");
+		println(this_cutoff);
+		print("that_cutoff (L): ");
+		println(that_cutoff);
+		print("this_delay (d): ");
+		println(this_delay);
+		print("target_palette (f): ");
+		println(target_palette);
+		println("--------------------");
+		break;
+
+	case 51:
+		println("--------------------");
+		println("colorwave");
+		println("--------------------");
+		print("target_palette (f): ");
+		println(target_palette);
+		print("this_delay (d): ");
+		println(this_delay);
+		println("--------------------");
+		break;
+
+	case 52:
+		println("--------------------");
+		println("bouncing_balls");
+		println("--------------------");
+		print("this_fade (o): ");
+		println(this_fade);
+		print("this_delay (d): ");
+		println(this_delay);
+		println("--------------------");
+		break;
+
+	case 53:
+		println("--------------------");
+		println("bouncing_ball2");
+		println("--------------------");
+		print("this_fade (o): ");
+		println(this_fade);
+		print("target_palette (f): ");
+		println(target_palette);
+		print("this_delay (d): ");
+		println(this_delay);
+		println("--------------------");
+		break;
+
+	case 54:
+		println("--------------------");
+		println("matrix_saw");
+		println("--------------------");
+		print("this_fade (o): ");
+		println(this_fade);
+		print("this_delay (d): ");
+		println(this_delay);
+		print("target_palette (f): ");
+		println(target_palette);
+		println("--------------------");
+		break;
+
+	case 55:
+		println("--------------------");
+		println("circnoise_pal_1_ring");
+		println("--------------------");
+		print("scale (I): ");
+		println(scale);
+		print("target_palette (f): ");
+		println(target_palette);
+		print("this_delay (d): ");
+		println(this_delay);
+		println("--------------------");
+		break;
+
+	case 56:
+		println("--------------------");
+		println("circnoise_pal_4_ring");
+		println("--------------------");
+		print("scale (I): ");
+		println(scale);
+		print("target_palette (f): ");
+		println(target_palette);
+		print("this_delay (d): ");
+		println(this_delay);
+		println("--------------------");
+		break;
+
+	case 57:
+		println("--------------------");
+		println("cylon is dumb");
+		println("--------------------");
+		break;
+
+	case 58:
+		println("--------------------");
+		println("fade is dumb");
+		println("--------------------");
+		break;
+
+	case 59:
+		println("--------------------");
+		println("fade_rainbow is dumb");
+		println("--------------------");
+		break;
+
+	case 60:
+		println("--------------------");
+		println("matrix_ray");
+		println("--------------------");
+		print("target_palette (f): ");
+		println(target_palette);
+		print("this_delay (d): ");
+		println(this_delay);
+		println("--------------------");
+		break;
+
+	case 61:
+		println("--------------------");
+		println("juggle_pal_individual_ring_onedir_phase");
+		println("--------------------");
+		print("juggle_index_reset (t): ");
+		println(juggle_index_reset);
+		print("this_fade (o): ");
+		println(this_fade);
+		print("numdots (R): ");
+		println(numdots);
+		print("this_beat (q): ");
+		println(this_beat);
+		print("this_diff (r) :");
+		println(this_diff);
+		print("jug16_phase (T): ");
+		println(jug16_phase);
+		print("this_delay (d): ");
+		println(this_delay);
+		print("target_palette (f): ");
+		println(target_palette);
+		println("--------------------");
+		break;
+
+	case 62:
+		println("--------------------");
+		println("inoise_mover");
+		println("--------------------");
+		print("scale (I): ");
+		println(scale);
+		print("scale2 (N): ");
+		println(scale2);
+		print("this_delay (d): ");
+		println(this_delay);
+		print("target_palette (f): ");
+		println(target_palette);
+		println("--------------------");
+		break;
+
+	case 63:
+		println("--------------------");
+		println("inoise_fire");
+		println("--------------------");
+		print("scale (I): ");
+		println(scale);
+		print("scale2 (N): ");
+		println(scale2);
+		print("this_delay (d): ");
+		println(this_delay);
+		print("target_palette (f): ");
+		println(target_palette);
+		println("--------------------");
+		break;
+
+	case 64:
+		println("--------------------");
+		println("movingdot does not work");
+		println("--------------------");
+		break;
+	}
+	print("max_bright (b): ");
+	println(max_bright);
+	println("--------------------");
+	println("");
 }
 
 #endif

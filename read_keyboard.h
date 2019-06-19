@@ -247,52 +247,28 @@ void readkeyboard() {
 				Serial.println(jug16_phase);
 				break;
 
-				// U - blue_angle
+				// U - 
 			case 85:
-				this_arg = Serial.parseInt();
-				blue_angle = constrain(this_arg, 0, 255);
-				Serial.print("blue_angle: ");
-				Serial.println(blue_angle);
 				break;
 
-				// V - blue_low
+				// V - 
 			case 86:
-				this_arg = Serial.parseInt();
-				blue_low = constrain(this_arg, 0, 255);
-				Serial.print("blue_low: ");
-				Serial.println(blue_low);
 				break;
 
-				// W - blue_high
+				// W - 
 			case 87:
-				this_arg = Serial.parseInt();
-				blue_high = constrain(this_arg, 0, 255);
-				Serial.print("blue_high: ");
-				Serial.println(blue_high);
 				break;
 
-				// X - green_angle
+				// X - 
 			case 88:
-				this_arg = Serial.parseInt();
-				green_angle = constrain(this_arg, 0, 255);
-				Serial.print("green_angle: ");
-				Serial.println(green_angle);
 				break;
 
-				// Y - green_low
+				// Y - 
 			case 89:
-				this_arg = Serial.parseInt();
-				green_low = constrain(this_arg, 0, 255);
-				Serial.print("green_low: ");
-				Serial.println(green_low);
 				break;
 
-				// Z - green_high
+				// Z - 
 			case 90:
-				this_arg = Serial.parseInt();
-				green_high = constrain(this_arg, 0, 255);
-				Serial.print("green_high: ");
-				Serial.println(green_high);
 				break;
 
 				// a {hue} - set entire strip to {hue} (0-255)
@@ -399,6 +375,7 @@ void readkeyboard() {
 				transitioning = 1;
 				strobe_mode(led_mode, 1, 0); // strobe the updated mode, mc = 1, old = 0 (so cur_leds)
 				print_mode(mode_number);
+				print_variables(mode_number);
 				target_delay = this_delay;
 				this_delay = old_this_delay;
 				break;
@@ -460,12 +437,9 @@ void readkeyboard() {
 				Serial.println(juggle_index_reset);
 				break;
 
-				// u Change red_angle (0-255)
+				// u 
 			case 117:
-				this_arg = Serial.parseInt();
-				red_angle = constrain(this_arg, 0, 255);
-				Serial.print("red_angle: ");
-				Serial.println(red_angle);
+				print_variables(mode_number);
 				break;
 
 				// v Change numdots (0-255)
@@ -491,20 +465,12 @@ void readkeyboard() {
 				Serial.println(all_freq);
 				break;
 
-				// y - red_low
+				// y - 
 			case 121:
-				this_arg = Serial.parseInt();
-				red_low = constrain(this_arg, 0, 255);
-				Serial.print("red_low: ");
-				Serial.println(red_low);
 				break;
 
-				// z - red_high
+				// z - 
 			case 122:
-				this_arg = Serial.parseInt();
-				red_high = constrain(this_arg, 0, 255);
-				Serial.print("red_high: ");
-				Serial.println(red_high);
 				break;
                 
 		}
