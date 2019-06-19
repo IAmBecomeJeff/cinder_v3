@@ -58,9 +58,7 @@ void setup() {
 
 void loop() {
 	// Reset every 20 minutes
-	EVERY_N_MINUTES(20) {
-		reset();
-	}
+  EVERY_N_MINUTES(1){WRITE_RESTART(0x5FA0004);}
 
 	// Get keyboard input
 	readkeyboard();

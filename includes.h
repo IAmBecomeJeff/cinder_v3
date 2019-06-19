@@ -2,7 +2,7 @@
 #include "variables.h"
 
 // Support functions
-#include "addglitter.h"
+//#include "addglitter.h"
 #include "support_functions.h"
 #include "transition.h"
 #include "read_keyboard.h"

@@ -114,7 +114,7 @@ void readkeyboard() {
 				// I scale 
 			case 73:
 				this_arg = Serial.parseInt();
-				scale = constrain(this_arg, 0, 255);
+				scale = constrain(this_arg, 0, 65535);
 				Serial.print("scale: ");
 				Serial.println(scale);
 				break;
