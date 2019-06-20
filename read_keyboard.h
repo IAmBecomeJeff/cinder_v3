@@ -374,7 +374,7 @@ void readkeyboard() {
 				update_old_variables();
 				transitioning = 1;
 				strobe_mode(led_mode, 1, 0); // strobe the updated mode, mc = 1, old = 0 (so cur_leds)
-				print_mode(mode_number);
+				//print_mode(mode_number);
 				print_variables(mode_number);
 				target_delay = this_delay;
 				this_delay = old_this_delay;
