@@ -217,22 +217,22 @@ void readkeyboard() {
 				else if (this_arg > 1000 && this_arg < 1256) {
 					sparking1 = constrain(this_arg % 1000, 0, 255);
 					Serial.print("sparking1: ");
-					Serial.println("sparking1");
+					Serial.println(sparking1);
 				}
 				else if (this_arg > 2000 && this_arg < 2256) {
 					sparking2 = constrain(this_arg % 2000, 0, 255);
 					Serial.print("sparking2: ");
-					Serial.println("sparking2");
+					Serial.println(sparking2);
 				}
 				else if (this_arg > 3000 && this_arg < 3256) {
 					sparking3 = constrain(this_arg % 3000, 0, 255);
 					Serial.print("sparking3: ");
-					Serial.println("sparking3");
+					Serial.println(sparking3);
 				}
 				else if (this_arg > 4000 && this_arg < 4256) {
 					sparking4 = constrain(this_arg % 4000, 0, 255);
 					Serial.print("sparking4: ");
-					Serial.println("sparking4");
+					Serial.println(sparking4);
 				}
 				else {
 					Serial.println("Sparking out of range...");
@@ -374,6 +374,7 @@ void readkeyboard() {
 				update_old_variables();
 				transitioning = 1;
 				strobe_mode(led_mode, 1, 0); // strobe the updated mode, mc = 1, old = 0 (so cur_leds)
+        updatePaletteIndex(target_palette);
 				//print_mode(mode_number);
 				print_variables(mode_number);
 				target_delay = this_delay;
@@ -439,6 +440,7 @@ void readkeyboard() {
 
 				// u 
 			case 117:
+        Serial.println("");
 				print_variables(mode_number);
 				break;
 

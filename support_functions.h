@@ -97,6 +97,9 @@ void reset(void) {
 }
 
 void print_mode(uint8_t mn) {
+  Serial.print("(");
+  Serial.print(led_mode);
+  Serial.print(") ");
 	switch (mn) {
 		case 0:
 			Serial.println("Undefined");
@@ -365,6 +368,9 @@ void print_mode(uint8_t mn) {
 }
 
 void print_palette(uint8_t pn) {
+  Serial.print("(");
+  Serial.print(pn);
+  Serial.print(") ");
 	switch (pn) {
 	case 0:
 		Serial.println("ib_jul01_gp");

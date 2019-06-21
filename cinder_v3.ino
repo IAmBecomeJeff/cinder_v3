@@ -18,7 +18,7 @@ void setup() {
 
   // --------------------------------------------------------------------------------------- //
 
-  set_max_power_in_volts_and_milliamps(5, 1750); // TODO: increase power?
+  set_max_power_in_volts_and_milliamps(5, 1500); // TODO: increase power?
 
   // Set up variables
   random16_set_seed(4832);
