@@ -97,9 +97,6 @@ void reset(void) {
 }
 
 void print_mode(uint8_t mn) {
-  Serial.print("(");
-  Serial.print(led_mode);
-  Serial.print(") ");
 	switch (mn) {
 		case 0:
 			Serial.println("Undefined");
@@ -365,6 +362,9 @@ void print_mode(uint8_t mn) {
 			Serial.println("Undefined");
 			break;
 	}
+  Serial.print("(");
+  Serial.print(led_mode);
+  Serial.print(") ");
 }
 
 void print_palette(uint8_t pn) {
@@ -774,7 +774,7 @@ void print_variables(uint8_t mode_number) {
 	switch (mode_number) {
 	case 1:
 		Serial.println("--------------------");
-		Serial.println("circnoise_pal_2_ring");
+		Serial.print("circnoise_pal_2_ring"); Serial.print("("); Serial.print(led_mode); Serial.println(") ");
 		Serial.println("--------------------");
 		Serial.print("scale (I): ");
 		Serial.println(scale);
@@ -787,7 +787,7 @@ void print_variables(uint8_t mode_number) {
 
 	case 2:
 		Serial.println("--------------------");
-		Serial.println("circnoise_pal_3_ring");
+		Serial.print("circnoise_pal_3_ring"); Serial.print("("); Serial.print(led_mode); Serial.println(") ");
 		Serial.println("--------------------");
 		Serial.print("scale (I): ");
 		Serial.println(scale);
@@ -800,7 +800,7 @@ void print_variables(uint8_t mode_number) {
 
 	case 3:
 		Serial.println("--------------------");
-		Serial.println("confetti_pal_ring");
+		Serial.print("confetti_pal_ring"); Serial.print("("); Serial.print(led_mode); Serial.println(") ");
 		Serial.println("--------------------");
 		Serial.print("this_diff: (r): ");
 		Serial.println(this_diff);
@@ -817,7 +817,7 @@ void print_variables(uint8_t mode_number) {
 
 	case 4:
 		Serial.println("--------------------");
-		Serial.println("fire");
+		Serial.print("fire"); Serial.print("("); Serial.print(led_mode); Serial.println(") ");
 		Serial.println("--------------------");
 		Serial.print("cooling (C) (0-255): ");
 		Serial.println(cooling);
@@ -830,7 +830,7 @@ void print_variables(uint8_t mode_number) {
 
 	case 5:
 		Serial.println("--------------------");
-		Serial.println("fire_pal");
+		Serial.print("fire_pal"); Serial.print("("); Serial.print(led_mode); Serial.println(") ");
 		Serial.println("--------------------");
 		Serial.print("cooling (C) (0-255): ");
 		Serial.println(cooling);
@@ -845,7 +845,7 @@ void print_variables(uint8_t mode_number) {
 
 	case 6:
 		Serial.println("--------------------");
-		Serial.println("fire_mirror");
+		Serial.println("fire_mirror"); Serial.print("("); Serial.print(led_mode); Serial.println(") ");
 		Serial.println("--------------------");
 		Serial.print("cooling (C) (0-255): ");
 		Serial.println(cooling);
@@ -857,7 +857,9 @@ void print_variables(uint8_t mode_number) {
 		break;
 
 	case 7:
-		Serial.println("fire_mirror_pal");
+    Serial.println("--------------------");
+		Serial.println("fire_mirror_pal"); Serial.print("("); Serial.print(led_mode); Serial.println(") ");
+    Serial.println("--------------------");
 		Serial.print("cooling (C) (0-255): ");
 		Serial.println(cooling);
 		Serial.print("sparking (S) (0-255): ");
@@ -870,7 +872,7 @@ void print_variables(uint8_t mode_number) {
 
 	case 8:
 		Serial.println("--------------------");
-		Serial.println("fire_rings");
+		Serial.println("fire_rings"); Serial.print("("); Serial.print(led_mode); Serial.println(") ");
 		Serial.println("--------------------");
 		Serial.print("cooling1 (C1) (0-255): ");
 		Serial.println(cooling1);
@@ -895,7 +897,7 @@ void print_variables(uint8_t mode_number) {
 
 	case 9:
 		Serial.println("--------------------");
-		Serial.println("fire_pal_rings");
+		Serial.println("fire_pal_rings"); Serial.print("("); Serial.print(led_mode); Serial.println(") ");
 		Serial.println("--------------------");
 		Serial.print("cooling1 (C1) (0-255): ");
 		Serial.println(cooling1);
@@ -922,7 +924,7 @@ void print_variables(uint8_t mode_number) {
 
 	case 10:
 		Serial.println("--------------------");
-		Serial.println("fire_mirror_rings");
+		Serial.println("fire_mirror_rings"); Serial.print("("); Serial.print(led_mode); Serial.println(") ");
 		Serial.println("--------------------");
 		Serial.print("cooling1 (C1) (0-255): ");
 		Serial.println(cooling1);
@@ -947,7 +949,7 @@ void print_variables(uint8_t mode_number) {
 
 	case 11:
 		Serial.println("--------------------");
-		Serial.println("fire_mirror_pal_rings");
+		Serial.println("fire_mirror_pal_rings"); Serial.print("("); Serial.print(led_mode); Serial.println(") ");
 		Serial.println("--------------------");
 		Serial.print("cooling1 (C1) (0-255): ");
 		Serial.println(cooling1);
@@ -974,7 +976,7 @@ void print_variables(uint8_t mode_number) {
 
 	case 12:
 		Serial.println("--------------------");
-		Serial.println("fire_mirror_opp");
+		Serial.println("fire_mirror_opp"); Serial.print("("); Serial.print(led_mode); Serial.println(") ");
 		Serial.println("--------------------");
 		Serial.print("cooling1 (C1) (0-255): ");
 		Serial.println(cooling1);
@@ -999,7 +1001,7 @@ void print_variables(uint8_t mode_number) {
 
 	case 14:
 		Serial.println("--------------------");
-		Serial.println("juggle_pal_ring");
+		Serial.println("juggle_pal_ring"); Serial.print("("); Serial.print(led_mode); Serial.println(") ");
 		Serial.println("--------------------");
 		Serial.print("juggle_index_reset (t): ");
 		Serial.println(juggle_index_reset);
@@ -1020,7 +1022,7 @@ void print_variables(uint8_t mode_number) {
 
 	case 15:
 		Serial.println("--------------------");
-		Serial.println("juggle_pal_ring_onedir");
+		Serial.println("juggle_pal_ring_onedir"); Serial.print("("); Serial.print(led_mode); Serial.println(") ");
 		Serial.println("--------------------");
 		Serial.print("juggle_index_reset (t): ");
 		Serial.println(juggle_index_reset);
@@ -1041,7 +1043,7 @@ void print_variables(uint8_t mode_number) {
 
 	case 16:
 		Serial.println("--------------------");
-		Serial.println("juggle_fire");
+		Serial.println("juggle_fire"); Serial.print("("); Serial.print(led_mode); Serial.println(") ");
 		Serial.println("--------------------");
 		Serial.print("juggle_index_reset (t): ");
 		Serial.println(juggle_index_reset);
@@ -1078,7 +1080,7 @@ void print_variables(uint8_t mode_number) {
 
 	case 17:
 		Serial.println("--------------------");
-		Serial.println("juggle_pal_individual_ring_all");
+		Serial.println("juggle_pal_individual_ring_all"); Serial.print("("); Serial.print(led_mode); Serial.println(") ");
 		Serial.println("--------------------");
 		Serial.print("juggle_index_reset (t): ");
 		Serial.println(juggle_index_reset);
@@ -1099,7 +1101,7 @@ void print_variables(uint8_t mode_number) {
 
 	case 18:
 		Serial.println("--------------------");
-		Serial.println("juggle_pal_individual_ring_onedir_all");
+		Serial.println("juggle_pal_individual_ring_onedir_all"); Serial.print("("); Serial.print(led_mode); Serial.println(") ");
 		Serial.println("--------------------");
 		Serial.print("juggle_index_reset (t): ");
 		Serial.println(juggle_index_reset);
@@ -1120,7 +1122,7 @@ void print_variables(uint8_t mode_number) {
 
 	case 19:
 		Serial.println("--------------------");
-		Serial.println("juggle_fire_individual");
+		Serial.println("juggle_fire_individual"); Serial.print("("); Serial.print(led_mode); Serial.println(") ");
 		Serial.println("--------------------");
 		Serial.print("juggle_index_reset (t): ");
 		Serial.println(juggle_index_reset);
@@ -1157,7 +1159,7 @@ void print_variables(uint8_t mode_number) {
 
 	case 20:
 		Serial.println("--------------------");
-		Serial.println("juggle_fire_individual_same_dir");
+		Serial.println("juggle_fire_individual_same_dir"); Serial.print("("); Serial.print(led_mode); Serial.println(") ");
 		Serial.println("--------------------");
 		Serial.print("juggle_index_reset (t): ");
 		Serial.println(juggle_index_reset);
@@ -1194,7 +1196,7 @@ void print_variables(uint8_t mode_number) {
 
 	case 21:
 		Serial.println("--------------------");
-		Serial.println("matrix_pal_ring");
+		Serial.println("matrix_pal_ring"); Serial.print("("); Serial.print(led_mode); Serial.println(") ");
 		Serial.println("--------------------");
 		Serial.print("this_rot (k): ");
 		Serial.println(this_rot);
@@ -1213,7 +1215,7 @@ void print_variables(uint8_t mode_number) {
 
 	case 22:
 		Serial.println("--------------------");
-		Serial.println("matrix_random_walk");
+		Serial.println("matrix_random_walk"); Serial.print("("); Serial.print(led_mode); Serial.println(") ");
 		Serial.println("--------------------");
 		Serial.print("this_rot (k): ");
 		Serial.println(this_rot);
@@ -1228,7 +1230,7 @@ void print_variables(uint8_t mode_number) {
 
 	case 23:
 		Serial.println("--------------------");
-		Serial.println("noise8_pal");
+		Serial.println("noise8_pal"); Serial.print("("); Serial.print(led_mode); Serial.println(") ");
 		Serial.println("--------------------");
 		Serial.print("scale (I): ");
 		Serial.println(scale);
@@ -1241,7 +1243,7 @@ void print_variables(uint8_t mode_number) {
 
 	case 24:
 		Serial.println("--------------------");
-		Serial.println("noise8_pal_ring");
+		Serial.println("noise8_pal_ring"); Serial.print("("); Serial.print(led_mode); Serial.println(") ");
 		Serial.println("--------------------");
 		Serial.print("scale2 (N): ");
 		Serial.println(scale2);
@@ -1254,7 +1256,7 @@ void print_variables(uint8_t mode_number) {
 
 	case 25:
 		Serial.println("--------------------");
-		Serial.println("one_sin_pal");
+		Serial.println("one_sin_pal"); Serial.print("("); Serial.print(led_mode); Serial.println(") ");
 		Serial.println("--------------------");
 		Serial.print("this_inc (i): ");
 		Serial.println(this_inc);
@@ -1279,7 +1281,7 @@ void print_variables(uint8_t mode_number) {
 
 	case 26:
 		Serial.println("--------------------");
-		Serial.println("one_sin_pal_ring");
+		Serial.println("one_sin_pal_ring"); Serial.print("("); Serial.print(led_mode); Serial.println(") ");
 		Serial.println("--------------------");
 		Serial.print("this_inc (i): ");
 		Serial.println(this_inc);
@@ -1304,7 +1306,7 @@ void print_variables(uint8_t mode_number) {
 
 	case 28:
 		Serial.println("--------------------");
-		Serial.println("plasma");
+		Serial.println("plasma"); Serial.print("("); Serial.print(led_mode); Serial.println(") ");
 		Serial.println("--------------------");
 		Serial.print("this_delay (d): ");
 		Serial.println(this_delay);
@@ -1315,7 +1317,7 @@ void print_variables(uint8_t mode_number) {
 
 	case 29:
 		Serial.println("--------------------");
-		Serial.println("pride");
+		Serial.println("pride"); Serial.print("("); Serial.print(led_mode); Serial.println(") ");
 		Serial.println("--------------------");
 		Serial.print("this_delay (d): ");
 		Serial.println(this_delay);
@@ -1324,7 +1326,7 @@ void print_variables(uint8_t mode_number) {
 
 	case 30:
 		Serial.println("--------------------");
-		Serial.println("rainbow_march");
+		Serial.println("rainbow_march"); Serial.print("("); Serial.print(led_mode); Serial.println(") ");
 		Serial.println("--------------------");
 		Serial.print("this_rot (k): ");
 		Serial.println(this_rot);
@@ -1337,7 +1339,7 @@ void print_variables(uint8_t mode_number) {
 
 	case 31:
 		Serial.println("--------------------");
-		Serial.println("rainbow_march_ring");
+		Serial.println("rainbow_march_ring"); Serial.print("("); Serial.print(led_mode); Serial.println(") ");
 		Serial.println("--------------------");
 		Serial.print("this_rot (k): ");
 		Serial.println(this_rot);
@@ -1350,7 +1352,7 @@ void print_variables(uint8_t mode_number) {
 
 	case 32:
 		Serial.println("--------------------");
-		Serial.println("ripple2");
+		Serial.println("ripple2"); Serial.print("("); Serial.print(led_mode); Serial.println(") ");
 		Serial.println("--------------------");
 		Serial.print("this_fade (o): ");
 		Serial.println(this_fade);
@@ -1365,7 +1367,7 @@ void print_variables(uint8_t mode_number) {
 
 	case 33:
 		Serial.println("--------------------");
-		Serial.println("serendipitous_pal");
+		Serial.println("serendipitous_pal"); Serial.print("("); Serial.print(led_mode); Serial.println(") ");
 		Serial.println("--------------------");
 		Serial.print("this_fade (o): ");
 		Serial.println(this_fade);
@@ -1378,7 +1380,7 @@ void print_variables(uint8_t mode_number) {
 
 	case 34:
 		Serial.println("--------------------");
-		Serial.println("serendipitous_pal_ring");
+		Serial.println("serendipitous_pal_ring"); Serial.print("("); Serial.print(led_mode); Serial.println(") ");
 		Serial.println("--------------------");
 		Serial.print("this_fade (o): ");
 		Serial.println(this_fade);
@@ -1403,7 +1405,7 @@ void print_variables(uint8_t mode_number) {
 
 	case 37:
 		Serial.println("--------------------");
-		Serial.println("spiral_sin");
+		Serial.println("spiral_sin"); Serial.print("("); Serial.print(led_mode); Serial.println(") ");
 		Serial.println("--------------------");
 		Serial.print("this_inc (i): ");
 		Serial.println(this_inc);
@@ -1424,7 +1426,7 @@ void print_variables(uint8_t mode_number) {
 
 	case 38:
 		Serial.println("--------------------");
-		Serial.println("spiral_sin_sub");
+		Serial.println("spiral_sin_sub"); Serial.print("("); Serial.print(led_mode); Serial.println(") ");
 		Serial.println("--------------------");
 		Serial.print("this_inc (i): ");
 		Serial.println(this_inc);
@@ -1445,7 +1447,7 @@ void print_variables(uint8_t mode_number) {
 
 	case 39:
 		Serial.println("--------------------");
-		Serial.println("one_sin_spiral");
+		Serial.println("one_sin_spiral"); Serial.print("("); Serial.print(led_mode); Serial.println(") ");
 		Serial.println("--------------------");
 		Serial.print("this_inc (i): ");
 		Serial.println(this_inc);
@@ -1470,7 +1472,7 @@ void print_variables(uint8_t mode_number) {
 
 	case 40:
 		Serial.println("--------------------");
-		Serial.println("helix_spiral");
+		Serial.println("helix_spiral"); Serial.print("("); Serial.print(led_mode); Serial.println(") ");
 		Serial.println("--------------------");
 		Serial.print("this_inc (i): ");
 		Serial.println(this_inc);
@@ -1497,7 +1499,7 @@ void print_variables(uint8_t mode_number) {
 
 	case 41:
 		Serial.println("--------------------");
-		Serial.println("plasma_spiral");
+		Serial.println("plasma_spiral"); Serial.print("("); Serial.print(led_mode); Serial.println(") ");
 		Serial.println("--------------------");
 		Serial.print("this_delay (d): ");
 		Serial.println(this_delay);
@@ -1508,7 +1510,7 @@ void print_variables(uint8_t mode_number) {
 
 	case 42:
 		Serial.println("--------------------");
-		Serial.println("plasma_spiral2");
+		Serial.println("plasma_spiral2"); Serial.print("("); Serial.print(led_mode); Serial.println(") ");
 		Serial.println("--------------------");
 		Serial.print("this_delay (d): ");
 		Serial.println(this_delay);
@@ -1519,7 +1521,7 @@ void print_variables(uint8_t mode_number) {
 
 	case 43:
 		Serial.println("--------------------");
-		Serial.println("palette_spiral");
+		Serial.println("palette_spiral"); Serial.print("("); Serial.print(led_mode); Serial.println(") ");
 		Serial.println("--------------------");
 		Serial.print("this_inc (i): ");
 		Serial.println(this_inc);
@@ -1534,7 +1536,7 @@ void print_variables(uint8_t mode_number) {
 
 	case 45:
 		Serial.println("--------------------");
-		Serial.println("three_sin_pal");
+		Serial.println("three_sin_pal"); Serial.print("("); Serial.print(led_mode); Serial.println(") ");
 		Serial.println("--------------------");
 		Serial.print("mul1 (D): ");
 		Serial.println(mul1);
@@ -1551,7 +1553,7 @@ void print_variables(uint8_t mode_number) {
 
 	case 46:
 		Serial.println("--------------------");
-		Serial.println("three_sin_pal_ring");
+		Serial.println("three_sin_pal_ring"); Serial.print("("); Serial.print(led_mode); Serial.println(") ");
 		Serial.println("--------------------");
 		Serial.print("mul1 (D): ");
 		Serial.println(mul1);
@@ -1568,7 +1570,7 @@ void print_variables(uint8_t mode_number) {
 
 	case 47:
 		Serial.println("--------------------");
-		Serial.println("twinkle");
+		Serial.println("twinkle"); Serial.print("("); Serial.print(led_mode); Serial.println(") ");
 		Serial.println("--------------------");
 		Serial.print("this_delay (d): ");
 		Serial.println(this_delay);
@@ -1579,7 +1581,7 @@ void print_variables(uint8_t mode_number) {
 
 	case 48:
 		Serial.println("--------------------");
-		Serial.println("two_sin");
+		Serial.println("two_sin"); Serial.print("("); Serial.print(led_mode); Serial.println(") ");
 		Serial.println("--------------------");
 		Serial.print("this_speed (j): ");
 		Serial.println(this_speed);
@@ -1604,7 +1606,7 @@ void print_variables(uint8_t mode_number) {
 
 	case 49:
 		Serial.println("--------------------");
-		Serial.println("two_sin_ring");
+		Serial.println("two_sin_ring"); Serial.print("("); Serial.print(led_mode); Serial.println(") ");
 		Serial.println("--------------------");
 		Serial.print("this_speed (j): ");
 		Serial.println(this_speed);
@@ -1629,7 +1631,7 @@ void print_variables(uint8_t mode_number) {
 
 	case 50:
 		Serial.println("--------------------");
-		Serial.println("two_sin_pal_ring");
+		Serial.println("two_sin_pal_ring"); Serial.print("("); Serial.print(led_mode); Serial.println(") ");
 		Serial.println("--------------------");
 		Serial.print("this_speed (j): ");
 		Serial.println(this_speed);
@@ -1654,7 +1656,7 @@ void print_variables(uint8_t mode_number) {
 
 	case 51:
 		Serial.println("--------------------");
-		Serial.println("colorwave");
+		Serial.println("colorwave"); Serial.print("("); Serial.print(led_mode); Serial.println(") ");
 		Serial.println("--------------------");
 		Serial.print("target_palette (f): ");
 		print_palette(palette_index);
@@ -1665,7 +1667,7 @@ void print_variables(uint8_t mode_number) {
 
 	case 52:
 		Serial.println("--------------------");
-		Serial.println("bouncing_balls");
+		Serial.println("bouncing_balls"); Serial.print("("); Serial.print(led_mode); Serial.println(") ");
 		Serial.println("--------------------");
 		Serial.print("this_fade (o): ");
 		Serial.println(this_fade);
@@ -1676,7 +1678,7 @@ void print_variables(uint8_t mode_number) {
 
 	case 53:
 		Serial.println("--------------------");
-		Serial.println("bouncing_ball2");
+		Serial.println("bouncing_ball2"); Serial.print("("); Serial.print(led_mode); Serial.println(") ");
 		Serial.println("--------------------");
 		Serial.print("this_fade (o): ");
 		Serial.println(this_fade);
@@ -1689,7 +1691,7 @@ void print_variables(uint8_t mode_number) {
 
 	case 54:
 		Serial.println("--------------------");
-		Serial.println("matrix_saw");
+		Serial.println("matrix_saw"); Serial.print("("); Serial.print(led_mode); Serial.println(") ");
 		Serial.println("--------------------");
 		Serial.print("this_fade (o): ");
 		Serial.println(this_fade);
@@ -1702,7 +1704,7 @@ void print_variables(uint8_t mode_number) {
 
 	case 55:
 		Serial.println("--------------------");
-		Serial.println("circnoise_pal_1_ring");
+		Serial.println("circnoise_pal_1_ring"); Serial.print("("); Serial.print(led_mode); Serial.println(") ");
 		Serial.println("--------------------");
 		Serial.print("scale (I): ");
 		Serial.println(scale);
@@ -1715,7 +1717,7 @@ void print_variables(uint8_t mode_number) {
 
 	case 56:
 		Serial.println("--------------------");
-		Serial.println("circnoise_pal_4_ring");
+		Serial.println("circnoise_pal_4_ring"); Serial.print("("); Serial.print(led_mode); Serial.println(") ");
 		Serial.println("--------------------");
 		Serial.print("scale (I): ");
 		Serial.println(scale);
@@ -1746,7 +1748,7 @@ void print_variables(uint8_t mode_number) {
 
 	case 60:
 		Serial.println("--------------------");
-		Serial.println("matrix_ray");
+		Serial.println("matrix_ray"); Serial.print("("); Serial.print(led_mode); Serial.println(") ");
 		Serial.println("--------------------");
 		Serial.print("target_palette (f): ");
 		print_palette(palette_index);
@@ -1757,7 +1759,7 @@ void print_variables(uint8_t mode_number) {
 
 	case 61:
 		Serial.println("--------------------");
-		Serial.println("juggle_pal_individual_ring_onedir_phase");
+		Serial.println("juggle_pal_individual_ring_onedir_phase"); Serial.print("("); Serial.print(led_mode); Serial.println(") ");
 		Serial.println("--------------------");
 		Serial.print("juggle_index_reset (t): ");
 		Serial.println(juggle_index_reset);
@@ -1780,7 +1782,7 @@ void print_variables(uint8_t mode_number) {
 
 	case 62:
 		Serial.println("--------------------");
-		Serial.println("inoise_mover");
+		Serial.println("inoise_mover"); Serial.print("("); Serial.print(led_mode); Serial.println(") ");
 		Serial.println("--------------------");
 		Serial.print("scale (I): ");
 		Serial.println(scale);
@@ -1795,7 +1797,7 @@ void print_variables(uint8_t mode_number) {
 
 	case 63:
 		Serial.println("--------------------");
-		Serial.println("inoise_fire");
+		Serial.println("inoise_fire"); Serial.print("("); Serial.print(led_mode); Serial.println(") ");
 		Serial.println("--------------------");
 		Serial.print("scale (I): ");
 		Serial.println(scale);
