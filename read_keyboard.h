@@ -315,6 +315,7 @@ void readkeyboard() {
 				target_palette = g_gradient_palettes[g_current_palette_number];
 				Serial.print("Palette: ");
 				Serial.println(g_current_palette_number);
+        palette_index = g_current_palette_number;
 				print_palette(g_current_palette_number);
 				break;
 

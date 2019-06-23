@@ -18,7 +18,7 @@ void setup() {
 
   // --------------------------------------------------------------------------------------- //
 
-  set_max_power_in_volts_and_milliamps(5, 1500); // TODO: increase power?
+  set_max_power_in_volts_and_milliamps(5, 2000); // TODO: increase power?
 
   // Set up variables
   random16_set_seed(4832);
@@ -60,9 +60,10 @@ void setup() {
 void loop() {
 	// Reset every 20 minutes
   //EVERY_N_MINUTES(1){WRITE_RESTART(0x5FA0004);}
-  EVERY_N_MINUTES(23){
+  EVERY_N_MINUTES(30){
     Serial.println("Rebooting...");
-    CPU_REBOOT};
+    CPU_REBOOT
+    };
 	// Get keyboard input
 	readkeyboard();
 
