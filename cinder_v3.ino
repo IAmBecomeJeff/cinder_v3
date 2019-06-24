@@ -64,6 +64,10 @@ void loop() {
     Serial.println("Rebooting...");
     CPU_REBOOT
     };
+
+  // random
+  random16_add_entropy( random() );
+  
 	// Get keyboard input
 	readkeyboard();
 
@@ -337,7 +341,7 @@ void strobe_mode(uint8_t newMode, bool mc, bool old) {
 
 		// 22 - circular noise with party palette_ring TODO Find Palette
 	case 22:
-		if (mc) { this_delay = 10; target_palette = PartyColors_p; }
+		if (mc) { this_delay = 10; target_palette = PartyColors_p; scale = 100;}
 		circnoise_pal_3_ring(old);
 		break;
 

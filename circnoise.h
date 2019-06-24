@@ -198,7 +198,7 @@
 void circnoise_pal_1_ring(bool old) {
 	mode_number = 55;
 	if (old) {
-		int old_scale = 1000;                               // the "zoom factor" for the noise
+		//int old_scale = 1000;                               // the "zoom factor" for the noise
 
 		for (uint8_t i = 0; i < STRIP_LENGTH; i++) {
 
@@ -216,7 +216,7 @@ void circnoise_pal_1_ring(bool old) {
 			ringPalette(1, i, old_palette, old_circ_index, old_circ_bri, LINEARBLEND);
 		}
 	}else{
-		int scale = 1000;                               // the "zoom factor" for the noise
+		//int scale = 1000;                               // the "zoom factor" for the noise
 
 		for (uint8_t i = 0; i < STRIP_LENGTH; i++) {
 
@@ -239,7 +239,7 @@ void circnoise_pal_1_ring(bool old) {
 void circnoise_pal_2_ring(bool old) {
 	mode_number = 1;
 	if (old) {
-		old_scale = 1000;                               // the "zoom factor" for the noise
+		//old_scale = 1000;                               // the "zoom factor" for the noise
 
 		for (uint8_t i = 0; i < STRIP_LENGTH; i++) {
 
@@ -258,7 +258,7 @@ void circnoise_pal_2_ring(bool old) {
 
 		}
 	}else{
-		scale = 1000;                               // the "zoom factor" for the noise
+		//scale = 1000;                               // the "zoom factor" for the noise
 
 		for (uint8_t i = 0; i < STRIP_LENGTH; i++) {
 
@@ -282,7 +282,7 @@ void circnoise_pal_2_ring(bool old) {
 void circnoise_pal_3_ring(bool old) {
 	mode_number = 2;
 	if (old) {
-		old_scale = 1000;                               // the "zoom factor" for the noise
+		//old_scale = 1000;                               // the "zoom factor" for the noise
 
 		for (uint8_t i = 0; i < STRIP_LENGTH; i++) {
 
@@ -306,7 +306,7 @@ void circnoise_pal_3_ring(bool old) {
 		}
 	}
 	else {
-		scale = 1000;                               // the "zoom factor" for the noise
+		//scale = 1000;                               // the "zoom factor" for the noise
 
 		for (uint8_t i = 0; i < STRIP_LENGTH; i++) {
 
@@ -334,7 +334,7 @@ void circnoise_pal_3_ring(bool old) {
 void circnoise_pal_4_ring(bool old) {
 	mode_number = 56;
 	if (old) {
-		old_scale = 1000;                               // the "zoom factor" for the noise
+		//old_scale = 1000;                               // the "zoom factor" for the noise
 
 		for (uint8_t i = 0; i < STRIP_LENGTH; i++) {
 
@@ -358,7 +358,7 @@ void circnoise_pal_4_ring(bool old) {
 		}
 	}
 	else {
-		scale = 1000;                               // the "zoom factor" for the noise
+		//scale = 1000;                               // the "zoom factor" for the noise
 
 		for (uint8_t i = 0; i < STRIP_LENGTH; i++) {
 
