@@ -549,20 +549,6 @@ void strobe_mode(uint8_t newMode, bool mc, bool old) {
 		juggle_pal_individual_ring_all(old);
 		break;
 
-		// 57 - spiral - broken
-	case 57:
-		led_mode = 60;
-		//if (mc) { this_delay = 10; spiral_width = 3; spiral_inc = 2; this_hue = 200; }
-		//spiral(old);
-		break;
-
-		// 58 - spiral_pal - broken
-	case 58:
-		led_mode = 60;
-		//if (mc) { this_delay = 8; target_palette = bhw2_14_gp; spiral_width = 6; spiral_inc = 3; this_hue = 32; this_inc = 10; }
-		//spiral_pal(old);
-		break;
-
 		// 59 - spiral_sin_sub
 	case 59:
 
@@ -642,27 +628,6 @@ void strobe_mode(uint8_t newMode, bool mc, bool old) {
 		circnoise_pal_4_ring(old);
 		break;
 
-		// 72 - cylon
-	case 72:
-		led_mode = 71;
-		//if (mc) { this_delay = 10; target_palette = apple_green_gp; }
-		//cylon(old);
-		break;
-
-		// 73 - fade
-	case 73:
-		led_mode = 71;
-		//if (mc) { this_delay = 20; this_hue = 69; }
-		//fade(old);
-		break;
-
-		// 74 - fade_rainbow
-	case 74:
-		led_mode = 71;
-		//if (mc) { this_delay = 30; }
-		//fade_rainbow(old);
-		break;
-
 		// 75 - matrix_ray
 	case 75:
 		if (mc) { this_delay = 15; target_palette = blueice_gp; }
@@ -689,11 +654,13 @@ void strobe_mode(uint8_t newMode, bool mc, bool old) {
 
 		// 79 - movingdot - doesn't work
 	case 79:
-		led_mode = 78;
-		//if (mc) { this_delay = 10; this_fade = 32; this_index = 1; blue_angle = 20; blue_low = 180; blue_high = 255; green_angle = 2; green_low = 100; green_high = 180; red_angle = 3; red_low = 0; red_high = 255; }
-		//movingdot(old);
+		if(mc) { this_delay = 15; this_fade = 32; max_count = 100; streamer_velocity = 500; explosion_velocity = 500; }
+		fireworks(old);
 		break;
-
+		
+	default:
+		fill_solid(cur_leds, NUM_LEDS, CRGB(0, 0, 0));
+		break;
 
 		// if more modes added, must update max_modes in variables
 	}

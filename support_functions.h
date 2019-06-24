@@ -357,6 +357,10 @@ void print_mode(uint8_t mn) {
 		case 64:
 			Serial.println("movingdot");
 			break;
+		
+		case 65:
+			Serial.println("fireworks");
+			break;
 
 		default:
 			Serial.println("Undefined");
@@ -762,6 +766,14 @@ void print_palette(uint8_t pn) {
 
 	case 97:
 		Serial.println("blue_fire_gp");
+		break;
+
+	case 98:
+		Serial.println("purplefly_gp");
+		break;
+
+	case 99:
+		Serial.println("rainbow2_gp");
 		break;
 
 	default:

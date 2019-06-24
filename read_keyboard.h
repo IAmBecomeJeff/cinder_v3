@@ -441,7 +441,7 @@ void readkeyboard() {
 
 				// u 
 			case 117:
-        Serial.println("");
+				Serial.println("");
 				print_variables(mode_number);
 				break;
 
@@ -468,12 +468,20 @@ void readkeyboard() {
 				Serial.println(all_freq);
 				break;
 
-				// y - 
+				// y - streamer_velocity (0 - 65535)
 			case 121:
+				this_arg = Serial.parseInt();
+				streamer_velocity = constrain(this_arg, 0, 65535);
+				Serial.print("streamer_velocity: ");
+				Serial.println(streamer_velocity);
 				break;
 
-				// z - 
+				// z - explosion_velocity (0 - 65535)
 			case 122:
+				this_arg = Serial.parseInt();
+				explosion_velocity = constrain(this_arg, 0, 65535);
+				Serial.print("explosion_velocity: ");
+				Serial.println(explosion_velocity);
 				break;
                 
 		}

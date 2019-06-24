@@ -103,10 +103,6 @@ void update_old_variables() {
 		old_ringBeat[i] = ringBeat[i];
 	}
 	old_juggle_index_reset = juggle_index_reset;
-	old_cylon_step = cylon_step;
-	old_cylon_center = cylon_center;
-	old_cylon_index = cylon_index;
-	old_cylon_brightness = cylon_brightness;
 	old_brightdepth = brightdepth;
 	old_msmultiplier = msmultiplier;
 	old_hue8 = hue8;
@@ -142,19 +138,11 @@ void update_old_variables() {
 	old_noise = noise;
 	old_circ_index = circ_index;
 	old_circ_bri = circ_bri;
-	old_fader = fader;
 	old_jug16_phase = jug16_phase;
 
-	old_lead_led = lead_led;
-	old_blue_angle = blue_angle;
-	old_blue_low = blue_low;
-	old_blue_high = blue_high;
-	old_green_angle = green_angle;
-	old_green_low = green_low;
-	old_green_high = green_high;
-	old_red_angle = red_angle;
-	old_red_low = red_low;
-	old_red_high = red_high;;
+	old_gravs = my_gravs;
+	old_fireworks_state = fireworks_state;
+	old_my_count = my_count;
 }
 //
 //class led_class {

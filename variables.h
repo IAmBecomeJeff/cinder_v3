@@ -255,11 +255,11 @@ uint8_t that_rot = 0;                                          // You can change
 //int that_phase = 0;                                            // Phase change value gets calculated.
 uint8_t that_cutoff = 192;                                     // You can change the cutoff value to display that wave. Lower value = longer wave.
 
-// cylon variables---------------
-int cylon_step = 1;
-int cylon_center = 0;
-uint8_t cylon_index = 128;
-uint8_t cylon_brightness = 255;
+//// cylon variables---------------
+//int cylon_step = 1;
+//int cylon_center = 0;
+//uint8_t cylon_index = 128;
+//uint8_t cylon_brightness = 255;
 
 // Bouncing Ball Variables--------------
 #define GRAVITY           -1              // Downward (negative) acceleration of gravity in m/s^2
@@ -284,11 +284,34 @@ uint8_t circ_index;
 uint8_t circ_bri;
 uint32_t real_z;
 
-// moving dot variables--------
-CRGB lead_led;
-uint8_t blue_angle, blue_low, blue_high, green_angle, green_low, green_high, red_angle, red_low, red_high;
+//// moving dot variables--------
+//CRGB lead_led;
+//uint8_t blue_angle, blue_low, blue_high, green_angle, green_low, green_high, red_angle, red_low, red_high;
 
+// Fireworks Variables---------------
 
+int gravity = -8;
+int time_inc = 2;
+int max_count = 100;
+int my_count = 0;
+int streamer_velocity = 500;
+int explosion_velocity = 500;
+uint8_t fireworks_state = 0;
+
+#define num_gravs 6
+
+typedef struct {
+	long dist_old;
+	long distance;
+	int vel_old;
+	int velocity;
+	int fireworks_hue;
+	int fireworks_sat;
+	int fireworks_bri;
+} gravs;
+
+gravs my_gravs[num_gravs];
+gravs old_gravs[num_gravs];
 
 
 
@@ -419,5 +442,9 @@ uint8_t old_circ_bri;
 uint8_t old_fader = 0;
 
 // moving dot variables
-CRGB old_lead_led;
-uint8_t old_blue_angle, old_blue_low, old_blue_high, old_green_angle, old_green_low, old_green_high, old_red_angle, old_red_low, old_red_high;
+//CRGB old_lead_led;
+//uint8_t old_blue_angle, old_blue_low, old_blue_high, old_green_angle, old_green_low, old_green_high, old_red_angle, old_red_low, old_red_high;
+
+uint8_t old_fireworks_state = 0;
+gravs old_gravs[num_gravs];
+int old_my_count = 0;
