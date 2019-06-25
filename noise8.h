@@ -40,19 +40,19 @@ void noise8_pal_ring(bool old) {
 } // noise8_pal_ring()
 
 
-void inoise_mover(bool old) {
-	mode_number = 62;
-	if (old) {
-		old_this_index = map(inoise8(old_scale, old_dist + old_scale2) % 255, 0, 255, 0, STRIP_LENGTH);
-		ringPalette(1, old_this_index, old_palette, (old_this_index * 2 % 255), old_this_bright, current_blending);
-		old_dist += beatsin8(10, 1, 4);
-	}
-	else {
-		this_index = map(inoise8(scale, dist + scale2) % 255, 0, 255, 0, STRIP_LENGTH);
-		ringPalette(0, this_index, current_palette, (this_index * 2 % 255), this_bright, current_blending);
-		dist += beatsin8(10, 1, 4);
-	}
-}
+//void inoise_mover(bool old) {
+//	mode_number = 62;
+//	if (old) {
+//		old_this_index = map(inoise8(old_scale, old_dist + old_scale2) % 255, 0, 255, 0, STRIP_LENGTH);
+//		ringPalette(1, old_this_index, old_palette, (old_this_index * 2 % 255), old_this_bright, current_blending);
+//		old_dist += beatsin8(10, 1, 4);
+//	}
+//	else {
+//		this_index = map(inoise8(scale, dist + scale2) % 255, 0, 255, 0, STRIP_LENGTH);
+//		ringPalette(0, this_index, current_palette, (this_index * 2 % 255), this_bright, current_blending);
+//		dist += beatsin8(10, 1, 4);
+//	}
+//}
 
 
 void inoise_fire(bool old) {

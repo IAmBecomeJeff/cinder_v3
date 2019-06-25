@@ -27,7 +27,7 @@ void update_old_variables() {
 	old_this_sat = this_sat;
 	old_this_speed = this_speed;
 	old_that_speed = that_speed;
-	old_wave_brightness = wave_brightness;
+//	old_wave_brightness = wave_brightness;
 	old_plasma_phase1 = plasma_phase1;
 	old_plasma_phase2 = plasma_phase2;
 	old_plasmaIndex = plasmaIndex;
@@ -38,20 +38,20 @@ void update_old_variables() {
 	if (old_rip_step < 0) {
 		old_rip_step = -1;
 	}
-	old_rip_fadeRate = rip_fadeRate;
-	old_rip_currentBg = rip_currentBg;
-	old_rip_nextBg = rip_nextBg;
+	//old_rip_fadeRate = rip_fadeRate;
+	//old_rip_currentBg = rip_currentBg;
+	//old_rip_nextBg = rip_nextBg;
 	//old_myfade = myfade;
 	//old_fadeval = fadeval;
-	old_twinkle_speed = twinkle_speed;
-	old_twinkle_density = twinkle_density;
-	old_twinkle_bg = twinkle_bg;
-	old_auto_select_background_color = auto_select_background_color;
-	old_cool_like_incandescent = cool_like_incandescent;
-	old_bglight = bglight;
-	old_backgroundBrightness = backgroundBrightness;
-	old_bg = bg;
-	old_numdots = numdots;
+	//old_twinkle_speed = twinkle_speed;
+	//old_twinkle_density = twinkle_density;
+	//old_twinkle_bg = twinkle_bg;
+	//old_auto_select_background_color = auto_select_background_color;
+	//old_cool_like_incandescent = cool_like_incandescent;
+	//old_bglight = bglight;
+	//old_backgroundBrightness = backgroundBrightness;
+	//old_bg = bg;
+	//old_numdots = numdots;
 	old_numdots_ring = numdots_ring;
 	old_cooling = cooling;
 	old_cooling1 = cooling1;
@@ -77,12 +77,12 @@ void update_old_variables() {
 	old_Y = Y;
 	old_Xn = Xn;
 	old_Yn = Yn;
-	old_Xorig2 = Xorig2;
-	old_Yorig2 = Yorig2;
-	old_X2 = X2;
-	old_Y2 = Y2;
-	old_Xn2 = Xn2;
-	old_Yn2 = Yn2;
+	//old_Xorig2 = Xorig2;
+	//old_Yorig2 = Yorig2;
+	//old_X2 = X2;
+	//old_Y2 = Y2;
+	//old_Xn2 = Xn2;
+	//old_Yn2 = Yn2;
 	old_wave1 = wave1;
 	old_wave2 = wave2;
 	old_wave3 = wave3;
@@ -138,10 +138,10 @@ void update_old_variables() {
 	old_noise = noise;
 	old_circ_index = circ_index;
 	old_circ_bri = circ_bri;
-	old_jug16_phase = jug16_phase;
-  for (uint8_t i = 0; i < num_gravs; i++){
-    old_gravs[i] = my_gravs[i];
-  }
+//	old_jug16_phase = jug16_phase;
+//  for (uint8_t i = 0; i < num_gravs; i++){
+//    old_gravs[i] = my_gravs[i];
+//  }
 //  old_gravs.dist_old = my_gravs.dist_old;
 //  old_gravs.distance = my_gravs.distance;
 //  old_gravs.vel_old = my_gravs.vel_old;
@@ -149,8 +149,8 @@ void update_old_variables() {
 //  old_gravs.fireworks_hue = my_gravs.fireworks_hue;
 //  old_gravs.fireworks_sat = my_gravs.fireworks_sat;
 //  old_gravs.fireworks_bri = my_gravs.fireworks_bri;
-	old_fireworks_state = fireworks_state;
-	old_my_count = my_count;
+//	old_fireworks_state = fireworks_state;
+//	old_my_count = my_count;
 }
 //
 //class led_class {

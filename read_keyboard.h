@@ -24,18 +24,18 @@ void readkeyboard() {
 
 				// A spiral_width
 			case 65:
-				this_arg = Serial.parseInt();
-				spiral_width = constrain(this_arg, 0, 255);
-				Serial.print("spiral_width: ");
-				Serial.println(spiral_width);
+//				this_arg = Serial.parseInt();
+//				spiral_width = constrain(this_arg, 0, 255);
+//				Serial.print("spiral_width: ");
+//				Serial.println(spiral_width);
 				break;
 
 				// B spiral_inc
 			case 66:
-				this_arg = Serial.parseInt();
-				spiral_inc = constrain(this_arg, 0, 255);
-				Serial.print("spiral_inc: ");
-				Serial.println(spiral_inc);
+//				this_arg = Serial.parseInt();
+//				spiral_inc = constrain(this_arg, 0, 255);
+//				Serial.print("spiral_inc: ");
+//				Serial.println(spiral_inc);
 				break;
 
 				// C - Change Cooling
@@ -262,9 +262,9 @@ void readkeyboard() {
 				// T - jug16_phase
 			case 84:
 				this_arg = Serial.parseInt();
-				jug16_phase = constrain(this_arg, 0, 65535);
+//				jug16_phase = constrain(this_arg, 0, 65535);
 				Serial.print("jug16_phase: ");
-				Serial.println(jug16_phase);
+//				Serial.println(jug16_phase);
 				break;
 
 				// U - 
@@ -328,7 +328,7 @@ void readkeyboard() {
 
 				// f {palette_number} - set the current palette
 			case 102:
-				demo_run = 0;
+				//demo_run = 0;
 				palette_change = 0;
 				this_arg = Serial.parseInt();
 				g_current_palette_number = this_arg % g_gradient_palette_count;
@@ -467,10 +467,10 @@ void readkeyboard() {
 
 				// v Change numdots (0-255)
 			case 118:
-				this_arg = Serial.parseInt();
-				numdots = constrain(this_arg, 0, 255);
-				Serial.print("numdots: ");
-				Serial.println(numdots);
+//				this_arg = Serial.parseInt();
+//				numdots = constrain(this_arg, 0, 255);
+//				Serial.print("numdots: ");
+//				Serial.println(numdots);
 				break;
 
 				// w - write current mode to EEPROM
@@ -490,18 +490,18 @@ void readkeyboard() {
 
 				// y - streamer_velocity (0 - 65535)
 			case 121:
-				this_arg = Serial.parseInt();
-				streamer_velocity = constrain(this_arg, 0, 65535);
-				Serial.print("streamer_velocity: ");
-				Serial.println(streamer_velocity);
+//				this_arg = Serial.parseInt();
+//				streamer_velocity = constrain(this_arg, 0, 65535);
+//				Serial.print("streamer_velocity: ");
+//				Serial.println(streamer_velocity);
 				break;
 
 				// z - explosion_velocity (0 - 65535)
 			case 122:
-				this_arg = Serial.parseInt();
-				explosion_velocity = constrain(this_arg, 0, 65535);
-				Serial.print("explosion_velocity: ");
-				Serial.println(explosion_velocity);
+//				this_arg = Serial.parseInt();
+//				explosion_velocity = constrain(this_arg, 0, 65535);
+//				Serial.print("explosion_velocity: ");
+//				Serial.println(explosion_velocity);
 				break;
                 
 		}

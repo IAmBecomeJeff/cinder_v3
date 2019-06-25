@@ -9,65 +9,65 @@
 // this_inc = 1
 // freq = 6
 // this_rot = 1
-
-void spiral_sin(bool old) {
-	mode_number = 37;
-	if (old) {
-		fill_solid(old_leds, NUM_LEDS, CRGB(0, 0, 0));
-		old_start_index += old_this_inc;
-		old_this_index = old_start_index;
-		old_this_phase += old_this_speed;
-		for (int k = 0; k < STRIP_LENGTH; k++) {                                                            // For each of the LED's in the strand, set a brightness based on a wave as follows:
-			for (int r = 0; r < 4; r++) {
-				int old_spiral_bri = qsuba(scale8(cubicwave8((k*old_all_freq) + r * 64 + old_this_phase), 120), old_this_cutoff);
-				old_leds[ringArray[k][r]] = ColorFromPalette(old_palette, old_this_index + k * old_this_inc, old_spiral_bri, current_blending);
-			}
-			old_this_index += old_this_rot;
-		}
-	}
-	else {
-		fill_solid(leds, NUM_LEDS, CRGB(0, 0, 0));
-		start_index += this_inc;
-		this_index = start_index;
-		this_phase += this_speed;
-		for (int k = 0; k < STRIP_LENGTH; k++) {                                                            // For each of the LED's in the strand, set a brightness based on a wave as follows:
-			for (int r = 0; r < 4; r++) {
-				int spiral_bri = qsuba(scale8(cubicwave8((k*all_freq) + r * 64 + this_phase), 120), this_cutoff);
-				cur_leds[ringArray[k][r]] = ColorFromPalette(current_palette, this_index + k * this_inc, spiral_bri, current_blending);
-			}
-			this_index += this_rot;
-		}
-	}
-}
-
-void spiral_sin_sub(bool old) {
-	mode_number = 38;
-	if (old) {
-		fill_solid(old_leds, NUM_LEDS, CRGB(0, 0, 0));
-		old_start_index += old_this_inc;
-		old_this_index = old_start_index;
-		old_this_phase += old_this_speed;
-		for (int k = 0; k < STRIP_LENGTH; k++) {                                                            // For each of the LED's in the strand, set a brightness based on a wave as follows:
-			for (int r = 0; r < 4; r++) {
-				int old_spiral_bri = qsuba(cubicwave8((k*old_all_freq) + r * 64 + old_this_phase) - 192, old_this_cutoff);
-				old_leds[ringArray[k][r]] = ColorFromPalette(old_palette, old_this_index + k * old_this_inc, old_spiral_bri, current_blending);
-			}
-			old_this_index += old_this_rot;
-		}
-	}else{
-		fill_solid(leds, NUM_LEDS, CRGB(0, 0, 0));
-		start_index += this_inc;
-		this_index = start_index;
-		this_phase += this_speed;
-		for (int k = 0; k < STRIP_LENGTH; k++) {                                                            // For each of the LED's in the strand, set a brightness based on a wave as follows:
-			for (int r = 0; r < 4; r++) {
-				int spiral_bri = qsuba(cubicwave8((k*all_freq) + r * 64 + this_phase) - 192, this_cutoff);
-				cur_leds[ringArray[k][r]] = ColorFromPalette(current_palette, this_index + k * this_inc, spiral_bri, current_blending);
-			}
-			this_index += this_rot;
-		}
-	}
-}
+//
+//void spiral_sin(bool old) {
+//	mode_number = 37;
+//	if (old) {
+//		fill_solid(old_leds, NUM_LEDS, CRGB(0, 0, 0));
+//		old_start_index += old_this_inc;
+//		old_this_index = old_start_index;
+//		old_this_phase += old_this_speed;
+//		for (int k = 0; k < STRIP_LENGTH; k++) {                                                            // For each of the LED's in the strand, set a brightness based on a wave as follows:
+//			for (int r = 0; r < 4; r++) {
+//				int old_spiral_bri = qsuba(scale8(cubicwave8((k*old_all_freq) + r * 64 + old_this_phase), 120), old_this_cutoff);
+//				old_leds[ringArray[k][r]] = ColorFromPalette(old_palette, old_this_index + k * old_this_inc, old_spiral_bri, current_blending);
+//			}
+//			old_this_index += old_this_rot;
+//		}
+//	}
+//	else {
+//		fill_solid(leds, NUM_LEDS, CRGB(0, 0, 0));
+//		start_index += this_inc;
+//		this_index = start_index;
+//		this_phase += this_speed;
+//		for (int k = 0; k < STRIP_LENGTH; k++) {                                                            // For each of the LED's in the strand, set a brightness based on a wave as follows:
+//			for (int r = 0; r < 4; r++) {
+//				int spiral_bri = qsuba(scale8(cubicwave8((k*all_freq) + r * 64 + this_phase), 120), this_cutoff);
+//				cur_leds[ringArray[k][r]] = ColorFromPalette(current_palette, this_index + k * this_inc, spiral_bri, current_blending);
+//			}
+//			this_index += this_rot;
+//		}
+//	}
+//}
+//
+//void spiral_sin_sub(bool old) {
+//	mode_number = 38;
+//	if (old) {
+//		fill_solid(old_leds, NUM_LEDS, CRGB(0, 0, 0));
+//		old_start_index += old_this_inc;
+//		old_this_index = old_start_index;
+//		old_this_phase += old_this_speed;
+//		for (int k = 0; k < STRIP_LENGTH; k++) {                                                            // For each of the LED's in the strand, set a brightness based on a wave as follows:
+//			for (int r = 0; r < 4; r++) {
+//				int old_spiral_bri = qsuba(cubicwave8((k*old_all_freq) + r * 64 + old_this_phase) - 192, old_this_cutoff);
+//				old_leds[ringArray[k][r]] = ColorFromPalette(old_palette, old_this_index + k * old_this_inc, old_spiral_bri, current_blending);
+//			}
+//			old_this_index += old_this_rot;
+//		}
+//	}else{
+//		fill_solid(leds, NUM_LEDS, CRGB(0, 0, 0));
+//		start_index += this_inc;
+//		this_index = start_index;
+//		this_phase += this_speed;
+//		for (int k = 0; k < STRIP_LENGTH; k++) {                                                            // For each of the LED's in the strand, set a brightness based on a wave as follows:
+//			for (int r = 0; r < 4; r++) {
+//				int spiral_bri = qsuba(cubicwave8((k*all_freq) + r * 64 + this_phase) - 192, this_cutoff);
+//				cur_leds[ringArray[k][r]] = ColorFromPalette(current_palette, this_index + k * this_inc, spiral_bri, current_blending);
+//			}
+//			this_index += this_rot;
+//		}
+//	}
+//}
 
 
 void one_sin_spiral(bool old) {
@@ -220,50 +220,50 @@ void plasma_spiral2(bool old) {
 	}
 } // plasma_spiral()
 
-void spiral_fill_palette(bool old, uint8_t spine, uint8_t startIndex, uint8_t incIndex, CRGBPalette16 pal=current_palette, uint8_t bri = this_bright, TBlendType blending=current_blending){
-	mode_number = 43;
-	if (old) {
-		uint8_t colorIndex = startIndex;
-		for (uint16_t i = 0; i < STRIP_LENGTH; i++) {
-			old_leds[spiralArray[spine][i]] = ColorFromPalette(pal, colorIndex, bri, blending);
-			colorIndex += incIndex;
-		}
-	}
-	else {
-		uint8_t colorIndex = startIndex;
-		for (uint16_t i = 0; i < STRIP_LENGTH; i++) {
-			cur_leds[spiralArray[spine][i]] = ColorFromPalette(pal, colorIndex, bri, blending);
-			colorIndex += incIndex;
-		}
-	}
- }
+//void spiral_fill_palette(bool old, uint8_t spine, uint8_t startIndex, uint8_t incIndex, CRGBPalette16 pal=current_palette, uint8_t bri = this_bright, TBlendType blending=current_blending){
+//	mode_number = 43;
+//	if (old) {
+//		uint8_t colorIndex = startIndex;
+//		for (uint16_t i = 0; i < STRIP_LENGTH; i++) {
+//			old_leds[spiralArray[spine][i]] = ColorFromPalette(pal, colorIndex, bri, blending);
+//			colorIndex += incIndex;
+//		}
+//	}
+//	else {
+//		uint8_t colorIndex = startIndex;
+//		for (uint16_t i = 0; i < STRIP_LENGTH; i++) {
+//			cur_leds[spiralArray[spine][i]] = ColorFromPalette(pal, colorIndex, bri, blending);
+//			colorIndex += incIndex;
+//		}
+//	}
+// }
 
 
-void palette_spiral(bool old){
-	mode_number = 44;
-	if (old) {
-		if (old_this_dir) {
-			old_this_index += old_this_speed;
-		}
-		else { old_this_index -= old_this_speed; }
-
-		spiral_fill_palette(0, 0, old_this_index, old_this_inc, old_palette, old_this_bright, current_blending);
-		spiral_fill_palette(0, 1, old_this_index + 64, old_this_inc, old_palette, old_this_bright, current_blending);
-		spiral_fill_palette(0, 2, old_this_index + 128, old_this_inc, old_palette, old_this_bright, current_blending);
-		spiral_fill_palette(0, 3, old_this_index + 192, old_this_inc, old_palette, old_this_bright, current_blending);
-	}
-	else {
-		if (this_dir) {
-			this_index += this_speed;
-		}
-		else { this_index -= this_speed; }
-
-		spiral_fill_palette(1, 0, this_index, this_inc, current_palette, this_bright, current_blending);
-		spiral_fill_palette(1, 1, this_index + 64, this_inc, current_palette, this_bright, current_blending);
-		spiral_fill_palette(1, 2, this_index + 128, this_inc, current_palette, this_bright, current_blending);
-		spiral_fill_palette(1, 3, this_index + 192, this_inc, current_palette, this_bright, current_blending);
-	}
-}
+//void palette_spiral(bool old){
+//	mode_number = 44;
+//	if (old) {
+//		if (old_this_dir) {
+//			old_this_index += old_this_speed;
+//		}
+//		else { old_this_index -= old_this_speed; }
+//
+//		spiral_fill_palette(0, 0, old_this_index, old_this_inc, old_palette, old_this_bright, current_blending);
+//		spiral_fill_palette(0, 1, old_this_index + 64, old_this_inc, old_palette, old_this_bright, current_blending);
+//		spiral_fill_palette(0, 2, old_this_index + 128, old_this_inc, old_palette, old_this_bright, current_blending);
+//		spiral_fill_palette(0, 3, old_this_index + 192, old_this_inc, old_palette, old_this_bright, current_blending);
+//	}
+//	else {
+//		if (this_dir) {
+//			this_index += this_speed;
+//		}
+//		else { this_index -= this_speed; }
+//
+//		spiral_fill_palette(1, 0, this_index, this_inc, current_palette, this_bright, current_blending);
+//		spiral_fill_palette(1, 1, this_index + 64, this_inc, current_palette, this_bright, current_blending);
+//		spiral_fill_palette(1, 2, this_index + 128, this_inc, current_palette, this_bright, current_blending);
+//		spiral_fill_palette(1, 3, this_index + 192, this_inc, current_palette, this_bright, current_blending);
+//	}
+//}
 
 
 

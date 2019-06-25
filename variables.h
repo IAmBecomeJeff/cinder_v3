@@ -9,7 +9,7 @@
 #include "Bounce2.h"
 
 // Unsigned subtraction magic
-#define qsubd(x, b) ((x>b)?wave_brightness:0)		// A digital unsigned subtraction macro. if result <0, then => 0. Otherwise, take on fixed value.
+#define qsubd(x, b) ((x>b)?255:0)		// A digital unsigned subtraction macro. if result <0, then => 0. Otherwise, take on fixed value.
 #define qsuba(x, b) ((x>b)?x-b:0)					// Unsigned subtraction macro. if result <0, then => 0.
 
 // Serial vars
@@ -65,13 +65,13 @@ TBlendType current_blending;           // Linear vs No-Blending
 extern const TProgmemRGBGradientPalettePtr g_gradient_palettes[];   // from gradient_palettes.h
 extern const uint8_t g_gradient_palette_count;                      // # of fixed palettes
 uint8_t g_current_palette_number  = 0;                              // Current palette number
-uint8_t current_pattern_index     = 5;                              // Index of current pattern
+//uint8_t current_pattern_index     = 5;                              // Index of current pattern
 //uint8_t default_mode              = 34;                             // Default mode to go to
 
 // LED Overall Variables
 uint8_t max_bright  = 128;		// Overall brightness, it can be changed on the fly.  TODO: Maybe lower this to 100?
-uint8_t max_mode    = 79;		// maximum number of modes
-uint8_t demo_run    = 0;		// 0 = regular mode, 1 = demo mode, 2 = shuffle mode
+uint8_t max_mode    = 92;		// maximum number of modes
+//uint8_t demo_run    = 0;		// 0 = regular mode, 1 = demo mode, 2 = shuffle mode
 int led_mode;				// Starting mode is typically 0
 uint8_t old_mode;
 bool transitioning = 0;	// transitioning flag
@@ -103,38 +103,31 @@ uint8_t this_rot        = 1;      // Standard hue rotation rate
 uint8_t this_sat        = 255;    // Standard saturation
 uint8_t this_speed      = 4;      // Standard speed change
 uint8_t that_speed      = 4;      // Second speed
-uint8_t wave_brightness = 255;    // Brightness of the waves/bars
+//uint8_t wave_brightness = 255;    // Brightness of the waves/bars
 uint8_t xd[NUM_LEDS];             // X-array for 2d coordinates of leds
 uint8_t yd[NUM_LEDS];             // Y-array for 2d coordinates of leds
 int ringArray[144][4];      	  // Array for rings
 int spiralArray[4][144];		  // Array for spirals
 int spiralArrayRev[4][144];
-int w = 3; 						  // width of spirals
-uint8_t jug_fade = 16;
-uint8_t jug_index = 0;
-uint16_t jug16_phase = 0;
-bool juggle_index_reset = 1;
-int ringBeat[] = { 3, 2, 0, 1 };
-int numdots_ring_arr[] = {4, 6, 5, 8};
-bool fire_it_up = 0;
-bool fire_it_down = 0;
-uint8_t fire_blend = 0;
+//int w = 3; 						  // width of spirals
+//bool fire_it_up = 0;
+//bool fire_it_down = 0;
+//uint8_t fire_blend = 0;
 
 // colorwave variables-------------------
 uint16_t sPseudotime = 0;
 uint16_t sLastMillis = 0;
 uint16_t sHue16 = 0;
-
 uint8_t brightdepth, msmultiplier, hue8, bri8, cwave_index;
 uint16_t brightnessthetainc16, hue16, hueinc16, ms, deltams, brightnesstheta16, h16_128, b16, bri16, pixelnumber;
 
 // matrix_saw--------------------
-uint8_t matrix_rate[] = { 2, 4, 6, 8, 10 };
-uint8_t num_mat_dots = 5;
-uint8_t this_scale = 30;
+//uint8_t matrix_rate[] = { 2, 4, 6, 8, 10 };
+//uint8_t num_mat_dots = 5;
+//uint8_t this_scale = 30;
 
 // fader
-uint8_t fader;
+//uint8_t fader;
 
 //Variables for plasma-----------------
 int plasma_phase1;
@@ -147,13 +140,13 @@ int plasmaBright;
 int rip_color;
 int rip_center = 0;
 int rip_step = -1;
-int rip_delay = -10;
+//int rip_delay = -10;
 int rip_pause = -10;
 #define rip_maxSteps 16
-float rip_fadeRate = 0.8;
+//float rip_fadeRate = 0.8;
 //Ripple background color
-uint8_t rip_currentBg = random(256);
-uint8_t rip_nextBg = rip_currentBg;
+//uint8_t rip_currentBg = random(256);
+//uint8_t rip_nextBg = rip_currentBg;
 uint8_t rip_fade = 255;
 // fadeval = 128;
 //uint8_t bgcol = 0;
@@ -161,18 +154,24 @@ uint8_t rip_fade = 255;
 
 
 //Twinkle Variables---------------
-byte twinkle_speed = 4; // 0 - 8
-byte twinkle_density = 5;	// 0 - 8
-CRGB twinkle_bg = CRGB::Black; // CRGB(CRGB::FairyLight).nscale8_video(16);
-byte auto_select_background_color = 0;
-byte cool_like_incandescent = 1;
-uint8_t bglight;
-uint8_t backgroundBrightness;
-CRGB bg;
+//byte twinkle_speed = 4; // 0 - 8
+//byte twinkle_density = 5;	// 0 - 8
+//CRGB twinkle_bg = CRGB::Black; // CRGB(CRGB::FairyLight).nscale8_video(16);
+//byte auto_select_background_color = 0;
+//byte cool_like_incandescent = 1;
+//uint8_t bglight;
+//uint8_t backgroundBrightness;
+//CRGB bg;
 
 //Juggle Variables-------------------
-uint8_t numdots;
+//uint8_t numdots;
 uint8_t numdots_ring;   			// dots for juggle_pal_ring
+uint8_t jug_fade = 16;
+uint8_t jug_index = 0;
+//uint16_t jug16_phase = 0;
+bool juggle_index_reset = 1;
+int ringBeat[] = { 3, 2, 0, 1 };
+int numdots_ring_arr[] = { 4, 6, 5, 8 };
 
 //Fire Variables-------------------
 uint8_t cooling = 55;				// Cooling variable for fire
@@ -185,8 +184,8 @@ uint8_t sparking1;
 uint8_t sparking2;
 uint8_t sparking3;
 uint8_t sparking4;
-uint8_t cooling_simple[] = { 75, 84, 92, 80 };
-uint8_t sparking_simple[] = { 50, 49, 61, 69 };
+//uint8_t cooling_simple[] = { 75, 84, 92, 80 };
+//uint8_t sparking_simple[] = { 50, 49, 61, 69 };
 
 ////Disco Variables
 //uint8_t zooming_beats_per_minute = 122; // zooming for disco
@@ -211,9 +210,9 @@ unsigned long debounceDelay = 50;
 Bounce debouncer = Bounce();
 
 //Spiral Variables----------------
-int spiral_start;
-int spiral_inc;
-int spiral_width;
+//int spiral_start;
+//int spiral_inc;
+//int spiral_width;
 
 // noise8 variables--------------
 
@@ -231,12 +230,12 @@ uint16_t Y=Yorig;
 uint16_t Xn;
 uint16_t Yn;
 
-uint16_t Xorig2 = 0x013;
-uint16_t Yorig2 = 0x021;
-uint16_t X2=Xorig2;
-uint16_t Y2=Yorig2;
-uint16_t Xn2;
-uint16_t Yn2;
+//uint16_t Xorig2 = 0x013;
+//uint16_t Yorig2 = 0x021;
+//uint16_t X2=Xorig2;
+//uint16_t Y2=Yorig2;
+//uint16_t Xn2;
+//uint16_t Yn2;
 
 // three sin variables--------------
 
@@ -290,32 +289,32 @@ uint32_t real_z;
 
 // Fireworks Variables---------------
 
-int gravity = -8;
-int time_inc = 2;
-int max_count = 100;
-int my_count = 0;
-int streamer_velocity = 500;
-int explosion_velocity = 500;
-uint8_t fireworks_state = 0;
-
-#define num_gravs 6
-
-typedef struct {
-	long dist_old;
-	long distance;
-	int vel_old;
-	int velocity;
-	int fireworks_hue;
-	int fireworks_sat;
-	int fireworks_bri;
-} gravs;
-
-gravs my_gravs[num_gravs];
-
-
+//int gravity = -8;
+//int time_inc = 2;
+//int max_count = 100;
+//int my_count = 0;
+//int streamer_velocity = 500;
+//int explosion_velocity = 500;
+//uint8_t fireworks_state = 0;
+//
+//#define num_gravs 6
+//
+//typedef struct {
+//	long dist_old;
+//	long distance;
+//	int vel_old;
+//	int velocity;
+//	int fireworks_hue;
+//	int fireworks_sat;
+//	int fireworks_bri;
+//} gravs;
+//
+//gravs my_gravs[num_gravs];
 
 
-///////// Variables for transitioning:
+
+
+///////// Variables for transitioning:********************************************************************************************
 // LED Routine/Shared Variables
 uint8_t old_all_freq, old_bg_clr, old_bg_bri, old_start_index, old_this_beat, old_this_bright, old_that_bright, old_this_cutoff;
 int     old_this_delay = 0;      // Standard delay
@@ -330,36 +329,37 @@ uint8_t old_wave_brightness = 255;    // Brightness of the waves/bars
 uint8_t old_xd[NUM_LEDS];             // X-array for 2d coordinates of leds
 uint8_t old_yd[NUM_LEDS];
 uint8_t target_delay = 10;
-bool pal_change = 0;
+//bool pal_change = 0;
 
 int old_plasma_phase1, old_plasma_phase2, old_plasmaIndex, old_plasmaBright;
 
 int old_rip_color;
 int old_rip_center = 0;
 int old_rip_step = -1;
-float old_rip_fadeRate = 0.8;
-uint32_t old_rip_currentBg = random(256);
-uint32_t old_rip_nextBg = rip_currentBg;
+//float old_rip_fadeRate = 0.8;
+//uint32_t old_rip_currentBg = random(256);
+//uint32_t old_rip_nextBg = rip_currentBg;
 uint8_t old_rip_fade = 255;
 //uint8_t old_fadeval = 128;
 
-byte old_twinkle_speed = 4;
-byte old_twinkle_density = 5;
-CRGB old_twinkle_bg = CRGB::Black;
-byte old_auto_select_background_color = 0;
-byte old_cool_like_incandescent = 1;
-uint8_t old_bglight;
-uint8_t old_backgroundBrightness;
-CRGB old_bg;
+//byte old_twinkle_speed = 4;
+//byte old_twinkle_density = 5;
+//CRGB old_twinkle_bg = CRGB::Black;
+//byte old_auto_select_background_color = 0;
+//byte old_cool_like_incandescent = 1;
+//uint8_t old_bglight;
+//uint8_t old_backgroundBrightness;
+//CRGB old_bg;
 
-uint8_t old_numdots, old_numdots_ring;
+//uint8_t old_numdots
+uint8_t old_numdots_ring;
 bool old_juggle_index_reset;
-uint16_t old_jug16_phase;
+//uint16_t old_jug16_phase;
 
 uint8_t old_cooling, old_cooling1, old_cooling2, old_cooling3, old_cooling4;
 uint8_t old_sparking, old_sparking1, old_sparking2, old_sparking3, old_sparking4;
-uint8_t old_cooling_simple[] = { 75, 84, 92, 80 };
-uint8_t old_sparking_simple[] = { 50, 49, 61, 69 };
+//uint8_t old_cooling_simple[] = { 75, 84, 92, 80 };
+//uint8_t old_sparking_simple[] = { 50, 49, 61, 69 };
 
 //uint8_t old_zooming_beats_per_minute = 122;
 //uint8_t old_color_index = 0;
@@ -378,12 +378,12 @@ uint16_t old_Y = old_Yorig;
 uint16_t old_Xn;
 uint16_t old_Yn;
 
-uint16_t old_Xorig2 = 0x013;
-uint16_t old_Yorig2 = 0x021;
-uint16_t old_X2 = old_Xorig;
-uint16_t old_Y2 = old_Yorig;
-uint16_t old_Xn2;
-uint16_t old_Yn2;
+//uint16_t old_Xorig2 = 0x013;
+//uint16_t old_Yorig2 = 0x021;
+//uint16_t old_X2 = old_Xorig;
+//uint16_t old_Y2 = old_Yorig;
+//uint16_t old_Xn2;
+//uint16_t old_Yn2;
 
 int old_wave1, old_wave2, old_wave3;
 uint8_t old_mul1, old_mul2, old_mul3;
@@ -394,18 +394,18 @@ uint8_t old_that_rot = 0;
 //int old_thatphase = 0;
 uint8_t old_that_cutoff = 192;
 
-int old_spiral_start;
-int old_spiral_inc;
-int old_spiral_width;
+//int old_spiral_start;
+//int old_spiral_inc;
+//int old_spiral_width;
 
 int old_ringBeat[] = {3,2,0,1};
 int old_numdots_ring_arr[] = {4,5,6,7};
 
 // cylon variables
-int old_cylon_step = 1;
-int old_cylon_center = 0;
-uint8_t old_cylon_index = 128;
-uint8_t old_cylon_brightness = 255;
+//int old_cylon_step = 1;
+//int old_cylon_center = 0;
+//uint8_t old_cylon_index = 128;
+//uint8_t old_cylon_brightness = 255;
 
 // colorwave variables
 uint16_t old_sPseudotime;
@@ -434,12 +434,12 @@ uint8_t old_noise;
 uint8_t old_circ_index;
 uint8_t old_circ_bri;
 
-uint8_t old_fader = 0;
+//uint8_t old_fader = 0;
 
 // moving dot variables
 //CRGB old_lead_led;
 //uint8_t old_blue_angle, old_blue_low, old_blue_high, old_green_angle, old_green_low, old_green_high, old_red_angle, old_red_low, old_red_high;
 
-uint8_t old_fireworks_state = 0;
-gravs old_gravs[num_gravs];
-int old_my_count = 0;
+//uint8_t old_fireworks_state = 0;
+//gravs old_gravs[num_gravs];
+//int old_my_count = 0;

@@ -24,39 +24,39 @@ DEFINE_GRADIENT_PALETTE( ib_jul01_gp ) {
 // converted for FastLED with gammas (2.6, 2.2, 2.5)
 // Size: 20 bytes of program space.
 
-DEFINE_GRADIENT_PALETTE( es_vintage_57_gp ) {
-    0,   2,  1,  1,
-   53,  18,  1,  0,
-  104,  69, 29,  1,
-  153, 167,135, 10,
-  255,  46, 56,  4};
+//DEFINE_GRADIENT_PALETTE( es_vintage_57_gp ) {
+//    0,   2,  1,  1,
+//   53,  18,  1,  0,
+//  104,  69, 29,  1,
+//  153, 167,135, 10,
+//  255,  46, 56,  4};
 
 // Gradient palette "es_vintage_01_gp", originally from
 // http://soliton.vm.bytemark.co.uk/pub/cpt-city/es/vintage/tn/es_vintage_01.png.index.html
 // converted for FastLED with gammas (2.6, 2.2, 2.5)
 // Size: 32 bytes of program space.
 
-DEFINE_GRADIENT_PALETTE( es_vintage_01_gp ) {
-    0,   4,  1,  1,
-   51,  16,  0,  1,
-   76,  97,104,  3,
-  101, 255,131, 19,
-  127,  67,  9,  4,
-  153,  16,  0,  1,
-  229,   4,  1,  1,
-  255,   4,  1,  1};
+//DEFINE_GRADIENT_PALETTE( es_vintage_01_gp ) {
+//    0,   4,  1,  1,
+//   51,  16,  0,  1,
+//   76,  97,104,  3,
+//  101, 255,131, 19,
+//  127,  67,  9,  4,
+//  153,  16,  0,  1,
+//  229,   4,  1,  1,
+//  255,   4,  1,  1};
 
 // Gradient palette "es_rivendell_15_gp", originally from
 // http://soliton.vm.bytemark.co.uk/pub/cpt-city/es/rivendell/tn/es_rivendell_15.png.index.html
 // converted for FastLED with gammas (2.6, 2.2, 2.5)
 // Size: 20 bytes of program space.
 
-DEFINE_GRADIENT_PALETTE( es_rivendell_15_gp ) {
-    0,   1, 14,  5,
-  101,  16, 36, 14,
-  165,  56, 68, 30,
-  242, 150,156, 99,
-  255, 150,156, 99};
+//DEFINE_GRADIENT_PALETTE( es_rivendell_15_gp ) {
+//    0,   1, 14,  5,
+//  101,  16, 36, 14,
+//  165,  56, 68, 30,
+//  242, 150,156, 99,
+//  255, 150,156, 99};
 
 // Gradient palette "rgi_15_gp", originally from
 // http://soliton.vm.bytemark.co.uk/pub/cpt-city/ds/rgi/tn/rgi_15.png.index.html
@@ -79,9 +79,9 @@ DEFINE_GRADIENT_PALETTE( rgi_15_gp ) {
 // converted for FastLED with gammas (2.6, 2.2, 2.5)
 // Size: 8 bytes of program space.
 
-DEFINE_GRADIENT_PALETTE( retro2_16_gp ) {
-    0, 188,135,  1,
-  255,  46,  7,  1};
+//DEFINE_GRADIENT_PALETTE( retro2_16_gp ) {
+//    0, 188,135,  1,
+//  255,  46,  7,  1};
 
 // Gradient palette "Analogous_1_gp", originally from
 // http://soliton.vm.bytemark.co.uk/pub/cpt-city/nd/red/tn/Analogous_1.png.index.html
@@ -163,19 +163,19 @@ DEFINE_GRADIENT_PALETTE( es_ocean_breeze_036_gp ) {
 // converted for FastLED with gammas (2.6, 2.2, 2.5)
 // Size: 88 bytes of program space.
 
-DEFINE_GRADIENT_PALETTE( departure_gp ) {
-    0,   8,  3,  0,
-   42,  23,  7,  0,
-   63,  75, 38,  6,
-   84, 169, 99, 38,
-  106, 213,169,119,
-  116, 255,255,255,
-  138, 135,255,138,
-  148,  22,255, 24,
-  170,   0,255,  0,
-  191,   0,136,  0,
-  212,   0, 55,  0,
-  255,   0, 55,  0};
+//DEFINE_GRADIENT_PALETTE( departure_gp ) {
+//    0,   8,  3,  0,
+//   42,  23,  7,  0,
+//   63,  75, 38,  6,
+//   84, 169, 99, 38,
+//  106, 213,169,119,
+//  116, 255,255,255,
+//  138, 135,255,138,
+//  148,  22,255, 24,
+//  170,   0,255,  0,
+//  191,   0,136,  0,
+//  212,   0, 55,  0,
+//  255,   0, 55,  0};
 
 // Gradient palette "es_landscape_64_gp", originally from
 // http://soliton.vm.bytemark.co.uk/pub/cpt-city/es/landscape/tn/es_landscape_64.png.index.html
@@ -369,18 +369,18 @@ DEFINE_GRADIENT_PALETTE( Magenta_Evening_gp ) {
 // converted for FastLED with gammas (2.6, 2.2, 2.5)
 // Size: 44 bytes of program space.
 
-DEFINE_GRADIENT_PALETTE( Pink_Purple_gp ) {
-    0,  19,  2, 39,
-   25,  26,  4, 45,
-   51,  33,  6, 52,
-   76,  68, 62,125,
-  102, 118,187,240,
-  109, 163,215,247,
-  114, 217,244,255,
-  122, 159,149,221,
-  149, 113, 78,188,
-  183, 128, 57,155,
-  255, 146, 40,123};
+//DEFINE_GRADIENT_PALETTE( Pink_Purple_gp ) {
+//    0,  19,  2, 39,
+//   25,  26,  4, 45,
+//   51,  33,  6, 52,
+//   76,  68, 62,125,
+//  102, 118,187,240,
+//  109, 163,215,247,
+//  114, 217,244,255,
+//  122, 159,149,221,
+//  149, 113, 78,188,
+//  183, 128, 57,155,
+//  255, 146, 40,123};
 
 // Gradient palette "Sunset_Real_gp", originally from
 // http://soliton.vm.bytemark.co.uk/pub/cpt-city/nd/atmospheric/tn/Sunset_Real.png.index.html
@@ -766,27 +766,27 @@ DEFINE_GRADIENT_PALETTE( es_emerald_dragon_01_gp ) {
 // converted for FastLED with gammas (2.6, 2.2, 2.5)
 // Size: 28 bytes of program space.
 
-DEFINE_GRADIENT_PALETTE( es_landscape_59_gp ) {
-    0, 215,114,  9,
-   51, 255,182, 34,
-   89, 255,205, 48,
-   94, 213,229,210,
-  153, 106,161,145,
-  204,  20,101,111,
-  255,   1, 48, 75};
+//DEFINE_GRADIENT_PALETTE( es_landscape_59_gp ) {
+//    0, 215,114,  9,
+//   51, 255,182, 34,
+//   89, 255,205, 48,
+//   94, 213,229,210,
+//  153, 106,161,145,
+//  204,  20,101,111,
+//  255,   1, 48, 75};
 
 // Gradient palette "es_seadreams_09_gp", originally from
 // http://soliton.vm.bytemark.co.uk/pub/cpt-city/es/sea_dreams/tn/es_seadreams_09.png.index.html
 // converted for FastLED with gammas (2.6, 2.2, 2.5)
 // Size: 24 bytes of program space.
 
-DEFINE_GRADIENT_PALETTE( es_seadreams_09_gp ) {
-    0, 121,136,125,
-   58,  34, 97,166,
-  101,   2, 66,212,
-  119,   2, 29,182,
-  153,   3,  8,153,
-  255,  82,107,178};
+//DEFINE_GRADIENT_PALETTE( es_seadreams_09_gp ) {
+//    0, 121,136,125,
+//   58,  34, 97,166,
+//  101,   2, 66,212,
+//  119,   2, 29,182,
+//  153,   3,  8,153,
+//  255,  82,107,178};
   
  // Gradient palette "froth316_gp", originally from
 // http://soliton.vm.bytemark.co.uk/pub/cpt-city/fractint/base/tn/froth316.png.index.html
@@ -2451,18 +2451,18 @@ DEFINE_GRADIENT_PALETTE(rainbow2_gp) {
 // add or delete, or re-arrange as you wish.
 const TProgmemRGBGradientPalettePtr g_gradient_palettes[] = {
   ib_jul01_gp,
-  es_vintage_57_gp,
-  es_vintage_01_gp,
-  es_rivendell_15_gp,
+  //es_vintage_57_gp,
+//  es_vintage_01_gp,
+//  es_rivendell_15_gp,
   rgi_15_gp,
-  retro2_16_gp,
+//  retro2_16_gp,
   Analogous_1_gp,
   es_pinksplash_08_gp,
   es_pinksplash_07_gp,
   Coral_reef_gp,
   es_ocean_breeze_068_gp,
   es_ocean_breeze_036_gp,
-  departure_gp,
+//  departure_gp,
   es_landscape_64_gp,
   es_landscape_33_gp,
   rainbowsherbet_gp,
@@ -2476,7 +2476,7 @@ const TProgmemRGBGradientPalettePtr g_gradient_palettes[] = {
   fire_gp,
   Colorfull_gp,
   Magenta_Evening_gp,
-  Pink_Purple_gp,
+//  Pink_Purple_gp,
   Sunset_Real_gp,
   es_autumn_19_gp,
   BlacK_Blue_Magenta_White_gp,
@@ -2503,8 +2503,8 @@ const TProgmemRGBGradientPalettePtr g_gradient_palettes[] = {
   a_gp,
   b_gp,
   es_emerald_dragon_01_gp,
-  es_landscape_59_gp,
-  es_seadreams_09_gp,
+//  es_landscape_59_gp,
+//  es_seadreams_09_gp,
   froth316_gp,
   Skydye11_gp,
   Wizzl019_gp,

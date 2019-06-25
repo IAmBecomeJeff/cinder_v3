@@ -19,48 +19,48 @@ void array_init() {
 
 	// Init spiral array
 
-	for (int i = 0; i < STRIP_LENGTH; i += 4 * w) {
-		for (int j = 0; j < w; j++) {
+	for (int i = 0; i < STRIP_LENGTH; i += 4 * 3) {
+		for (int j = 0; j < 3; j++) {
 			spiralArray[0][i + j] = i + j;
-			spiralArray[0][i + j + w] = 287 - w - i - j;
-			spiralArray[0][i + j + 2 * w] = 288 + 2 * w + i + j;
-			spiralArray[0][i + j + 3 * w] = 575 - 3 * w - i - j;
+			spiralArray[0][i + j + 3] = 287 - 3 - i - j;
+			spiralArray[0][i + j + 2 * 3] = 288 + 2 * 3 + i + j;
+			spiralArray[0][i + j + 3 * 3] = 575 - 3 * 3 - i - j;
 			spiralArray[1][i + j] = 287 - i - j;
-			spiralArray[1][i + j + w] = 288 + w + i + j;
-			spiralArray[1][i + j + 2 * w] = 575 - 2 * w - i - j;
-			spiralArray[1][i + j + 3 * w] = 3 * w + i + j;
+			spiralArray[1][i + j + 3] = 288 + 3 + i + j;
+			spiralArray[1][i + j + 2 * 3] = 575 - 2 * 3 - i - j;
+			spiralArray[1][i + j + 3 * 3] = 3 * 3 + i + j;
 			spiralArray[2][i + j] = 288 + i + j;
-			spiralArray[2][i + j + w] = 575 - w - i - j;
-			spiralArray[2][i + j + 2 * w] = 2 * w + i + j;
-			spiralArray[2][i + j + 3 * w] = 287 - 3 * w - i - j;
+			spiralArray[2][i + j + 3] = 575 - 3 - i - j;
+			spiralArray[2][i + j + 2 * 3] = 2 * 3 + i + j;
+			spiralArray[2][i + j + 3 * 3] = 287 - 3 * 3 - i - j;
 			spiralArray[3][i + j] = 575 - i - j;
-			spiralArray[3][i + j + w] = w + i + j;
-			spiralArray[3][i + j + 2 * w] = 287 - 2 * w - i - j;
-			spiralArray[3][i + j + 3 * w] = 288 + 3 * w + i + j;
+			spiralArray[3][i + j + 3] = 3 + i + j;
+			spiralArray[3][i + j + 2 * 3] = 287 - 2 * 3 - i - j;
+			spiralArray[3][i + j + 3 * 3] = 288 + 3 * 3 + i + j;
 		}
 	}
 
-	for (int i = 0; i < STRIP_LENGTH; i += 4 * w) {
-		for (int j = 0; j < w; j++) {
+	for (int i = 0; i < STRIP_LENGTH; i += 4 * 3) {
+		for (int j = 0; j < 3; j++) {
 			spiralArrayRev[0][i + j] = i + j;
-			spiralArrayRev[0][i + j + w] = 575 - w - i - j;
-			spiralArrayRev[0][i + j + 2 * w] = 288 + 2 * w + i + j;
-			spiralArrayRev[0][i + j + 3 * w] = 287 - 3 * w - i - j;
+			spiralArrayRev[0][i + j + 3] = 575 - 3 - i - j;
+			spiralArrayRev[0][i + j + 2 * 3] = 288 + 2 * 3 + i + j;
+			spiralArrayRev[0][i + j + 3 * 3] = 287 - 3 * 3 - i - j;
 
 			spiralArrayRev[1][i + j] = 287 - i - j;
-			spiralArrayRev[1][i + j + w] = w + i + j;
-			spiralArrayRev[1][i + j + 2 * w] = 575 - 2 * w - i - j;
-			spiralArrayRev[1][i + j + 3 * w] = 288 + 3 * w + i + j;
+			spiralArrayRev[1][i + j + 3] = 3 + i + j;
+			spiralArrayRev[1][i + j + 2 * 3] = 575 - 2 * 3 - i - j;
+			spiralArrayRev[1][i + j + 3 * 3] = 288 + 3 * 3 + i + j;
 
 			spiralArrayRev[2][i + j] = 288 + i + j;
-			spiralArrayRev[2][i + j + w] = 287 - w - i - j;
-			spiralArrayRev[2][i + j + 2 * w] = 2 * w + i + j;
-			spiralArrayRev[2][i + j + 3 * w] = 575 - 3 * w - i - j;
+			spiralArrayRev[2][i + j + 3] = 287 - 3 - i - j;
+			spiralArrayRev[2][i + j + 2 * 3] = 2 * 3 + i + j;
+			spiralArrayRev[2][i + j + 3 * 3] = 575 - 3 * 3 - i - j;
 
 			spiralArrayRev[3][i + j] = 575 - i - j;
-			spiralArrayRev[3][i + j + w] = 288 + w + i + j;
-			spiralArrayRev[3][i + j + 2 * w] = 287 - 2 * w - i - j;
-			spiralArrayRev[3][i + j + 3 * w] = 3 * w + i + j;
+			spiralArrayRev[3][i + j + 3] = 288 + 3 + i + j;
+			spiralArrayRev[3][i + j + 2 * 3] = 287 - 2 * 3 - i - j;
+			spiralArrayRev[3][i + j + 3 * 3] = 3 * 3 + i + j;
 		}
 	}
 
@@ -82,9 +82,9 @@ void array_init() {
 	}
 }
 
-void(* resetFunc)(void) = 0; // reset function.... resetFunc();
+//void(* resetFunc)(void) = 0; // reset function.... resetFunc();
 
-void reset(void) {
+//void reset(void) {
 //	fill_solid(blank_leds, NUM_LEDS, CRGB(0, 0, 0));
 //	for (uint8_t i = 0; i < 255; i++) {
 //		for (uint8_t j = 0; j < NUM_LEDS; j++) {
@@ -93,8 +93,8 @@ void reset(void) {
 //		FastLED.show();
 //		FastLED.delay(this_delay);
 //	}
-	resetFunc();
-}
+//	resetFunc();
+//}
 
 void print_mode(uint8_t mn) {
 	switch (mn) {
@@ -1818,13 +1818,13 @@ void print_variables(uint8_t mode_number) {
 		Serial.print("this_fade (o): ");
 		Serial.println(this_fade);
 		Serial.print("numdots (R): ");
-		Serial.println(numdots);
+		//Serial.println(numdots);
 		Serial.print("this_beat (q): ");
 		Serial.println(this_beat);
 		Serial.print("this_diff (r) :");
 		Serial.println(this_diff);
 		Serial.print("jug16_phase (T): ");
-		Serial.println(jug16_phase);
+//		Serial.println(jug16_phase);
 		Serial.print("this_delay (d): ");
 		Serial.println(this_delay);
 		Serial.print("target_palette (f): ");

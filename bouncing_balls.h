@@ -38,7 +38,7 @@ void bouncing_balls(bool old) {
 				if (old_vImpact[i] < 0.01) { old_vImpact[i] = old_vImpact0; }
 			}
 			old_pos[i] = round(old_h[i] * (STRIP_LENGTH - 1) / h0);       
-      ringCHSV(1, pos[i], (i*40), 255, 255);
+			ringCHSV(1, pos[i], (i*40), 255, 255);
 			//old_leds[ringArray[old_pos[i]]] = CHSV((i * 40), 255, 255);
 		}
 	}
@@ -59,7 +59,7 @@ void bouncing_balls(bool old) {
 			}
 			pos[i] = round(h[i] * (STRIP_LENGTH - 1) / h0);       // Map "h" to a "pos" integer index position on the LED strip
 
-      ringCHSV(0, pos[i], (i*40), 255, 255);
+			ringCHSV(0, pos[i], (i*40), 255, 255);
 			//cur_leds[ringArray[pos[i]]] = CHSV((i * 40), 255, 255);
 		}
 	}
