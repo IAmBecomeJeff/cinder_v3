@@ -469,7 +469,7 @@ void fire_rings4(bool old){
 }
 
 void fire_rings(bool old){
-	mode_number = 8;
+  if(mode_number != 16){mode_number = 8;}
 	fire_rings1(old);
 	fire_rings2(old);
 	fire_rings3(old);

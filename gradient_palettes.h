@@ -2549,7 +2549,8 @@ const TProgmemRGBGradientPalettePtr g_gradient_palettes[] = {
   cyberpunk_neon_gp,
   blue_fire_gp,
   purplefly_gp,
-  rainbow2_gp
+  rainbow2_gp,
+  blade_runner_2049_gp
   };
 
 

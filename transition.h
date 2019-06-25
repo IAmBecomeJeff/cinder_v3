@@ -121,7 +121,7 @@ void update_old_variables() {
     old_sLastMillis = sLastMillis;
     old_sHue16 = sHue16;
 	old_pixelnumber = pixelnumber;
-	for (int i = 0; i < NUM_BALLS; i++) {   
+	for (uint8_t i = 0; i < NUM_BALLS; i++) {   
 		old_tLast[i] =tLast[i];
 		old_h[i] = h[i];
 		old_pos[i] = pos[i];                              
@@ -139,8 +139,16 @@ void update_old_variables() {
 	old_circ_index = circ_index;
 	old_circ_bri = circ_bri;
 	old_jug16_phase = jug16_phase;
-
-	old_gravs = my_gravs;
+  for (uint8_t i = 0; i < num_gravs; i++){
+    old_gravs[i] = my_gravs[i];
+  }
+//  old_gravs.dist_old = my_gravs.dist_old;
+//  old_gravs.distance = my_gravs.distance;
+//  old_gravs.vel_old = my_gravs.vel_old;
+//  old_gravs.velocity = my_gravs.velocity;
+//  old_gravs.fireworks_hue = my_gravs.fireworks_hue;
+//  old_gravs.fireworks_sat = my_gravs.fireworks_sat;
+//  old_gravs.fireworks_bri = my_gravs.fireworks_bri;
 	old_fireworks_state = fireworks_state;
 	old_my_count = my_count;
 }

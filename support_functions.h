@@ -1098,10 +1098,20 @@ void print_variables(uint8_t mode_number) {
 		Serial.println(juggle_index_reset);
 		Serial.print("this_fade (o): ");
 		Serial.println(this_fade);
-		Serial.print("numdots (R): ");
-		Serial.println(numdots);
-		Serial.print("this_beat (Q1-4): (may not work)");
-		Serial.println(this_beat);
+    Serial.println("numdots_ring_arr[] (R1-4): ");
+    for (uint8_t i = 0; i<4; i++){
+      Serial.print("[");
+      Serial.print(i);
+      Serial.print("]: ");
+		  Serial.println(numdots_ring_arr[i]);
+		}
+    Serial.println("ringBeat[] (Q1-4): ");
+    for (uint8_t i = 0; i<4; i++){
+      Serial.print("[");
+      Serial.print(i);
+      Serial.print("]: ");
+      Serial.println(ringBeat[i]);
+    }
 		Serial.print("this_diff (r) :");
 		Serial.println(this_diff);
 		Serial.print("this_delay (d): ");
@@ -1119,10 +1129,20 @@ void print_variables(uint8_t mode_number) {
 		Serial.println(juggle_index_reset);
 		Serial.print("this_fade (o): ");
 		Serial.println(this_fade);
-		Serial.print("numdots (R): ");
-		Serial.println(numdots);
-//	Serial.print("ringBeat (Q1-4): (may not work)");
-//		Serial.println(ringBeat);
+    Serial.println("numdots_ring_arr[] (R1-4): ");
+    for (uint8_t i = 0; i<4; i++){
+      Serial.print("[");
+      Serial.print(i);
+      Serial.print("]: ");
+      Serial.println(numdots_ring_arr[i]);
+    }
+    Serial.println("ringBeat[] (Q1-4): ");
+    for (uint8_t i = 0; i<4; i++){
+      Serial.print("[");
+      Serial.print(i);
+      Serial.print("]: ");
+      Serial.println(ringBeat[i]);
+    }
 		Serial.print("this_diff (r) :");
 		Serial.println(this_diff);
 		Serial.print("this_delay (d): ");
@@ -1140,10 +1160,20 @@ void print_variables(uint8_t mode_number) {
 		Serial.println(juggle_index_reset);
 		Serial.print("this_fade (o): ");
 		Serial.println(this_fade);
-		Serial.print("numdots (R): ");
-		Serial.println(numdots);
-//		Serial.print("ringBeat (Q1-4): ");
-//		Serial.println(ringBeat);
+    Serial.println("numdots_ring_arr[] (R1-4): ");
+    for (uint8_t i = 0; i<4; i++){
+      Serial.print("[");
+      Serial.print(i);
+      Serial.print("]: ");
+      Serial.println(numdots_ring_arr[i]);
+    }
+    Serial.println("ringBeat[] (Q1-4): ");
+    for (uint8_t i = 0; i<4; i++){
+      Serial.print("[");
+      Serial.print(i);
+      Serial.print("]: ");
+      Serial.println(ringBeat[i]);
+    }
 		Serial.print("this_diff (r) :");
 		Serial.println(this_diff);
 		Serial.print("cooling1 (C1) (0-255): ");
@@ -1177,10 +1207,20 @@ void print_variables(uint8_t mode_number) {
 		Serial.println(juggle_index_reset);
 		Serial.print("this_fade (o): ");
 		Serial.println(this_fade);
-		Serial.print("numdots (R): ");
-		Serial.println(numdots);
-//		Serial.print("ringBeat (Q1-4): ");
-//		Serial.println(ringBeat);
+    Serial.println("numdots_ring_arr[] (R1-4): ");
+    for (uint8_t i = 0; i<4; i++){
+      Serial.print("[");
+      Serial.print(i);
+      Serial.print("]: ");
+      Serial.println(numdots_ring_arr[i]);
+    }
+    Serial.println("ringBeat[] (Q1-4): ");
+    for (uint8_t i = 0; i<4; i++){
+      Serial.print("[");
+      Serial.print(i);
+      Serial.print("]: ");
+      Serial.println(ringBeat[i]);
+    }
 		Serial.print("this_diff (r) :");
 		Serial.println(this_diff);
 		Serial.print("cooling1 (C1) (0-255): ");

@@ -117,17 +117,15 @@ void juggle_fire(bool old) {
   void juggle_pal_individual_ring(bool old, int ring) {                                            // Several colored dots, weaving in and out of sync with each other
 	  if (old) {
 		  if (old_juggle_index_reset) { old_this_index = 0; }                                            // Reset the hue values.
-		  fadeToBlackBy(old_leds, NUM_LEDS, old_this_fade);
-		  for (int i = 0; i < old_numdots; i++) {
-			  old_leds[ringArray[beatsin16(old_ringBeat[ring] + i + old_numdots, 0, NUM_LEDS)][ring]] += ColorFromPalette(old_palette, old_this_index, old_this_bright, current_blending);    // Munge the values and pick a colour from the palette
+		  for (int i = 0; i < old_numdots_ring_arr[ring]; i++) {
+			  old_leds[ringArray[beatsin16(old_ringBeat[ring] + i + old_numdots_ring_arr[ring], 0, STRIP_LENGTH-1)][ring]] += ColorFromPalette(old_palette, old_this_index, old_this_bright, current_blending);    // Munge the values and pick a colour from the palette
 			  old_this_index += old_this_diff;
 		  }
 	  }
 	  else {
 		  if (juggle_index_reset) { this_index = 0; }                                           // Reset the hue values.
-		  fadeToBlackBy(leds, NUM_LEDS, this_fade);
-		  for (int i = 0; i < numdots; i++) {
-			  cur_leds[ringArray[beatsin16(ringBeat[ring] + i + numdots, 0, NUM_LEDS)][ring]] += ColorFromPalette(current_palette, this_index, this_bright, current_blending);    // Munge the values and pick a colour from the palette
+		  for (int i = 0; i < numdots_ring_arr[ring]; i++) {
+			  cur_leds[ringArray[beatsin16(ringBeat[ring] + i + numdots_ring_arr[ring], 0, STRIP_LENGTH-1)][ring]] += ColorFromPalette(current_palette, this_index, this_bright, current_blending);    // Munge the values and pick a colour from the palette
 			  this_index += this_diff;
 		  }
 	  }
@@ -135,6 +133,8 @@ void juggle_fire(bool old) {
 
   void juggle_pal_individual_ring_all(bool old) {
 	  mode_number = 17;
+    if(old){ fadeToBlackBy(old_leds, NUM_LEDS, old_this_fade); }
+    else{ fadeToBlackBy(cur_leds, NUM_LEDS, this_fade);}
 	  juggle_pal_individual_ring(old, 0);
 	  juggle_pal_individual_ring(old, 1);
 	  juggle_pal_individual_ring(old, 2);
@@ -144,7 +144,6 @@ void juggle_fire(bool old) {
   void juggle_pal_individual_ring_onedir(bool old, int ring) {                                            // Several colored dots, weaving in and out of sync with each other
 	  if (old) {
 		  if (old_juggle_index_reset) { old_this_index = 0; }                                            // Reset the hue values.
-		  fadeToBlackBy(old_leds, NUM_LEDS, old_this_fade);
 		  for (int i = 0; i < old_numdots_ring_arr[ring]; i++) {
 			  if (old_this_dir) {
 				  old_leds[ringArray[beatsin16_halfdown(old_ringBeat[ring] + i + old_numdots_ring_arr[ring], 0, STRIP_LENGTH - 1)][ring]] += ColorFromPalette(old_palette, old_this_index, old_this_bright, current_blending);
@@ -158,7 +157,6 @@ void juggle_fire(bool old) {
 	  }
 	  else {
 		  if (juggle_index_reset) { this_index = 0; }                                            // Reset the hue values.
-		  fadeToBlackBy(cur_leds, NUM_LEDS, this_fade);
 		  for (int i = 0; i < numdots_ring_arr[ring]; i++) {
 			  if (this_dir) {
 				  cur_leds[ringArray[beatsin16_halfdown(ringBeat[ring] + i + numdots_ring_arr[ring], 0, STRIP_LENGTH - 1)][ring]] += ColorFromPalette(current_palette, this_index, this_bright, current_blending);
@@ -174,6 +172,8 @@ void juggle_fire(bool old) {
 
   void juggle_pal_individual_ring_onedir_all(bool old) {
 	  mode_number = 18;
+    if(old){ fadeToBlackBy(old_leds, NUM_LEDS, old_this_fade); }
+    else{ fadeToBlackBy(cur_leds, NUM_LEDS, this_fade);}
 	  juggle_pal_individual_ring_onedir(old, 0);
 	  juggle_pal_individual_ring_onedir(old, 1);
 	  juggle_pal_individual_ring_onedir(old, 2);
@@ -183,17 +183,17 @@ void juggle_fire(bool old) {
   void juggle_fire_individual(bool old) {
 	  mode_number = 19;
 	  if (old_juggle_index_reset) { old_this_index = 0; }
-	  fadeToBlackBy(jug_leds, NUM_LEDS, jug_fade);
-	  for (int i = 0; i < numdots_ring; i++) {
-		  for (int ring = 0; ring < 4; ring++) {
+	  fadeToBlackBy(jug_leds, NUM_LEDS, this_fade);
+		for (int ring = 0; ring < 4; ring++) {
+      for (int i = 0; i < numdots_ring_arr[ring]; i++) {
 			  if (this_dir) {
-				  jug_leds[ringArray[beatsin16_halfdown(ringBeat[ring] + i + numdots_ring, 0, STRIP_LENGTH - 1)][ring]] += ColorFromPalette(current_palette, this_index, this_bright, current_blending);
+				  jug_leds[ringArray[beatsin16_halfdown(ringBeat[ring] + i + numdots_ring_arr[ring], 0, STRIP_LENGTH - 1)][ring]] += ColorFromPalette(current_palette, this_index, this_bright, current_blending);
 			  }
 			  else {
-				  jug_leds[ringArray[beatsin16_halfup(ringBeat[ring] + i + numdots_ring, 0, STRIP_LENGTH - 1)][ring]] += ColorFromPalette(current_palette, this_index, this_bright, current_blending);
+				  jug_leds[ringArray[beatsin16_halfup(ringBeat[ring] + i + numdots_ring_arr[ring], 0, STRIP_LENGTH - 1)][ring]] += ColorFromPalette(current_palette, this_index, this_bright, current_blending);
 			  }
+        this_index += this_diff;
 		  }
-		  this_index += this_diff;
 	  }
 	  fire_rings1(old);
 	  fire_rings2(old);
@@ -213,17 +213,17 @@ void juggle_fire(bool old) {
 void juggle_fire_individual_same_dir(bool old) {
 	mode_number = 20;
 	if (old_juggle_index_reset) { old_this_index = 0; }
-	fadeToBlackBy(jug_leds, NUM_LEDS, jug_fade);
-	for (int i = 0; i < numdots_ring; i++) {
-		for (int ring = 0; ring < 4; ring++) {
+	fadeToBlackBy(jug_leds, NUM_LEDS, this_fade);
+	for (int ring = 0; ring < 4; ring++) {
+    for (int i = 0; i < numdots_ring_arr[ring]; i++) {
 			if (this_dir) {
-				jug_leds[ringArray[beatsin16_halfdown(ringBeat[ring] + i + numdots_ring, 0, STRIP_LENGTH - 1)][ring]] += ColorFromPalette(current_palette, this_index, this_bright, current_blending);
+				jug_leds[ringArray[beatsin16_halfdown(ringBeat[ring] + i + numdots_ring_arr[ring], 0, STRIP_LENGTH - 1)][ring]] += ColorFromPalette(current_palette, this_index, this_bright, current_blending);
 			}
 			else {
-				jug_leds[ringArray[beatsin16_halfup(ringBeat[ring] + i + numdots_ring, 0, STRIP_LENGTH - 1)][ring]] += ColorFromPalette(current_palette, this_index, this_bright, current_blending);
+				jug_leds[ringArray[beatsin16_halfup(ringBeat[ring] + i + numdots_ring_arr[ring], 0, STRIP_LENGTH - 1)][ring]] += ColorFromPalette(current_palette, this_index, this_bright, current_blending);
 			}
+      this_index += this_diff;
 		}
-		this_index += this_diff;
 	}
 	fire_rings1_opp(old);
 	fire_rings2_opp(old);

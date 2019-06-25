@@ -497,8 +497,8 @@ void strobe_mode(uint8_t newMode, bool mc, bool old) {
 
 		// 48 - matrix_saw
 	case 48:
-		if (mc) { this_delay = 10; this_fade = 64; target_palette = bhw2_22_gp; }
-		matrix_saw(old);
+//		if (mc) { this_delay = 10; this_fade = 64; target_palette = bhw2_22_gp; }
+//		matrix_saw(old);
 		break;
 
 		// 49 - plasma
@@ -652,7 +652,7 @@ void strobe_mode(uint8_t newMode, bool mc, bool old) {
 		inoise_fire(old);
 		break;
 
-		// 79 - movingdot - doesn't work
+		// 79 - fireworks
 	case 79:
 		if(mc) { this_delay = 15; this_fade = 32; max_count = 100; streamer_velocity = 500; explosion_velocity = 500; }
 		fireworks(old);

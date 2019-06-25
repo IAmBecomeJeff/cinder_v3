@@ -179,17 +179,17 @@ void readkeyboard() {
 					Serial.println(ringBeat[0]);
 				}
 				else if (this_arg > 1000 && this_arg < 1256) {
-					ringBeat[1] = constrain(this_arg, 0, 255);
+					ringBeat[1] = constrain(this_arg % 1000, 0, 255);
 					Serial.print("ringBeat[1]: ");
 					Serial.println(ringBeat[1]);
 				}
 				else if (this_arg > 2000 && this_arg < 2256) {
-					ringBeat[2] = constrain(this_arg, 0, 255);
+					ringBeat[2] = constrain(this_arg % 2000, 0, 255);
 					Serial.print("ringBeat[2]: ");
 					Serial.println(ringBeat[2]);
 				}
 				else if (this_arg > 3000 && this_arg < 3256) {
-					ringBeat[3] = constrain(this_arg, 0, 255);
+					ringBeat[3] = constrain(this_arg % 3000, 0, 255);
 					Serial.print("ringBeat[3]: ");
 					Serial.println(ringBeat[3]);
 				}
@@ -198,13 +198,33 @@ void readkeyboard() {
 				}
 				break;
 
-				// R - numdots
+				// R - numdots_ring_arr[0-3]
 			case 82:
-				this_arg = Serial.parseInt();
-				numdots = constrain(this_arg, 0, 255);
-				Serial.print("numdots: ");
-				Serial.println(numdots);
-				break;
+        this_arg = Serial.parseInt();
+        if (this_arg < 256) {
+          numdots_ring_arr[0] = constrain(this_arg, 0, 255);
+          Serial.print("numdots_ring_arr[0]: ");
+          Serial.println(numdots_ring_arr[0]);
+        }
+        else if (this_arg > 1000 && this_arg < 1256) {
+          numdots_ring_arr[1] = constrain(this_arg % 1000, 0, 255);
+          Serial.print("numdots_ring_arr[1]: ");
+          Serial.println(numdots_ring_arr[1]);
+        }
+        else if (this_arg > 2000 && this_arg < 2256) {
+          numdots_ring_arr[2] = constrain(this_arg % 2000, 0, 255);
+          Serial.print("numdots_ring_arr[2]: ");
+          Serial.println(numdots_ring_arr[2]);
+        }
+        else if (this_arg > 3000 && this_arg < 3256) {
+          numdots_ring_arr[3] = constrain(this_arg % 3000, 0, 255);
+          Serial.print("numdots_ring_arr[3]: ");
+          Serial.println(numdots_ring_arr[3]);
+        }
+        else {
+          Serial.println("numdots_ring_arr outta range");
+        }
+        break;
 
 				// S - Change sparking
 			case 83:

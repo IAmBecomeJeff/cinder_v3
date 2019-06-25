@@ -311,11 +311,6 @@ typedef struct {
 } gravs;
 
 gravs my_gravs[num_gravs];
-gravs old_gravs[num_gravs];
-
-
-
-
 
 
 
