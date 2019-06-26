@@ -1,5 +1,8 @@
 #include "includes.h"
-#define CPU_REBOOT (_reboot_Teensyduino_());
+//#define CPU_REBOOT (_reboot_Teensyduino_());
+#define CPU_RESTART_ADDR (uint32_t *)0xE000ED0C
+#define CPU_RESTART_VAL 0x5FA0004
+#define CPU_RESTART (*CPU_RESTART_ADDR = CPU_RESTART_VAL);
 // Modified from Caleb's modified version of seirlight
 
 void setup() {
@@ -66,7 +69,8 @@ void loop() {
 	Serial.println(led_mode);
     Serial.println("Rebooting...");
 	delay(1000);
-    CPU_REBOOT
+    //CPU_REBOOT
+    CPU_RESTART
    };
 
   // random
@@ -110,7 +114,7 @@ void loop() {
 				target_delay = this_delay;
 				this_delay = old_this_delay;
 			}
-			else {
+			else if (rotary_function == 0 || rotary_function == 2){
 				old_mode = led_mode;
 				led_mode++;
 				if (led_mode > max_mode) {
@@ -125,6 +129,22 @@ void loop() {
 			}
 		}
 	}
+
+  EVERY_N_SECONDS(60) {
+    if (!digitalRead(switchB)) {
+      if (rotary_function == 4){
+        old_mode = led_mode;
+        led_mode = random8(max_mode + 1);;
+        update_old_variables();
+        transitioning = 1;
+        strobe_mode(led_mode, 1, 0);
+        print_mode(mode_number);
+        target_delay = this_delay;
+        this_delay = old_this_delay;
+      }   
+    }
+  }
+  
 
 	EVERY_N_SECONDS(15) { // Change palettes and mode a bit more frequently if on second click
 		if (!digitalRead(switchB)) {
@@ -528,7 +548,7 @@ void strobe_mode(uint8_t newMode, bool mc, bool old) {
 		break;
 
 	case 65:
-		if (mc) { this_delay = 10; target_palette = b_gp;  cooling1 = 69; cooling2 = 69; cooling3 = 69; cooling4 = 69; sparking1 = 69; sparking2 = 69; sparking3 = 69; sparking4 = 69; }
+		if (mc) { this_delay = 10; target_palette = b_gp;  cooling1 = 89; cooling2 = 99; cooling3 = 69; cooling4 = 79; sparking1 = 69; sparking2 = 69; sparking3 = 69; sparking4 = 69; }
 		fire_pal_rings(old);
 		break;
 
@@ -634,11 +654,11 @@ void strobe_mode(uint8_t newMode, bool mc, bool old) {
 
 	case 86:
 		if (mc) { this_delay = 10; target_palette = hallows_gp; juggle_index_reset = 1; this_fade = 20; numdots_ring_arr[0] = 1; numdots_ring_arr[1] = 1; numdots_ring_arr[2] = 1; numdots_ring_arr[3] = 1; ringBeat[0] = 12; ringBeat[1] = 5; ringBeat[2] = 10; ringBeat[3] = 8; this_diff = 48; cooling1 = 99; cooling2 = 95; cooling3 = 85; cooling4 = 75; sparking1 = 40; sparking2 = 30; sparking3 = 35; sparking4 = 45; }
-		juggle_fire_individual(old);
+		juggle_fire_individual_same_dir(old);
 		break;
 
 	case 87:
-		if (mc) { this_delay = 4; target_palette = Cyan_Magenta_Blue_gp; this_inc = 1; this_speed = 12; this_rot = 7; all_freq = 10; this_cutoff = 64; bg_clr = 0; bg_bri = 0; }
+		if (mc) { this_delay = 4; target_palette = Cyan_Magenta_Blue_gp; this_inc = 1; this_speed = 128; this_rot = 7; all_freq = 10; this_cutoff = 64; bg_clr = 0; bg_bri = 0; }
 		one_sin_spiral(old);
 		break;
 

@@ -43,8 +43,8 @@ void serendipitous_pal_ring(bool old) {
 	mode_number = 34;
 	if (old) {
 		EVERY_N_SECONDS(5) {
-			old_X2 = old_Xorig;
-			old_Y2 = old_Yorig;
+			old_X = old_Xorig;
+			old_Y = old_Yorig;
 		}
 
 		old_Xn = old_X - (old_Y / 2); old_Yn = old_Y + (old_Xn / 2);

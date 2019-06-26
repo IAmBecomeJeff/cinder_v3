@@ -12,7 +12,7 @@ void checkDial() {
 
 	if (!pinSWstate) {
 		rotary_function += 1;
-		if (rotary_function > 3) {
+		if (rotary_function > 4) {
 			rotary_function = 0;
 		}
 
@@ -99,6 +99,27 @@ void checkDial() {
 				Serial.println(max_bright);
 				break;
 
+      case 4: // add !transitioning to let the new mode get set up
+        old_mode = led_mode;
+        if (digitalRead(pinB) != aVal) {   // Means pin A changed first, we're rotating CW
+          led_mode++;      // Move to next pattern
+        }
+        else {            // Means pin B changed first, we're moving CCW
+          led_mode--;       // Move to previous pattern
+        }
+        if (led_mode < 0) {
+          led_mode = max_mode;
+        }
+        if (led_mode > max_mode) {
+          led_mode = 0;
+        }
+        update_old_variables();
+        transitioning = 1;
+        strobe_mode(led_mode, 1, 0);
+        print_mode(mode_number);
+        target_delay = this_delay;
+        this_delay = old_this_delay;
+        break;
 			}
 		}
 	}

@@ -806,6 +806,8 @@ void fire_mirror_rings3(bool old) {
 				old_leds[ringArray[(STRIP_LENGTH / 2) + j][2]] = hcolor;
 			}
 		}
+	}
+   else{
 		static byte heat[STRIP_LENGTH];
 		for (int i = 0; i < STRIP_LENGTH; i++) {
 			heat[i] = qsub8(heat[i], random8(0, ((cooling3 * 10) / STRIP_LENGTH) + 2));
@@ -831,6 +833,7 @@ void fire_mirror_rings3(bool old) {
 	}
 }
 
+
 void fire_mirror_rings4(bool old){
 	if (old) {
 		static byte old_heat[STRIP_LENGTH];
@@ -855,6 +858,8 @@ void fire_mirror_rings4(bool old){
 				old_leds[ringArray[(STRIP_LENGTH / 2) + j][3]] = hcolor;
 			}
 		}
+	}
+   else{
 		static byte heat[STRIP_LENGTH];
 		for (int i = 0; i < STRIP_LENGTH; i++) {
 			heat[i] = qsub8(heat[i], random8(0, ((cooling4 * 10) / STRIP_LENGTH) + 2));

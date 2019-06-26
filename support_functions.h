@@ -799,7 +799,7 @@ void print_variables(uint8_t mode_number) {
 
 	case 2:
 		Serial.println("--------------------");
-		Serial.print("circnoise_pal_3_ring"); Serial.print("("); Serial.print(led_mode); Serial.println(") ");
+		Serial.println("circnoise_pal_3_ring"); Serial.print("("); Serial.print(led_mode); Serial.println(") ");
 		Serial.println("--------------------");
 		Serial.print("scale (I): ");
 		Serial.println(scale);
